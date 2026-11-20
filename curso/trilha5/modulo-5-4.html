@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.4 - Toolkit do Time | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background-color:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background-color:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background-color:rgba(13,148,136,.18)}html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Modulo 5.4</span></div></nav>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Toolkit do Time</h1><p class="text-lg text-neutral-400 max-w-3xl">Defina as ferramentas certas para cada perfil. Claude Code para tecnicos, CoWork para negocio, setup padronizado e caminho de evolucao gradual.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Pratica</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">💻 Claude Code para o Time</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Claude Code e a interface de linha de comando que transforma desenvolvedores em <strong class="text-teal-400">engenheiros 10x</strong>. Mas nao e para todo mundo. Saber quando recomendar Code e tao importante quanto saber usa-lo.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Quando Recomendar Claude Code</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Perfil tecnico:</strong> Desenvolvedores, devops, data engineers, arquitetos de software</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Tarefas de codigo:</strong> Refatoracao, debugging, testes, documentacao tecnica, code review</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Automacao:</strong> Scripts, pipelines, integracao de sistemas, ETL</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Pre-requisito:</strong> Conforto com terminal, conhecimento basico de git, entendimento de codigo</span></li>
+        </ul>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Quando NAO Recomendar Code</h3>
+        <p class="text-neutral-300">Nao de Claude Code para quem nunca abriu um terminal. A frustacao sera imediata e a pessoa vai culpar a IA, nao a escolha de ferramenta. Para usuarios nao-tecnicos, o caminho e sempre CoWork primeiro.</p>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏗️ Claude CoWork para o Time</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">CoWork e a interface que <strong class="text-teal-400">80% da organizacao deveria usar primeiro</strong>. Visual, colaborativa e intuitiva, ela remove a barreira tecnica e permite que qualquer pessoa comece a usar IA em minutos.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Quando Recomendar CoWork</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Perfil de negocio:</strong> Marketing, vendas, RH, financeiro, juridico, operacoes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Tarefas de conhecimento:</strong> Redacao, analise, pesquisa, apresentacoes, comunicacao</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Colaboracao:</strong> Projetos em equipe, revisao de documentos, brainstorming coletivo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Pre-requisito:</strong> Saber usar um navegador. So isso. Zero barreira tecnica.</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Comece todo novo usuario pelo CoWork, independente do perfil. Mesmo desenvolvedores se beneficiam de comecar pelo CoWork para entender como a IA pensa, antes de migrar para o Code. O CoWork e o "pre-escola" que cria bons habitos.</p>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📊 A Regra 70/30</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Em uma organizacao tipica, <strong class="text-teal-400">70% das pessoas deveriam estar no CoWork e 30% no Code</strong>. Esta proporcao otimiza investimento em licencas, treinamento e suporte. Mas nao e uma regra rigida — ajuste pelo contexto.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Quando Ajustar para 50/50</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Empresas de tecnologia com muitos devs</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Startups com equipe tecnica predominante</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Times de engenharia e dados</span></li>
+          </ul>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">✓ Quando Ajustar para 90/10</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Empresas de servicos (consultoria, advocacia)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Organizacoes com baixa maturidade digital</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Times predominantemente nao-tecnicos</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔧 Setup do Ambiente</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Fricao no setup e o <strong class="text-teal-400">assassino silencioso da adocao</strong>. Se a pessoa precisa criar conta, pedir permissao, instalar software e configurar integracao, a maioria desiste antes de fazer o primeiro prompt.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📋</span> Checklist de Setup Zero-Friction</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">1.</span><span><strong>SSO corporativo:</strong> Login com e-mail da empresa, sem criar conta nova</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">2.</span><span><strong>Permissoes pre-configuradas:</strong> Acesso ja liberado pelo TI antes da sessao</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">3.</span><span><strong>Templates iniciais:</strong> 5 prompts prontos na tela de boas-vindas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">4.</span><span><strong>Guardrails ativados:</strong> Politicas de dados ja configuradas pelo admin</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">5.</span><span><strong>Primeiro prompt guiado:</strong> "Clique aqui para seu primeiro exercicio" na tela inicial</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Impacto do Setup</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Setup com fricao (>5 min):</strong> 40% dos usuarios desistem na primeira semana</li>
+          <li><strong>Setup sem fricao (<1 min):</strong> 85% dos usuarios ainda estao ativos apos 30 dias</li>
+          <li><strong>Cada clique a mais no setup:</strong> reduz adocao em 10%</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📋 Playbook do Time</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O playbook e o <strong class="text-teal-400">documento vivo que captura como o time usa IA</strong>. Prompts validados, workflows aprovados, melhores praticas e licoes aprendidas. Sem ele, o conhecimento fica na cabeca das pessoas e se perde quando alguem sai.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📖</span> Estrutura do Playbook</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Secao 1 — Prompts Validados:</strong> Prompts que foram testados e aprovados pelo time, organizados por caso de uso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Secao 2 — Workflows:</strong> Processos passo-a-passo que combinam IA com ferramentas existentes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Secao 3 — O que NAO fazer:</strong> Erros cometidos e aprendizados (o mais valioso)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Secao 4 — FAQ:</strong> Perguntas frequentes com respostas validadas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Secao 5 — Changelog:</strong> O que mudou na ultima atualizacao e por que</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Use um Notion, Confluence ou Google Doc compartilhado. O formato importa menos que a acessibilidade. O playbook que ninguem encontra e o mesmo que nao existir. Coloque o link no Slack fixado do canal do time.</p>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Evolucao Gradual</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O caminho natural de evolucao e: CoWork basico, CoWork avancado, Code assistido, Code autonomo. <strong class="text-teal-400">Forcar a evolucao causa frustacao</strong>. Nao estimular causa estagnacao. O segredo e o timing certo.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">1</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Nivel 1: CoWork Basico (Semana 1-4)</h4><p class="text-neutral-300 text-sm">Prompts simples, tarefas isoladas, uso ocasional. O usuario esta testando e ganhando confianca. Nao pressione.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">2</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Nivel 2: CoWork Avancado (Mes 2-3)</h4><p class="text-neutral-300 text-sm">Prompts complexos, workflows integrados, uso diario. O usuario ja tem habito e quer mais. Introduza skills e templates.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">3</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Nivel 3: Code Assistido (Mes 3-6, se perfil tecnico)</h4><p class="text-neutral-300 text-sm">Primeiros passos no Code com mentoria. Tarefas simples com acompanhamento. So para quem tem perfil e desejo.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">4</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Nivel 4: Code Autonomo (Mes 6+)</h4><p class="text-neutral-300 text-sm">Uso independente do Code para tarefas complexas. O usuario ja evolui sozinho. Celebre e documente o caminho.</p></div></div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Claude Code</strong><span class="text-neutral-400"> - Para perfis tecnicos com conforto em terminal</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Claude CoWork</strong><span class="text-neutral-400"> - Para 80% da organizacao, zero barreira tecnica</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Regra 70/30</strong><span class="text-neutral-400"> - Proporcao ideal ajustavel por contexto</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Setup Zero-Friction</strong><span class="text-neutral-400"> - Cada clique a mais reduz adocao em 10%</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Playbook Vivo</strong><span class="text-neutral-400"> - Documento compartilhado com prompts, workflows e licoes</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Evolucao em 4 Niveis</strong><span class="text-neutral-400"> - De CoWork basico a Code autonomo</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">5.5 - Curriculos Recorrentes — Programas de aprendizado continuo que mantem o time atualizado</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Modulo Anterior</a>
+          <a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

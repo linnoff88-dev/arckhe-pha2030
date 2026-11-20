@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.6 - Resgatando Ceticos | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background-color:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background-color:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background-color:rgba(13,148,136,.18)}html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,.95)}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Modulo 5.6</span></div></nav>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🔥 Resgatando Ceticos</h1><p class="text-lg text-neutral-400 max-w-3xl">Transforme resistencia em alianca. Tecnicas para validar preocupacoes genuinas, usar o argumento dos 85% e converter o cetico mais dificil no seu melhor champion.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Pratica</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🤝 Validar Preocupacoes</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O primeiro instinto quando alguem diz "a IA erra muito" e contra-argumentar. Resista. O primeiro passo com ceticos e <strong class="text-teal-400">validar genuinamente a preocupacao</strong>. Sim, a IA erra. Sim, alucina. E sim, ainda assim muda tudo.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🗺️</span> Mapa de Objecoes e Respostas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>"IA alucina"</strong> → "Sim, e por isso que voce e essencial. IA + seu julgamento = resultado superior a qualquer um dos dois sozinhos"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>"Nao e seguro"</strong> → "Concordo que seguranca e prioridade. Veja os guardrails que temos: [dados, compliance, politicas]"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>"Vai tirar meu emprego"</strong> → "Quem vai tirar seu emprego e alguem que usa IA. O contrario de usar IA nao e seguranca — e risco"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>"E modismo"</strong> → "Modismo nao recebe $300 bilhoes em investimento. Modismo nao muda 77% das Fortune 500 em 2 anos"</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A Tecnica do "Sim, E..."</h3>
+        <p class="text-neutral-300">Nunca diga "sim, mas...". Diga "sim, e...". "Sim, a IA erra, e por isso precisamos de profissionais como voce para garantir qualidade." O "mas" invalida. O "e" valida e adiciona. A diferenca e sutil, o efeito e enorme.</p>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📊 O Argumento dos 85%</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Este e o argumento mais poderoso contra "a IA nao e perfeita". A resposta: <strong class="text-teal-400">e claro que nao e. Se fosse 100% perfeita, voce seria irrelevante</strong>. Os 15% de erro sao exatamente o que torna voce valioso.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🧠</span> O Paradoxo dos 85%</h3>
+        <p class="text-neutral-300 mb-4">Pense assim: a IA gera um rascunho de 85% de qualidade em 10 segundos. Voce refina os 15% restantes em 5 minutos. Resultado final: 100% de qualidade em 5 minutos e 10 segundos, em vez de 30 minutos para fazer do zero.</p>
+        <div class="bg-dark-800/50 rounded-lg p-4 text-center mb-4">
+          <p class="text-xl font-bold text-teal-400">85% da IA + 15% seu = 100% em 1/6 do tempo</p>
+        </div>
+        <p class="text-neutral-300">E se a IA acertasse 100%? Voce seria redundante. Os 85% sao um recurso, nao uma falha. Seu valor esta exatamente nos 15% que a IA nao consegue.</p>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O Custo do Perfeccionismo</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Sem IA:</strong> 30 min para 100% de qualidade = 100% do seu tempo</li>
+          <li><strong>Com IA:</strong> 5 min para 100% de qualidade = 17% do seu tempo</li>
+          <li><strong>Ganho:</strong> 25 min livres para trabalho de maior valor</li>
+          <li><strong>Em uma semana (10 tarefas):</strong> 4+ horas economizadas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎭 Ceticos na Sala</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O cetico vocal durante a sessao pode ser seu maior desafio ou sua <strong class="text-teal-400">maior oportunidade</strong>. A tecnica do confronto amigavel transforma a objecao em momento de demonstracao.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Script de Confronto Amigavel</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">1.</span><span><strong>Validar:</strong> "Otima observacao. Essa preocupacao e muito comum e faz sentido."</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">2.</span><span><strong>Convidar:</strong> "Me conta uma tarefa chata que voce faz toda semana. Qualquer uma."</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">3.</span><span><strong>Demonstrar:</strong> Resolver a tarefa ao vivo com IA em frente a todos.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">4.</span><span><strong>Perguntar:</strong> "O que achou? Funcionou para voce?" (sem forcar concordancia)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">5.</span><span><strong>Respeitar:</strong> Se ainda nao convenceu, tudo bem. Plante a semente e siga em frente.</span></li>
+        </ul>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O que NUNCA Fazer com um Cetico</h3>
+        <p class="text-neutral-300">Nunca humilhe, ignore ou descarte. Nunca diga "voce esta errado". Nunca forca concordancia publica. O cetico tem plateia — se voce o embaraca, toda a sala fica do lado dele. Se voce o respeita, toda a sala respeita voce.</p>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔒 Seguranca como Aliada</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A objecao de seguranca e a mais comum e a mais valida. Em vez de trata-la como barreira, use-a como <strong class="text-teal-400">argumento a favor</strong>. Guardrails bem desenhados sao enablers, nao bloqueadores.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🛡️</span> Argumentos de Seguranca</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Dados corporativos:</strong> Contas corporativas tem isolamento de dados. Nada vaza para treinar modelos.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Compliance:</strong> Claude tem certificacoes SOC 2, GDPR compliance e politicas claras de retencao.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Guardrails internos:</strong> Politicas de uso definem o que pode e nao pode ser processado pela IA.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>O risco de NAO usar:</strong> Colaboradores usando IA pessoal sem guardrails e mais perigoso que uso corporativo controlado.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📈 Casos de Conversao</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Nada convence um cetico como o exemplo de <strong class="text-teal-400">outro cetico que se converteu</strong>. Ter um repertorio de historias de conversao e uma arma poderosa. Cada historia segue o mesmo arco: resistencia, desafio, surpresa, adocao.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">1</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">O Advogado que Nunca Usaria</h4><p class="text-sm text-neutral-400 mb-3">"IA nao entende direito. Ponto final."</p><p class="text-neutral-300 text-sm">Desafiei ele a dar um caso real. Colei a ementa de um processo e pedi para Claude analisar. A analise foi tao boa que ele pediu para refazer com outro caso. Hoje usa IA em 80% das pesquisas juridicas. Diz que "economiza 3 horas por dia".</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">2</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">A Gerente de Marketing Cetica</h4><p class="text-sm text-neutral-400 mb-3">"Criatividade humana nao se substitui por maquina."</p><p class="text-neutral-300 text-sm">Concordei 100%. Depois pedi para ela dar um briefing de campanha real. Claude gerou 15 conceitos em 40 segundos. Ela selecionou 3 e refinou. O resultado foi melhor do que o brainstorm de 2 horas com a equipe. Ela nao parou mais.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">3</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">O Diretor de TI Preocupado</h4><p class="text-sm text-neutral-400 mb-3">"E uma caixa preta. Nao sei o que faz com nossos dados."</p><p class="text-neutral-300 text-sm">Mostrei a documentacao de seguranca, as certificacoes e a politica de dados. Depois mostrei que colaboradores ja usavam IA pessoal sem nenhum controle. Ele entendeu que o risco era maior em NAO ter uma solucao corporativa. Virou o sponsor do programa.</p></div></div>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🏆 Cetico Vira Champion</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-teal-400">maior vitoria possivel</strong> em habilitacao de times e quando o cetico mais vocal se torna o champion mais dedicado. Ex-ceticos sao os melhores multiplicadores porque entendem a resistencia por dentro.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Jornada Cetico → Champion</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">1.</span><span><strong>Fase 1 — Validacao:</strong> Reconhecer a preocupacao sem julgamento (sessao 1)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">2.</span><span><strong>Fase 2 — Desafio pessoal:</strong> Resolver a dor especifica dele ao vivo (sessao 1-2)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">3.</span><span><strong>Fase 3 — Primeiro sucesso:</strong> Ele consegue fazer sozinho e ve o resultado (semana 1-2)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">4.</span><span><strong>Fase 4 — Compartilhamento:</strong> Ele conta para um colega o que descobriu (semana 2-4)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">5.</span><span><strong>Fase 5 — Convite:</strong> "Voce era o mais cetico e hoje e o mais engajado. Quer ajudar outros?"</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que Ex-Ceticos sao os Melhores Champions</h3>
+        <p class="text-neutral-300">Eles sabem exatamente quais objecoes os outros tem — porque tiveram as mesmas. Eles falam com autenticidade: "Eu tambem achava que nao funcionava. Deixa eu te mostrar o que mudou minha cabeca." Nenhum facilitador externo tem essa credibilidade.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Validar Primeiro</strong><span class="text-neutral-400"> - "Sim, e..." nunca "sim, mas..."</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Argumento dos 85%</strong><span class="text-neutral-400"> - Se fosse 100%, voce seria irrelevante</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Confronto Amigavel</strong><span class="text-neutral-400"> - Convide a demonstracao, nunca humilhe</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Seguranca como Enabler</strong><span class="text-neutral-400"> - Guardrails corporativos eliminam riscos</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Historias de Conversao</strong><span class="text-neutral-400"> - Ceticos convertidos sao a melhor prova social</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Cetico → Champion</strong><span class="text-neutral-400"> - A jornada de 5 fases que cria o melhor multiplicador</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">5.7 - Jornada do Aluno Corporativo — De curioso a independente em 4 estagios</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Modulo Anterior</a>
+          <a href="modulo-5-7.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

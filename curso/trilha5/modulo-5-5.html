@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.5 - Curriculos Recorrentes | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background-color:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background-color:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background-color:rgba(13,148,136,.18)}html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,.95)}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Modulo 5.5</span></div></nav>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📚 Curriculos Recorrentes</h1><p class="text-lg text-neutral-400 max-w-3xl">Crie programas de aprendizado continuo que mantem o time atualizado sem sobrecarregar. Microlearning, newsletters internas e tracking de progresso.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Estrategia</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📅 Modulos Mensais</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A IA evolui mais rapido do que qualquer curriculo fixo consegue acompanhar. O que era avancado ha 3 meses e basico hoje. <strong class="text-teal-400">Modulos mensais</strong> garantem que o time nunca fique mais de 30 dias desatualizado.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📋</span> Estrutura do Modulo Mensal</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Novidade do mes (10 min):</strong> O que mudou no mundo da IA nos ultimos 30 dias que afeta o time</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Skill nova (15 min):</strong> Uma competencia pratica nova para adicionar ao repertorio</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Caso interno (10 min):</strong> Um colega compartilha como usou IA no mes passado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Hands-on (10 min):</strong> Pratica guiada da skill nova</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Agende os modulos mensais para o mesmo dia e horario todo mes (ex: primeira quinta-feira as 10h). Previsibilidade gera habito. O time sabe que vai ter conteudo novo e se programa para participar.</p>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">⚡ Skills e Slash Commands</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Skills e slash commands sao <strong class="text-teal-400">automacoes reutilizaveis</strong> que qualquer membro do time pode executar com um unico comando. Em vez de cada pessoa criar prompts do zero, o time compartilha solucoes prontas e validadas.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">⚡</span> Exemplos de Skills Compartilhadas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>/resumir-reuniao:</strong> Transforma anotacoes de reuniao em ata estruturada com action items</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>/revisar-documento:</strong> Revisa documento com foco em clareza, tom e erros</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>/analisar-dados:</strong> Gera insights a partir de planilha com formato padronizado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>/criar-apresentacao:</strong> Gera estrutura de apresentacao com slides e talking points</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>/brainstorm:</strong> Gera 10 ideias criativas a partir de um briefing curto</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Impacto de Skills Compartilhadas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>5x</strong> - mais rapido do que criar prompt do zero toda vez</li>
+          <li><strong>Consistencia:</strong> Todos usam o mesmo padrao de qualidade</li>
+          <li><strong>Onboarding:</strong> Novos membros comecam produtivos no primeiro dia</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📰 Newsletter Interna</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A newsletter semanal mantem o tema IA <strong class="text-teal-400">vivo na cabeca do time</strong> entre sessoes formais. Sem ela, a IA volta a ser "aquilo que aprendi no treinamento" e o engajamento cai.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📰</span> Formato da Newsletter (3 min de leitura)</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">1.</span><span><strong>Novidade da semana:</strong> Uma novidade de IA relevante para o contexto da empresa (2-3 frases)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">2.</span><span><strong>Prompt da semana:</strong> Um prompt util que qualquer um pode copiar e usar imediatamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">3.</span><span><strong>Caso interno:</strong> Alguem do time conta em 3 frases como usou IA na semana</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">4.</span><span><strong>Desafio da semana:</strong> Uma tarefa simples para experimentar ("tente usar IA para X")</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Use a propria IA para criar a newsletter. De o contexto das novidades da semana e peca para montar no formato padrao. A newsletter sobre IA feita com IA e a melhor demonstracao de consistencia.</p>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎓 Microlearning</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Adultos retêm <strong class="text-teal-400">20% de um treinamento de 4 horas</strong> e 80% de 4 sessoes de 15 minutos. Microlearning respeita a rotina corporativa e maximiza retencao sem competir com o trabalho diario.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Microlearning Eficaz</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sessoes de 5-15 minutos, 2-3x por semana</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Um unico conceito por sessao</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pratica imediata incluida</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Assincrono (video de 5 min + exercicio)</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Treinamento Tradicional</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sessao de 4h uma vez por trimestre</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>10 conceitos em uma unica sessao</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Teoria sem pratica</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sincronico obrigatorio (conflita com agenda)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📊 Tracking de Progresso</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O que nao se mede nao se gerencia. Um sistema de <strong class="text-teal-400">tracking de progresso</strong> mostra onde cada pessoa e o time como um todo estao na jornada, permitindo intervencoes direcionadas.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📊</span> Niveis de Competencia</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Nivel 0 — Nao-usuario:</strong> Nunca usou IA. Precisa de awareness e primeiro contato.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Nivel 1 — Explorador:</strong> Usa ocasionalmente. Precisa de quick wins e habito.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Nivel 2 — Praticante:</strong> Usa semanalmente. Precisa de workflows e skills avancadas.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Nivel 3 — Proficiente:</strong> Usa diariamente. Precisa de desafios e papel de mentor.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Nivel 4 — Champion:</strong> Evolui sozinho e ensina outros. Precisa de reconhecimento e autonomia.</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Heat Map do Time</h3>
+        <p class="text-neutral-300">Crie um heat map visual: nomes na vertical, niveis na horizontal. Cada pessoa fica em uma celula colorida. Verde para nivel 3-4, amarelo para 1-2, vermelho para 0. O lider ve de relance onde precisa investir atencao.</p>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Reciclagem de Conteudo</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Criar tudo do zero para cada time e insustentavel. A <strong class="text-teal-400">reciclagem inteligente</strong> permite escalar a operacao mantendo personalizacao. A regra: 80% do conteudo e reutilizavel, 20% e customizado.</p>
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">♻️</span> Framework de Reciclagem</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Modulos Base (80%):</strong> Conceitos, frameworks e praticas que funcionam para qualquer organizacao</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Camada de Personalizacao (20%):</strong> Exemplos, dados e demos especificos do time/empresa</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Biblioteca de Componentes:</strong> Slides, exercicios e prompts catalogados para reuso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Atualizacao Centralizada:</strong> Quando o modulo base muda, todas as versoes derivadas se beneficiam</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Ganho de Eficiencia</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Primeira sessao:</strong> 8 horas de preparacao (criacao do zero)</li>
+          <li><strong>Segunda sessao (mesmo setor):</strong> 2 horas (reciclagem + personalizacao)</li>
+          <li><strong>Terceira sessao em diante:</strong> 1 hora (ajuste fino + dados especificos)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Modulos Mensais</strong><span class="text-neutral-400"> - Conteudo fresco todo mes com formato padrao de 45 min</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Skills Compartilhadas</strong><span class="text-neutral-400"> - Automacoes reutilizaveis que padronizam qualidade</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Newsletter Semanal</strong><span class="text-neutral-400"> - 3 minutos de leitura que mantem IA na cabeca do time</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Microlearning</strong><span class="text-neutral-400"> - 15 minutos frequentes superam 4 horas esporadicas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Tracking de Progresso</strong><span class="text-neutral-400"> - Heat map de 5 niveis para intervencoes direcionadas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Reciclagem 80/20</strong><span class="text-neutral-400"> - Base reutilizavel + personalizacao de 20%</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">5.6 - Resgatando Ceticos — Tecnicas para converter resistencia em alianca</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Modulo Anterior</a>
+          <a href="modulo-5-6.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

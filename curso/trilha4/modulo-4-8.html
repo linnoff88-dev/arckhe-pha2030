@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.8 - Do Workshop ao Retainer | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}
+    html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#ffffff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+    html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background-color:rgba(217,119,6,0.12)}html:not(.dark) .bg-amber-500\/10{background-color:rgba(217,119,6,0.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,0.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background-color:rgba(217,119,6,0.18)}
+    html:not(.dark) [class*="bg-gradient-to"]{background-image:none !important}
+    html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,0.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,0.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}
+    html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,0.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Modulo 4.8</span></div></nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.8</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Do Workshop ao Retainer</h1><p class="text-lg text-neutral-400 max-w-3xl">O modelo Cavalo de Troia: como educacao abre portas para consultoria, auditoria e receita recorrente em IA corporativa.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Negocio</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🐴 O Modelo Cavalo de Troia</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Vender consultoria direta e difícil — a empresa nao te conhece, nao confia em voce, nao sabe se voce entrega. Mas vender um <strong class="text-amber-400">workshop e facil</strong>. E dentro do workshop, voce demonstra competencia, resolve dores reais e cria demanda organica por servicos maiores. A educacao e o Cavalo de Troia.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🔑</span> O Funil Cavalo de Troia</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Porta de entrada:</strong> Workshop de 2-4 horas (R$5K-15K) — baixo risco para o cliente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Confianca gerada:</strong> O cliente viu voce em acao, resolvendo dores reais do time dele</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Demanda organica:</strong> "Voce pode fazer um diagnostico mais profundo?" — voce nao vende, ele pede</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Expansao natural:</strong> Diagnostico → Implementacao → Retainer → Outras areas</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Numeros do Modelo</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>70%</strong> - dos workshops geram pelo menos 1 pedido de servico adicional</li>
+          <li><strong>4x</strong> - o valor medio do contrato subsequente em relacao ao workshop</li>
+          <li><strong>R$15K → R$60K:</strong> Workshop de R$15K que gera diagnostico de R$30K que gera retainer de R$15K/mes</li>
+          <li><strong>LTV medio:</strong> R$180K por cliente (workshop + diagnostico + 12 meses de retainer)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🎓 Workshop como Produto</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Um workshop bem estruturado e um <strong class="text-amber-400">produto escalavel</strong>. Voce cria uma vez, entrega muitas vezes, e cada entrega gera novas oportunidades. A chave e precificar por valor, nao por hora.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> Formatos que Funcionam</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Lightning (2h):</strong> R$5K-8K — Intro + 1 demo impactante + exercicio. Ideal para primeira conversa</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Standard (4h):</strong> R$10K-15K — Teoria + 3 demos + exercicios + plano de acao. O formato mais popular</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Intensive (8h):</strong> R$20K-30K — Dia inteiro com diagnostico incluso. Alto impacto, alto valor</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Program (4 sessoes):</strong> R$40K-60K — Programa de 4 semanas com acompanhamento. Transformacao real</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Nunca precifique por hora. Um workshop de 4 horas que economiza 200 horas/mes para o time nao vale R$800 (4h x R$200/h) — vale R$15.000 pelo resultado que entrega. Precifique pelo valor que gera, nao pelo tempo que consome.</p>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔍 Da Educacao a Auditoria</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A transicao mais natural do mundo: "Treinamos seu time, agora vamos <strong class="text-amber-400">auditar como estao usando</strong> e onde podem melhorar." O cliente ja confia em voce, ja viu seu conhecimento — agora quer um diagnostico personalizado.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> Scope da Auditoria de IA</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Ferramentas:</strong> O que tem, o que falta, o que esta subutilizado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Processos:</strong> Onde IA pode entrar e qual o impacto estimado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Pessoas:</strong> Mapa de maturidade por area e recomendacoes de treinamento</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Governanca:</strong> Gaps de politica, seguranca e compliance</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Roadmap:</strong> Plano de 90 dias com prioridades, responsaveis e metricas</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Precificacao de Auditoria</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Express (1 semana):</strong> R$15K-25K — Survey + entrevistas + relatorio basico</li>
+          <li><strong>Standard (2 semanas):</strong> R$30K-50K — Discovery Sprint completo com roadmap</li>
+          <li><strong>Premium (4 semanas):</strong> R$60K-100K — Auditoria completa + piloto implementado</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔄 Do Projeto ao Retainer</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Projetos pontuais criam picos e vales de receita. <strong class="text-amber-400">Retainers criam previsibilidade</strong> financeira e relacionamentos de longo prazo. A transicao de projeto para retainer e a diferenca entre um freelancer e um negocio sustentavel.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> O que Incluir num Retainer de IA</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Treinamento mensal (2-4h):</strong> Novas ferramentas, tecnicas avancadas, reciclagem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Suporte continuo:</strong> Canal dedicado para duvidas e troubleshooting</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Revisao de politicas:</strong> Atualizacao trimestral de governanca e seguranca</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Dashboard de metricas:</strong> Report mensal de adocao e ROI</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Mentoria de champions:</strong> Reunioes quinzenais com multiplicadores internos</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Precifique o retainer pelo valor entregue, nao pelas horas. Se voce entrega R$50K/mes de valor (economia de tempo + produtividade), R$10K-15K/mes de retainer e um investimento com ROI de 3-5x. O cliente paga feliz porque o retorno e obvio.</p>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">👥 Comunidade B2B</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O modelo de <strong class="text-amber-400">comunidade paga para empresas</strong> e receita recorrente com alto ticket e baixa manutencao. 20 empresas pagando R$5K/mes e R$100K/mes de receita previsivel — com 1 encontro mensal e conteudo assincrono.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Estrutura da Comunidade B2B</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Encontro mensal (2h):</strong> Tendencias, novas ferramentas, cases de membros, Q&A ao vivo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Conteudo exclusivo:</strong> Playbooks, templates, prompts e guias antes de todo mundo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Networking entre pares:</strong> Lideres de IA de empresas diferentes trocando experiencias</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Acesso direto:</strong> Canal exclusivo com o especialista para duvidas pontuais</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Prioridade:</strong> Descontos e prioridade em workshops e consultorias individuais</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Economia de Comunidade</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>10 empresas x R$3K/mes:</strong> R$30K/mes com ~8h de dedicacao</li>
+          <li><strong>20 empresas x R$5K/mes:</strong> R$100K/mes com ~12h de dedicacao</li>
+          <li><strong>Margem:</strong> 80-90% (quase todo o valor e conhecimento, nao custo)</li>
+          <li><strong>Retencao:</strong> 85%+ quando o valor percebido e alto e o networking funciona</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Escalando sem Esgotamento</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O modelo que depende 100% do seu tempo pessoal tem <strong class="text-amber-400">teto</strong>. O modelo que se multiplica tem <strong class="text-amber-400">escala</strong>. A diferenca e desenho intencional desde o inicio: train-the-trainer, licenciamento e automacao.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> Pilares da Escala Sustentavel</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Train-the-trainer:</strong> Forme facilitadores que entregam seus workshops com sua qualidade</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Licenciamento:</strong> Licencie seu conteudo e metodologia para consultores parceiros</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Automacao de onboarding:</strong> Curso online + materiais que preparam antes do workshop ao vivo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Playbook replicavel:</strong> Documentacao tao boa que qualquer facilitador certificado pode entregar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Equipe enxuta:</strong> 1 assistente + 2-3 facilitadores = atender 10x mais clientes</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Modelo Escalavel</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Conteudo documentado e replicavel</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Facilitadores treinados e certificados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Receita recorrente via retainers e comunidade</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Voce foca em estrategia e alto valor</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Modelo com Teto</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tudo depende do seu tempo pessoal</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conhecimento so na sua cabeca</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Receita 100% por projeto (picos e vales)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Burnout garantido em 12-18 meses</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Cavalo de Troia</strong><span class="text-neutral-400"> - Educacao gera confianca, confianca gera contratos maiores</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Workshop = produto</strong><span class="text-neutral-400"> - Precifique por valor (R$5K-30K), nao por hora</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Educacao → Auditoria</strong><span class="text-neutral-400"> - A transicao mais natural: "agora vamos diagnosticar"</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Retainer = previsibilidade</strong><span class="text-neutral-400"> - Treinamento + suporte + metricas = receita recorrente</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Comunidade B2B</strong><span class="text-neutral-400"> - 20 empresas x R$5K/mes = R$100K/mes com 12h de dedicacao</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Escala sustentavel</strong><span class="text-neutral-400"> - Train-the-trainer, licenciamento e playbook replicavel</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Proxima Trilha:</h3><p class="text-neutral-300">Trilha 5 - IA para Times — Como escalar a adocao de IA para equipes e departamentos inteiros</p></div>
+        <div class="flex flex-col sm:flex-row gap-4"><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Proxima Trilha →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

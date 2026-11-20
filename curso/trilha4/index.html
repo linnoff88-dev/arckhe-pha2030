@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 4 - Cultura de IA na Empresa | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode overrides - OBRIGATORIO */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode - cores de acento (trilha amber) */
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+    /* Light mode - remove gradientes (fundo uniforme) */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">
+        TRILHA 4
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏢 Cultura de IA na Empresa</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Domine a arte de levar IA para dentro das organizacoes. De diagnostico de maturidade a governanca, dos 4 arquetipos de resistencia ao modelo Cavalo de Troia — tudo que voce precisa para transformar cultura corporativa.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">8</div>
+          <div class="text-xs text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">48</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">~4h20</div>
+          <div class="text-xs text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Avancado</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGACAO RAPIDA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegacao Rapida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-4-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.1</span>
+          <h3 class="font-semibold mt-1">🏢 O Desafio da Adocao</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-4-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.2</span>
+          <h3 class="font-semibold mt-1">🔍 Diagnostico de Maturidade</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-4-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.3</span>
+          <h3 class="font-semibold mt-1">🧭 Estrategia de Adocao</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-4-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.4</span>
+          <h3 class="font-semibold mt-1">🎭 Os 4 Arquetipos</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-4-5.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.5</span>
+          <h3 class="font-semibold mt-1">💡 Engenharia do "Aha Moment"</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-4-6.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.6</span>
+          <h3 class="font-semibold mt-1">📋 Governanca e Politicas</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-4-7.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.7</span>
+          <h3 class="font-semibold mt-1">📊 Metricas e ROI</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-4-8.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-amber-400 font-bold text-sm">4.8</span>
+          <h3 class="font-semibold mt-1">🔄 Do Workshop ao Retainer</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="border-t border-dark-600 mb-12 pt-8">
+      <h2 class="text-2xl font-bold">Conteudo Detalhado</h2>
+      <p class="text-neutral-400 mt-2">Explore cada modulo com seus topicos, conceitos e objetivos de aprendizagem.</p>
+    </div>
+
+    <!-- MODULO 4.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.1</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🏢 O Desafio da Adocao</h3>
+        <p class="text-neutral-400 text-sm">Por que a maioria das empresas trava na hora de adotar IA — e os principios que separam quem consegue de quem desiste.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🚧</span>
+            <div><span class="font-medium">Por que Empresas Travam</span><span class="text-neutral-500 text-sm ml-2">- Barreiras reais alem da tecnologia</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O mapeamento das barreiras reais que impedem empresas de adotar IA. Nao e a tecnologia que trava — sao processos, cultura, lideranca e medo institucional.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecer as barreiras e o primeiro passo para supera-las. Quem entende por que empresas travam consegue criar estrategias de desbloqueio.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Barreiras culturais vs. tecnicas, inercia organizacional, falta de sponsorship executivo, ausencia de casos de uso claros, medo de errar em publico.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">O Gap de Maturidade</span><span class="text-neutral-500 text-sm ml-2">- Ter ferramentas vs. saber usar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A distancia entre ter licencas de ferramentas de IA e realmente saber usa-las de forma produtiva. A maioria das empresas compra Copilot, ChatGPT Team — e ninguem usa direito.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O gap de maturidade e onde esta o dinheiro sendo desperdicado. Fechar esse gap e a oportunidade mais imediata para qualquer consultor ou lider.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Maturidade de adocao vs. maturidade de ferramentas, shelfware de IA, taxa real de utilizacao, o custo invisivel da subutilizacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">😰</span>
+            <div><span class="font-medium">Medo Organizacional</span><span class="text-neutral-500 text-sm ml-2">- Inseguranca, resistencia, inercia cultural</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O medo coletivo que paralisa organizacoes inteiras. Diferente do medo individual, o medo organizacional se manifesta como politicas restritivas, comites infinitos e projetos piloto que nunca saem do papel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Medo organizacional nao se resolve com apresentacao de PowerPoint. Requer estrategias especificas de change management adaptadas para IA.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Medo institucional vs. individual, paralisacao por comite, excesso de governanca prematura, a armadilha do "vamos estudar mais".</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Hype vs. Realidade</span><span class="text-neutral-500 text-sm ml-2">- Separar promessas de possibilidades reais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A diferenca entre o que vendedores de IA prometem e o que a tecnologia realmente entrega hoje. O hype gera expectativas irreais que, quando nao atendidas, alimentam o ceticismo.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Calibrar expectativas e essencial para projetos bem-sucedidos. Prometer demais e entregar de menos e o caminho mais rapido para matar um programa de IA.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ciclo de hype de Gartner, expectativas vs. realidade, o vale da desilusao, como posicionar IA de forma honesta e ainda assim empolgante.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏢</span>
+            <div><span class="font-medium">Casos de Fracasso</span><span class="text-neutral-500 text-sm ml-2">- O que aprender com quem nao conseguiu</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Analise de empresas que investiram em IA e falharam — nao por causa da tecnologia, mas por erros de estrategia, cultura e execucao. Fracassos ensinam mais que sucessos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Evitar os mesmos erros economiza tempo, dinheiro e credibilidade. Cada fracasso documentado e um mapa do que nao fazer.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Projetos de IA abandonados, ROI negativo por falta de adocao, resistencia que matou iniciativas, licoes de implementacoes mal planejadas.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">O Caminho que Funciona</span><span class="text-neutral-500 text-sm ml-2">- Principios para adocao sustentavel</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os principios fundamentais que separam adocao bem-sucedida de fracasso. Nao e sobre a ferramenta certa — e sobre a abordagem certa: comece pequeno, mostre valor rapido, escale com evidencias.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ter principios claros evita a tentacao de pular etapas ou copiar estrategias que funcionaram em contextos diferentes do seu.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Principio do quick win, bottom-up vs. top-down, educacao antes de implementacao, metricas desde o dia 1, champions internos.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-1.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.2</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔍 Diagnostico de Maturidade</h3>
+        <p class="text-neutral-400 text-sm">Frameworks e templates para mapear onde sua empresa esta e por onde comecar a transformacao com IA.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Niveis de Maturidade</span><span class="text-neutral-500 text-sm ml-2">- 101, 201, 301, 401: onde sua empresa esta</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um framework de 4 niveis para classificar a maturidade em IA de uma organizacao: 101 (nunca usou), 201 (experimentando), 301 (usando no dia a dia), 401 (integrando em processos).</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Voce nao pode tracar um caminho sem saber onde esta. O diagnostico de maturidade e o GPS da transformacao digital.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Escala de maturidade 101-401, indicadores por nivel, a armadilha de pular niveis, como cada nivel requer uma abordagem diferente de ensino.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Discovery Sprint</span><span class="text-neutral-500 text-sm ml-2">- Framework rapido para mapear o terreno</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um processo estruturado de 1-2 semanas para entender o estado atual de uma organizacao em relacao a IA: quem usa, o que usa, quais dores existem, onde estao as oportunidades.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O Discovery Sprint e a ferramenta que transforma "achismo" em dados. Sem ele, voce toma decisoes baseadas em suposicoes — e erra.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Entrevistas rapidas, survey de maturidade, observacao de processos, mapeamento de ferramentas existentes, relatorio de oportunidades.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Mapeamento de Dores</span><span class="text-neutral-500 text-sm ml-2">- Identificar gargalos operacionais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de identificar as dores operacionais que IA pode resolver. Nao comece pela tecnologia — comece pelo problema. As melhores implementacoes nascem de dores reais.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dores sao o combustivel da adocao. Quando voce resolve uma dor real, as pessoas adotam a ferramenta espontaneamente — sem precisar "empurrar".</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dor operacional vs. dor estrategica, frequencia vs. intensidade, custo da dor (tempo perdido), priorizacao por impacto.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Perfil da Equipe</span><span class="text-neutral-500 text-sm ml-2">- Quem sabe o que, quem quer o que</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O mapeamento de competencias e disposicao da equipe em relacao a IA. Quem ja usa? Quem quer aprender? Quem resiste? Quem pode ser champion?</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Pessoas diferentes precisam de abordagens diferentes. Tratar todos igual e o erro mais comum — e mais caro — de programas de adocao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Matriz de competencias, mapa de influencia, early adopters vs. late majority, identificacao de champions e detractors.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Diagnostico Express</span><span class="text-neutral-500 text-sm ml-2">- Template pratico para usar hoje</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um template de diagnostico que pode ser aplicado em 2 horas. 15 perguntas-chave que revelam o estado real de maturidade de IA de qualquer organizacao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ter um template pronto e a diferenca entre "vou pensar nisso" e "posso comecar amanha". Ferramentas prontas aceleram a acao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">15 perguntas de diagnostico, scoring de maturidade, visualizacao de resultados, plano de acao baseado no score.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Prioridades de Acao</span><span class="text-neutral-500 text-sm ml-2">- De "tudo e importante" para "comecamos aqui"</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O framework de priorizacao que transforma uma lista de 20 oportunidades em 3 acoes concretas para os proximos 30 dias. Impacto x Esforco x Visibilidade.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A paralisia por excesso de opcoes e real. Um framework de priorizacao e o antidoto: transforma complexidade em clareza.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Matriz impacto x esforco, criterio de visibilidade, regra dos 3 primeiros projetos, sequenciamento estrategico de quick wins.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-2.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.3</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🧭 Estrategia de Adocao</h3>
+        <p class="text-neutral-400 text-sm">Do roadmap de 30 dias ao plano de 12 meses. Como estruturar a adocao de IA com quick wins, alinhamento executivo e comunicacao eficaz.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Roadmap de Adocao</span><span class="text-neutral-500 text-sm ml-2">- De 30 dias a 12 meses</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um plano estruturado em fases para adotar IA na organizacao: 30 dias (quick wins), 90 dias (expansao), 6 meses (integracao), 12 meses (cultura).</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem roadmap, adocao vira experimento desorganizado. Com roadmap, vira projeto com dono, prazo e resultado mensuravel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fases de adocao, marcos de sucesso, checkpoints de avaliacao, ajuste de rota baseado em dados, template de roadmap.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">Quick Wins</span><span class="text-neutral-500 text-sm ml-2">- Vitorias rapidas que geram confianca</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Projetos de alto impacto e baixo esforco que demonstram o valor da IA em dias, nao meses. Sao a moeda de confianca da transformacao digital.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quick wins geram momentum. Cada vitoria rapida converte ceticos, empodera champions e justifica investimento adicional.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Criterios de selecao de quick wins, exemplos por area, como medir e comunicar resultados, efeito cascata de confianca.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Board Alignment</span><span class="text-neutral-500 text-sm ml-2">- Como apresentar IA para a diretoria</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A arte de comunicar o valor da IA para executivos C-level. Diretores nao querem ouvir sobre tecnologia — querem ouvir sobre resultados, riscos e retorno.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem patrocinio executivo, projetos de IA morrem. Board alignment e a diferenca entre um projeto piloto e uma transformacao real.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Linguagem executiva, business case de IA, risk framing, template de apresentacao para board, metricas que diretores entendem.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💰</span>
+            <div><span class="font-medium">Orcamento e Investimento</span><span class="text-neutral-500 text-sm ml-2">- Quanto custa, quanto retorna</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O framework financeiro para investimento em IA: custos de licenca, treinamento, implementacao e o calculo de retorno esperado por tipo de projeto.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Falar a linguagem do dinheiro e o que convence CFOs. Sem numeros claros, projetos de IA competem com outras prioridades — e perdem.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">TCO de ferramentas de IA, custo de nao fazer nada, ROI por tipo de projeto, como precificar tempo economizado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Fases de Implementacao</span><span class="text-neutral-500 text-sm ml-2">- Piloto, expansao, escala</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As tres fases naturais de implementacao de IA: piloto com equipe pequena, expansao para areas adjacentes, e escala para toda a organizacao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Pular fases e a causa numero 1 de fracasso. Cada fase tem seus proprios desafios, metricas e criterios de sucesso.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Gate reviews entre fases, criterios de go/no-go, como escalar sem perder qualidade, ajuste de playbook por fase.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Plano de Comunicacao</span><span class="text-neutral-500 text-sm ml-2">- Como falar de IA para toda a empresa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A estrategia de comunicacao interna sobre IA. O que comunicar, quando, para quem e por qual canal. A narrativa certa faz a diferenca entre entusiasmo e panico.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Comunicacao mal feita cria mais resistencia do que a propria mudanca. O plano certo antecipa medos, responde duvidas e gera engajamento.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Narrativa de empoderamento vs. ameaca, FAQ preventiva, comunicacao segmentada por perfil, timing estrategico de anuncios.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.4</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎭 Os 4 Arquetipos</h3>
+        <p class="text-neutral-400 text-sm">Identifique os 4 perfis que voce encontra em toda sala de workshop e aprenda a abordagem certa para cada um.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🚫</span>
+            <div><span class="font-medium">O Cetico</span><span class="text-neutral-500 text-sm ml-2">- Quem e, por que resiste, como converter</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O perfil que duvida, questiona e resiste. Geralmente e alguem experiente que ja viu modas tecnologicas irem e virem. Sua resistencia tem fundamento — e precisa ser respeitada, nao combatida.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ceticos convertidos viram os melhores champions. Mas forcar a barra so aumenta a resistencia. A abordagem certa e chave.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ceticismo saudavel vs. bloqueio, tecnicas de validacao da perspectiva, demonstracao pratica como ferramenta de conversao, respeito ao ritmo individual.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">O Champion</span><span class="text-neutral-500 text-sm ml-2">- Quem e, como empoderar, como multiplicar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O aliado natural da transformacao. Ja usa IA, ja viu resultados e quer que mais pessoas usem. E o multiplicador organico do seu programa — seu ativo mais valioso.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Champions bem empoderados fazem o trabalho de adocao por voce. Eles treinam colegas, criam casos de uso e evangelizam no dia a dia.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identificacao de champions, programa de empoderamento, ferramentas para multiplicacao, reconhecimento e incentivo, rede de champions.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🌟</span>
+            <div><span class="font-medium">O Newbie Empolgado</span><span class="text-neutral-500 text-sm ml-2">- Energia positiva que precisa de direcao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Quem esta empolgado mas ainda nao sabe por onde comecar. Tem muita energia e pouca direcao. Sem orientacao, se frustra rapido e desiste — ou pior, cria processos problematicos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Canalizar a empolgacao do newbie e transforma-lo em champion. Ignorar a empolgacao e desperdicar o recurso mais precioso da adocao: o entusiasmo genuino.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Trilha de aprendizado estruturada, primeiro projeto guiado, mentoria de champion, gestao de expectativas sem matar o entusiasmo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">😵</span>
+            <div><span class="font-medium">O Sobrecarregado</span><span class="text-neutral-500 text-sm ml-2">- Paralisia por excesso de informacao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O profissional que quer usar IA mas esta tao sobrecarregado que "nao tem tempo de aprender mais uma coisa". Nao e resistencia — e exaustao real. E o perfil mais comum em empresas brasileiras.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O sobrecarregado e quem mais se beneficiaria da IA — mas precisa que a entrada seja facil, rapida e sem atrito. Resolver isso e desbloquear a maioria silenciosa.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Micro-learning, integracao no fluxo existente, "5 minutos que economizam 1 hora", reducao de atrito, demonstracao de economia de tempo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Estrategia por Perfil</span><span class="text-neutral-500 text-sm ml-2">- Abordagem diferente para cada arquetipo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O playbook especifico para cada arquetipo: como falar, o que mostrar, qual sequencia usar e quais gatilhos ativam cada perfil. Uma abordagem unica nao funciona.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Personalizar a abordagem multiplica a taxa de conversao. Tratar todos igual e o erro mais caro de programas de adocao corporativa.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Playbook por arquetipo, sequencia de ativacao, gatilhos de conversao, metricas de engajamento por perfil, ajuste dinamico de abordagem.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Mapeando sua Sala</span><span class="text-neutral-500 text-sm ml-2">- Como identificar cada perfil antes da sessao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas de pre-mapeamento: pesquisa pre-sessao, perguntas de triagem, observacao dos primeiros 5 minutos e ajuste em tempo real da abordagem conforme a composicao da sala.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Chegar preparado para a composicao da sala e o que separa facilitadores amadores de profissionais. Pre-mapeamento e preparacao estrategica.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Survey pre-sessao, sinais de linguagem corporal, perguntas reveladoras, composicao ideal de grupos, estrategia de posicionamento na sala.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💡 Engenharia do "Aha Moment"</h3>
+        <p class="text-neutral-400 text-sm">Como criar o momento de revelacao que transforma ceticos em entusiastas. A ciencia por tras de demos que mudam mentalidades.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💎</span>
+            <div><span class="font-medium">O Golden Nugget</span><span class="text-neutral-500 text-sm ml-2">- A unica coisa que faz a sessao valer a pena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O conceito de que cada sessao precisa ter UM momento transformador — a demonstracao ou insight que faz a pessoa pensar "isso muda tudo". Todo o resto da sessao existe para preparar e amplificar esse momento.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sessoes sem golden nugget sao esquecidas no dia seguinte. Sessoes com golden nugget geram historias que as pessoas contam nos corredores.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identificacao do golden nugget por audiencia, construcao narrativa ate o momento-chave, timing de revelacao, amplificacao pos-momento.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎪</span>
+            <div><span class="font-medium">Demo ao Vivo</span><span class="text-neutral-500 text-sm ml-2">- Transformar a dor do time em demonstracao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A arte de pegar um problema REAL do time e resolve-lo ao vivo com IA durante a sessao. Nao e demo pre-gravada — e problema real, resolvido em tempo real, na frente de quem sofre com ele.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Demos ao vivo sao 10x mais impactantes que slides. Quando a pessoa ve SUA dor sendo resolvida, a resistencia derrete. E o gatilho mais poderoso de adocao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Preparacao vs. improvisacao, dores pre-mapeadas, plano B para falhas, como lidar com IA errando ao vivo, transformar erro em oportunidade de ensino.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Demos que Funcionam</span><span class="text-neutral-500 text-sm ml-2">- Excel, PowerPoint, MCP, automacoes visuais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O catalogo de demos testadas e comprovadas que funcionam com diferentes audiencias: analise de Excel ao vivo, criacao de apresentacao em segundos, automacao visual com MCP.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ter um repertorio de demos prontas e poder escolher a certa para cada audiencia. O demo errado para a audiencia errada e pior que nenhum demo.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Demo de Excel (analise de dados), demo de PowerPoint (criacao de deck), demo de automacao (MCP), matching demo-audiencia, fallback demos.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧲</span>
+            <div><span class="font-medium">Capturar Atencao</span><span class="text-neutral-500 text-sm ml-2">- Pattern interrupt e tecnicas de engajamento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas de facilitacao para capturar e manter a atencao em sessoes de IA: pattern interrupts, perguntas provocativas, demonstracoes inesperadas e momentos de participacao ativa.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem atencao, nao ha aprendizado. E a atencao e o recurso mais escasso em workshops corporativos — celulares, e-mails e Slack competem com voce.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pattern interrupt, regra dos 10 minutos, perguntas-anzol, micro-exercicios, uso estrategico de silencio, storytelling de impacto.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔥</span>
+            <div><span class="font-medium">Energia da Sala</span><span class="text-neutral-500 text-sm ml-2">- Como usar a reacao coletiva a seu favor</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A dinamica de grupo que amplifica reacoes individuais. Quando uma pessoa diz "uau", as outras se sentem validadas em tambem reagir. A energia coletiva e contagiosa — e pode ser orquestrada.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Uma sessao energizada gera mais adocao do que uma sessao informativa mas fria. A energia da sala e o multiplicador invisivel dos seus resultados.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Contagio emocional, posicionamento de champions na sala, timing de demonstracoes de impacto, como recuperar energia que caiu.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">De Aha a Acao</span><span class="text-neutral-500 text-sm ml-2">- Converter entusiasmo em adocao real</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de converter o entusiasmo do momento "aha" em acao concreta nas proximas 24-48 horas. Sem follow-up estruturado, a empolgacao evapora em dias.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O momento "aha" sem acao e entretenimento, nao transformacao. A ponte entre inspiracao e habito e onde a maioria dos programas falha.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Acao imediata pos-sessao, desafio de 24 horas, follow-up estruturado, micro-habitos de IA, accountability entre pares.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-5.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.6</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📋 Governanca e Politicas</h3>
+        <p class="text-neutral-400 text-sm">Como criar politicas de uso de IA que protegem a empresa sem sufocar a inovacao. LGPD, seguranca e guardrails inteligentes.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📜</span>
+            <div><span class="font-medium">Politica de Uso de IA</span><span class="text-neutral-500 text-sm ml-2">- O que incluir, como estruturar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O documento que define o que pode e o que nao pode ser feito com IA na empresa. Nao e para restringir — e para dar clareza e seguranca para que as pessoas usem IA com confianca.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem politica, cada funcionario inventa suas proprias regras. Com politica bem feita, todos sabem o que fazer — e a adocao acelera, nao freia.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura de politica de IA, niveis de permissao, ferramentas aprovadas, responsabilidades, processo de atualizacao, template pronto.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔒</span>
+            <div><span class="font-medium">Seguranca de Dados</span><span class="text-neutral-500 text-sm ml-2">- O que nunca compartilhar com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As regras de ouro sobre quais dados podem e quais nao podem ser compartilhados com ferramentas de IA. Dados pessoais, financeiros, estrategicos e de clientes requerem cuidados especificos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um vazamento de dados via IA pode custar milhoes e destruir reputacao. Regras claras de seguranca protegem a empresa e os funcionarios.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Classificacao de dados (publico, interno, confidencial, restrito), regras por nivel, anonimizacao, planos empresariais vs. pessoais, data retention policies.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Compliance e LGPD</span><span class="text-neutral-500 text-sm ml-2">- Requisitos legais brasileiros</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os requisitos legais brasileiros que impactam o uso de IA: LGPD, marco legal de IA, regulamentacoes setoriais e obrigacoes de transparencia.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Compliance nao e opcional. Ignorar requisitos legais expoe a empresa a multas, processos e dano reputacional. Conhecer as regras e vantagem competitiva.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">LGPD aplicada a IA, consentimento para uso de dados, transparencia algoritmica, direito a explicacao, marco legal brasileiro de IA.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Guardrails Organizacionais</span><span class="text-neutral-500 text-sm ml-2">- Limites claros para uso seguro</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os limites praticos que garantem uso seguro de IA: o que precisa de revisao humana, quais decisoes nao podem ser delegadas, quando escalar para supervisao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Guardrails bem desenhados liberam as pessoas para usar IA com confianca. Sem eles, o medo de errar paralisa a adocao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Guardrails vs. barreiras, niveis de autonomia da IA, revisao humana obrigatoria, escalation paths, checklist de validacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Processos de Aprovacao</span><span class="text-neutral-500 text-sm ml-2">- Governanca sem burocracia excessiva</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O equilibrio entre governanca necessaria e burocracia que mata inovacao. Como criar processos de aprovacao rapidos e eficazes para novas ferramentas e casos de uso de IA.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Processos pesados demais fazem as pessoas usarem IA escondido (shadow AI). Processos leves demais criam riscos. O equilibrio e uma arte.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fast-track vs. full review, categorias de risco, self-service para baixo risco, comite de IA enxuto, SLA de aprovacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Revisao Continua</span><span class="text-neutral-500 text-sm ml-2">- Atualizar politicas conforme a tecnologia evolui</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de manter politicas de IA atualizadas num cenario que muda a cada trimestre. Politicas estaticas ficam obsoletas em meses — e precisam de um ciclo de revisao continua.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Uma politica desatualizada e pior que nenhuma politica — da falsa sensacao de seguranca. Revisao continua e o que mantem a governanca relevante.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ciclo trimestral de revisao, trigger events para revisao extraordinaria, ownership de politicas, feedback loop dos usuarios, versionamento de politicas.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-6.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.7</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📊 Metricas e ROI</h3>
+        <p class="text-neutral-400 text-sm">O que medir, como medir e como apresentar resultados que convencem a diretoria a investir mais em IA.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">O que Medir</span><span class="text-neutral-500 text-sm ml-2">- Metricas que importam vs. vanidade</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A distincao entre metricas que realmente indicam sucesso da adocao de IA e metricas de vaidade que parecem bonitas mas nao significam nada. "Numero de logins" nao e metrica de sucesso.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Medir errado e pior que nao medir. Metricas erradas criam falsa confianca ou pessimismo injustificado — ambos perigosos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Metricas de output vs. outcome, leading vs. lagging indicators, metricas de adocao vs. metricas de impacto, North Star metric de IA.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⏱️</span>
+            <div><span class="font-medium">Produtividade</span><span class="text-neutral-500 text-sm ml-2">- Tempo economizado, tarefas aceleradas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como medir ganhos reais de produtividade com IA: tempo economizado por tarefa, tarefas completadas por periodo, qualidade do output, reducao de retrabalho.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Produtividade e a metrica mais tangivel e convincente. Quando voce mostra "essa tarefa que levava 4 horas agora leva 20 minutos", o argumento e irrefutavel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Before/after measurement, time-tracking de tarefas com IA, calculo de horas economizadas, produtividade por individuo vs. por equipe.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">😊</span>
+            <div><span class="font-medium">Satisfacao e Engajamento</span><span class="text-neutral-500 text-sm ml-2">- O caso dos devs em PIP que viraram outstanding</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Metricas qualitativas de sucesso: satisfacao dos funcionarios, engajamento com ferramentas de IA, mudanca de percepacao. O caso real de desenvolvedores em Performance Improvement Plan que, ao adotar IA, passaram a ter avaliacoes outstanding.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Numeros frios nao contam a historia completa. Historias de transformacao pessoal sao o que move coracoes — e orcamentos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Employee satisfaction surveys, NPS de ferramentas de IA, historias de transformacao, correlacao entre adocao de IA e performance review.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💰</span>
+            <div><span class="font-medium">ROI Financeiro</span><span class="text-neutral-500 text-sm ml-2">- Calcular retorno sobre investimento em IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O calculo financeiro do retorno sobre investimento em IA: custo total (licencas + treinamento + tempo de implementacao) vs. retorno (tempo economizado x custo/hora + receita incremental).</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">ROI e a linguagem universal de negocio. CFOs e diretores tomam decisoes baseadas em numeros — e voce precisa falar essa linguagem.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Formula de ROI de IA, custo total de ownership, payback period, valor do tempo economizado, como incluir beneficios intangiveis.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Dashboard de Adocao</span><span class="text-neutral-500 text-sm ml-2">- Visualizar progresso da organizacao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um dashboard visual que mostra o progresso da adocao de IA na organizacao: metricas de uso, produtividade, satisfacao e ROI num unico painel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O que nao e visivel nao existe para executivos. Um dashboard bem construido transforma dados em narrativa e narrativa em orcamento.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">KPIs de adocao, visualizacao de progresso, frequencia de atualizacao, audiencia do dashboard, ferramentas para construcao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Metricas que Vendem</span><span class="text-neutral-500 text-sm ml-2">- Numeros que convencem a diretoria</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A arte de selecionar e apresentar metricas que fazem executivos aprovarem investimento. Nao e sobre ter muitos dados — e sobre ter os dados certos, na ordem certa, com a narrativa certa.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A diferenca entre um programa que recebe orcamento e um que morre e como voce apresenta os resultados. Metricas que vendem garantem continuidade.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Storytelling com dados, sequencia persuasiva de metricas, comparacao before/after, projecao de resultados futuros, template de report executivo.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-7.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 4.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.8</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔄 Do Workshop ao Retainer</h3>
+        <p class="text-neutral-400 text-sm">O modelo Cavalo de Troia: como educacao abre portas para consultoria, auditoria e receita recorrente em IA corporativa.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🐴</span>
+            <div><span class="font-medium">O Modelo Cavalo de Troia</span><span class="text-neutral-500 text-sm ml-2">- Educacao como porta de entrada</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A estrategia de usar workshops e treinamentos como porta de entrada para servicos de maior valor: consultoria, auditoria, implementacao e retainers. A educacao gera confianca, a confianca gera contratos.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Vender consultoria direta e dificil. Vender um workshop e facil. E dentro do workshop, voce demonstra competencia que gera demanda organica por servicos maiores.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Funil educacao-consultoria, preco de entrada vs. lifetime value, demonstracao de competencia em acao, transicao natural de educador para consultor.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎓</span>
+            <div><span class="font-medium">Workshop como Produto</span><span class="text-neutral-500 text-sm ml-2">- Precificar, estruturar, entregar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como transformar seu conhecimento de IA em um produto de workshop estruturado: precificacao, formato, duracao, materiais, follow-up e escala.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Workshop bem estruturado e produto escalavel. Voce cria uma vez, entrega muitas vezes, e cada entrega gera novas oportunidades de negocio.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Precificacao por valor (nao por hora), formatos (2h, meio dia, dia inteiro), materiais de apoio, metricas de qualidade, depoimentos como marketing.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Da Educacao a Auditoria</span><span class="text-neutral-500 text-sm ml-2">- Proxima oferta natural</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A transicao natural de "treinamos seu time" para "vamos auditar como voces estao usando IA e onde podem melhorar". A auditoria de IA e o servico que conecta educacao a implementacao.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A auditoria e o upsell mais natural do workshop. O cliente ja confia em voce, ja viu seu conhecimento em acao — agora quer um diagnostico personalizado.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Scope de auditoria de IA, deliverables esperados, precificacao de auditoria, de onde vem a demanda, como transicionar na conversa.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Do Projeto ao Retainer</span><span class="text-neutral-500 text-sm ml-2">- Receita recorrente por educacao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como transformar projetos pontuais em contratos recorrentes: treinamento mensal, suporte continuo, atualizacao de politicas, mentoria de champions. O retainer e o modelo de negocio sustentavel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Projetos pontuais criam picos e vales de receita. Retainers criam previsibilidade financeira e relacionamentos de longo prazo com clientes.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Modelo de retainer em IA, escopo mensal, precificacao recorrente, SLA de servicos, renovacao e expansao de contrato.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Comunidade B2B</span><span class="text-neutral-500 text-sm ml-2">- Alto ticket, poucos clientes, escala sustentavel</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O modelo de comunidade paga para empresas: grupo exclusivo de lideres de adocao de IA com conteudo premium, networking entre pares e acesso direto ao especialista.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Comunidade B2B e receita recorrente com alto ticket e baixa manutencao. 20 empresas pagando R$5K/mes e R$100K/mes de receita previsivel.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Precificacao de comunidade enterprise, conteudo exclusivo, encontros mensais, valor percebido vs. custo, metricas de retencao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🚀</span>
+            <div><span class="font-medium">Escalando sem Esgotamento</span><span class="text-neutral-500 text-sm ml-2">- O modelo que se sustenta sozinho</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como escalar um negocio de educacao e consultoria em IA sem depender 100% do seu tempo pessoal: licenciamento, train-the-trainer, materiais automatizados e equipe.</p></div>
+            <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O modelo que depende so de voce tem teto. O modelo que se multiplica tem escala. A diferenca entre os dois e desenho intencional desde o inicio.</p></div>
+            <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Train-the-trainer, licenciamento de conteudo, automacao de onboarding, equipe de facilitadores, playbook replicavel.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-8.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGACAO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha Anterior: Avancada
+      </a>
+      <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+        Proxima Trilha: Times →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal-4-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.1</span><span class="font-semibold">O Desafio da Adocao</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.2</span><span class="font-semibold">Diagnostico de Maturidade</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.3</span><span class="font-semibold">Estrategia de Adocao</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.4</span><span class="font-semibold">Os 4 Arquetipos</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.5</span><span class="font-semibold">Engenharia do "Aha Moment"</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.6</span><span class="font-semibold">Governanca e Politicas</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.7</span><span class="font-semibold">Metricas e ROI</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.8</span><span class="font-semibold">Do Workshop ao Retainer</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) { exp.classList.remove('active'); }
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => { modal.classList.add('hidden'); });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

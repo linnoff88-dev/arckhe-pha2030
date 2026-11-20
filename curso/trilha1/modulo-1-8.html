@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1.8 - Construindo Autonomia | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}
+    html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+    html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background-color:rgba(5,150,105,0.12)}html:not(.dark) .bg-emerald-500\/10{background-color:rgba(5,150,105,0.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,0.25)}html:not(.dark) .hover\:bg-emerald-500\/30:hover{background-color:rgba(5,150,105,0.18)}
+    html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,0.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,0.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,0.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Modulo 1.8</span></div></nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULO 1.8</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🚀 Construindo Autonomia</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">O modulo final da Trilha 1. Desenvolva independencia no uso de IA, monte seu kit pessoal e prepare-se para a pratica avancada na Trilha 2.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧠 Memoria e Contexto Pessoal</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">IA generica produz resultados genericos. Quando voce configura a IA com seu <strong class="text-emerald-400">contexto pessoal</strong> — cargo, empresa, estilo, preferencias — toda interacao se torna personalizada. E como ter um assistente que conhece voce ha anos, nao um estagiario novo todo dia.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧠</span> Como Configurar seu Contexto</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>ChatGPT — Custom Instructions:</strong> Va em Configuracoes e preencha "O que voce gostaria que o ChatGPT soubesse sobre voce?" com seu cargo, empresa, estilo de comunicacao e tipo de trabalho</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Claude — Projects:</strong> Crie um Project com um documento descrevendo seu contexto profissional. Toda conversa dentro do Project ja tera esse contexto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Gemini — Gems:</strong> Configure assistentes personalizados com instrucoes permanentes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Documento de contexto:</strong> Crie um doc com: cargo, empresa, equipe, objetivos, tom de comunicacao preferido, formatos que voce usa. Cole no inicio de conversas importantes</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Invista 30 minutos configurando Custom Instructions no ChatGPT e criando um Project no Claude com seu perfil profissional. Esse investimento unico melhora TODAS as suas interacoes futuras com IA.</p>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔄 Fluxos Pessoais</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Uso esporadico de IA gera resultados esporadicos. <strong class="text-emerald-400">Fluxos estruturados</strong> transformam a IA em parte natural do seu dia. A consistencia e o que separa quem "brinca" com IA de quem colhe resultados reais.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">☀️</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Rotina Matinal (15 min)</h4><p class="text-neutral-300 text-sm">Revise sua agenda do dia com IA. Peca sugestoes de priorizacao. Prepare rascunhos de e-mails urgentes. Faca um briefing dos assuntos que precisa dominar para reunioes.</p></div>
+        </div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">📧</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Processamento de Inbox (20 min)</h4><p class="text-neutral-300 text-sm">Batch processing de e-mails: respostas rapidas com IA, resumos de threads longas, redacao de e-mails complexos. Processe 30 e-mails no tempo que antes fazia 10.</p></div>
+        </div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">📊</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Trabalho Profundo (sob demanda)</h4><p class="text-neutral-300 text-sm">Para tarefas complexas (relatorios, analises, propostas), use IA como copiloto. Estruture com IA, preencha com dados reais, revise com seu julgamento. O resultado e melhor e mais rapido.</p></div>
+        </div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🌙</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Revisao de Fim de Dia (10 min)</h4><p class="text-neutral-300 text-sm">Revise o que realizou, organize notas do dia, prepare a lista de prioridades para amanha. IA ajuda a manter o momentum entre os dias.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📚 Aprendizado Continuo</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A IA evolui semanalmente. Quem para de aprender fica obsoleto em meses. Mas quem tenta aprender <strong class="text-emerald-400">tudo</strong> se paralisa. O segredo e ter uma estrategia de aprendizado sustentavel e focada.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📚</span> Estrategia de Aprendizado Sustentavel</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>2 newsletters semanais:</strong> Escolha 2 fontes confiaveis (ex: The Rundown AI, Ben's Bites) e leia fielmente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>1 experimento semanal:</strong> Toda semana, teste algo novo — uma ferramenta, um tipo de prompt, um caso de uso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>1 comunidade ativa:</strong> Participe de um grupo (LinkedIn, Discord, Slack) onde profissionais compartilham experiencias</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Just-in-time:</strong> Aprenda o que precisa quando precisa, nao "por precaucao". Foco em aplicacao imediata</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Fontes Recomendadas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>The Rundown AI</strong> — Newsletter diaria com as noticias mais importantes</li>
+          <li><strong>Ben's Bites</strong> — Curadoria de ferramentas e tendencias</li>
+          <li><strong>Lenny's Newsletter</strong> — IA aplicada a produto e negocio</li>
+          <li><strong>YouTube:</strong> Matt Wolfe, AI Explained — Videos explicativos de qualidade</li>
+          <li><strong>Twitter/X:</strong> Siga @AndrewYNg, @kaboree, @emaborsa para o contexto brasileiro</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🛠️ Seu Kit Pessoal</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Poucos e bons e melhor que muitos e superficiais. Seu <strong class="text-emerald-400">kit pessoal de IA</strong> deve ter 3-5 ferramentas que voce domina profundamente, nao 15 que voce mal conhece.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🛠️</span> Kit Recomendado por Perfil</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Perfil Executivo:</strong> Claude (analise e escrita) + Perplexity (pesquisa) + Gamma (apresentacoes)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Perfil Operacional:</strong> ChatGPT (versatilidade) + Perplexity (pesquisa) + ferramenta especifica da area</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Perfil Criativo:</strong> ChatGPT (texto + DALL-E) + Midjourney (imagens) + ElevenLabs (audio)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Perfil Tecnico:</strong> Claude (codigo) + ChatGPT (Code Interpreter) + Cursor/Copilot (IDE)</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Kit Essencial (gratuito)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>ChatGPT Free — para tarefas gerais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Claude Free — para textos longos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Perplexity Free — para pesquisa</span></li>
+          </ul>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">Kit Pro (~R$150/mes)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">→</span><span>ChatGPT Plus OU Claude Pro (R$100/mes)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">→</span><span>Perplexity Pro (R$50/mes)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">→</span><span>+ versoes gratuitas das demais</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🎯 De Dependencia a Independencia</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Autonomia significa usar IA com <strong class="text-emerald-400">intencao e consciencia</strong>, nao por habito automatico. O profissional autonomo sabe quando a IA agrega valor e quando atrapalha. Ele dirige o processo — a IA e o motor, nao o motorista.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Sinais de Uso Saudavel vs. Dependencia</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Saudavel:</strong> Voce usa IA para acelerar tarefas que ja sabe fazer</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Dependencia:</strong> Voce nao consegue comecar nada sem abrir o ChatGPT primeiro</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Saudavel:</strong> Voce revisa e melhora o output da IA com seu julgamento</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Dependencia:</strong> Voce copia e cola sem ler nem revisar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Saudavel:</strong> Voce escolhe conscientemente quando usar e quando nao usar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Dependencia:</strong> Voce sente ansiedade quando a IA esta fora do ar</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Uma vez por semana, faca uma tarefa importante SEM IA. Isso mantem suas habilidades afiadas e reforça que voce e o profissional — a IA e a ferramenta. O dia que a IA cair, voce precisa continuar funcionando.</p>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔮 Proximo Passo</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Voce completou a <strong class="text-emerald-400">Trilha 1 — Fundamentos de IA</strong>. Agora voce tem a base: entende como a IA funciona, sabe se comunicar com ela, conhece as ferramentas, aplica no dia a dia, cria momentos "aha" e usa com responsabilidade. Essa fundacao e solida. O proximo passo e construir sobre ela.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔮</span> O que Vem na Trilha 2: Pratica</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Prompting avancado:</strong> Tecnicas de nivel 4-5, system prompts, prompt chaining</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Automacoes:</strong> Conectar IA a ferramentas, criar fluxos automatizados, MCP</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Casos reais:</strong> Projetos praticos com entregaveis concretos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Especializacao:</strong> IA aplicada a areas especificas (vendas, marketing, RH, financeiro)</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🎯</span> Seu Plano de Acao</h3>
+        <p class="text-neutral-300 mb-4">Antes de comecar a Trilha 2, consolide a Trilha 1 com estas acoes:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">1.</span><span>Configure seu contexto pessoal em pelo menos 1 ferramenta</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">2.</span><span>Use IA todo dia por 1 semana (nem que seja 10 minutos)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">3.</span><span>Crie 1 momento "aha" para um colega</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">4.</span><span>Salve 5 prompts que funcionaram bem para sua biblioteca pessoal</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">5.</span><span>Assine 1 newsletter de IA e leia por 2 semanas</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🏆</span> Resumo da Trilha 1</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.1 O Novo Mundo</strong><span class="text-neutral-400"> - A revolucao silenciosa e o conceito PHA</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.2 Como a IA Pensa</strong><span class="text-neutral-400"> - LLMs, tokens, probabilidades e limites</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.3 A Arte do Prompt</strong><span class="text-neutral-400"> - Framework PCFTR e os 5 niveis</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.4 Ferramentas Essenciais</strong><span class="text-neutral-400"> - ChatGPT, Claude, Gemini e ecossistema</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.5 IA no Dia a Dia</strong><span class="text-neutral-400"> - E-mails, Excel, documentos, pesquisa</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.6 O Momento Aha</strong><span class="text-neutral-400"> - Demos que convertem ceticos em champions</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.7 Limites e Responsabilidade</strong><span class="text-neutral-400"> - Alucinacoes, etica, seguranca, guardrails</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">1.8 Construindo Autonomia</strong><span class="text-neutral-400"> - Memoria, fluxos, kit pessoal, independencia</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Proxima Trilha:</h3><p class="text-neutral-300">Trilha 2 - Pratica — Leve seus fundamentos para o proximo nivel com tecnicas avancadas, automacoes e projetos reais</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 1</a>
+          <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Iniciar Trilha 2: Pratica →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark');}else{themeToggleLightIcon.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light');});</script>
+</body>
+</html>

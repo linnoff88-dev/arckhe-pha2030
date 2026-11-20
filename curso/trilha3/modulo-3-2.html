@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 3.2 - Enxames de Agentes | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Inicio</a><span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span>
+      <span class="text-purple-400">Modulo 3.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULO 3.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🐝 Enxames de Agentes</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Descubra como multiplos agentes podem emergir comportamentos inteligentes sem controle centralizado, inspirados pela inteligencia coletiva da natureza.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🐝 O que sao Enxames</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Na natureza, uma abelha sozinha nao e inteligente. Mas uma colmeia de 50.000 abelhas resolve problemas complexos — encontra alimento, constroi estruturas e se defende. Nenhuma abelha "comanda" as outras. O comportamento inteligente <strong class="text-purple-400">emerge</strong> da interacao entre agentes simples seguindo regras locais. Enxames de agentes de IA aplicam o mesmo principio.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> Principios da Swarm Intelligence
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Descentralizacao:</strong> Nao existe um controlador central. Cada agente toma decisoes locais baseadas no que percebe ao redor.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Regras simples:</strong> Cada agente segue poucas regras basicas, mas a interacao entre muitos agentes gera complexidade util.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Emergencia:</strong> O comportamento do grupo e mais inteligente do que qualquer agente individual — a soma e maior que as partes.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Resiliencia:</strong> Se um agente falha, o enxame continua. Nao existe ponto unico de falha.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Numeros que Importam</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>OpenAI Swarm</strong> - Framework lancado em outubro 2024 — validou o conceito de enxames como padrao de mercado</li>
+          <li><strong>300%</strong> - Aumento de produtividade em processos de suporte usando enxames vs. agentes unicos (case Intercom)</li>
+          <li><strong>$2.1 bilhoes</strong> - Investimento em startups de multi-agent systems so em 2025</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔄 Emergencia vs. Controle</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A grande questao no design de enxames: quanto controle voce da vs. quanta liberdade permite? <strong class="text-purple-400">Controle demais</strong> mata a emergencia e voce acaba com orquestracao rigida. <strong class="text-purple-400">Liberdade demais</strong> gera caos e resultados imprevisiveis. O segredo esta no equilibrio.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Quando usar Emergencia</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Problemas onde a melhor solucao nao e conhecida antecipadamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ambientes que mudam rapidamente e exigem adaptacao</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tarefas de exploracao — busca ampla de alternativas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cenarios onde resiliencia e mais importante que otimalidade</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Quando usar Controle Rigido</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Processos regulados com compliance obrigatorio</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarefas onde erros tem custo alto (financeiro, medico)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resultados que precisam ser reproduziveis e auditaveis</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ambientes onde previsibilidade e mais importante que criatividade</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Na pratica, a maioria dos sistemas de producao usa um hibrido: emergencia para as partes exploratórias (pesquisa, brainstorming, analise) e controle rigido para as partes criticas (aprovacao, execucao financeira, comunicacao externa). Pense em "guardrails com liberdade dentro".</p>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🏢 Casos Reais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Enxames de agentes nao sao teoria academica. Empresas reais ja estao usando essa abordagem para resolver <strong class="text-purple-400">problemas que nenhum agente unico conseguiria</strong>. Os resultados sao concretos e mensuráveis.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Suporte ao Cliente em Escala</h4>
+            <p class="text-sm text-neutral-400 mb-3">Empresa de SaaS com 50.000 tickets/mes</p>
+            <p class="text-neutral-300 text-sm">Enxame de agentes triadores classifica tickets por urgencia e tema. Agentes especialistas respondem por dominio (billing, tecnico, onboarding). Agente supervisor monitora qualidade e escala para humanos quando necessario. Resultado: 73% de resolucao automatica com 94% de satisfacao.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Analise de Documentos Juridicos</h4>
+            <p class="text-sm text-neutral-400 mb-3">Escritorio de advocacia com milhares de contratos</p>
+            <p class="text-neutral-300 text-sm">Enxame de agentes processa contratos em paralelo: um extrai clausulas de risco, outro compara com padrao do mercado, outro identifica inconsistencias. O enxame processa 500 contratos por hora — um advogado faz 3-5 por dia. A revisao humana final foca apenas nos riscos identificados.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pesquisa de Mercado Distribuida</h4>
+            <p class="text-sm text-neutral-400 mb-3">Consultoria estrategica</p>
+            <p class="text-neutral-300 text-sm">30 agentes pesquisam simultaneamente em fontes diferentes (relatorios, noticias, patentes, redes sociais). Agentes consolidadores cruzam informacoes e identificam tendencias. O relatorio final, que levaria 2 semanas, fica pronto em 4 horas com mais fontes consultadas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🧪 Frameworks de Enxame</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Voce nao precisa construir um framework de enxame do zero. O ecossistema ja oferece opcoes maduras para diferentes necessidades. A escolha certa depende da <strong class="text-purple-400">complexidade do problema, do nivel de controle desejado e da experiencia tecnica</strong> da equipe.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🛠️</span> Comparacao de Frameworks</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>OpenAI Swarm:</strong> Leve e experimental. Ideal para prototipos rapidos. Handoffs simples entre agentes. Codigo aberto. Limitado em funcionalidades avancadas.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>CrewAI:</strong> Times estruturados com papeis e processos. Excelente para tarefas de negocios. Boa documentacao. Abstrai complexidade para nao-programadores.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>AutoGen (Microsoft):</strong> Agentes conversacionais que debatem entre si. Forte em tarefas que exigem discussao e consenso. Mais complexo de configurar.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>LangGraph:</strong> Grafos de estado para fluxos complexos com loops e condicoes. Maximo controle, mas exige mais conhecimento tecnico. Ideal para producao.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Para iniciantes: comece com CrewAI — e o mais intuitivo e tem a menor curva de aprendizado. Para prototipos rapidos: OpenAI Swarm. Para producao enterprise: LangGraph. Nao perca tempo comparando infinitamente — escolha um, aprenda, e migre depois se necessario.</p>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">⚖️ Governanca de Enxames</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Autonomia sem supervisao e irresponsabilidade. Quando voce tem dezenas de agentes tomando decisoes e executando acoes, a pergunta critica e: <strong class="text-purple-400">quem supervisiona os supervisores?</strong> Governanca de enxames define os limites, as regras e os mecanismos de controle que garantem que o sistema se comporta como esperado.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🛡️</span> Pilares da Governanca</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Limites de Acao:</strong> Cada agente so pode executar acoes especificas. Um agente de pesquisa nao pode enviar emails. Um agente de rascunho nao pode publicar.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Pontos de Aprovacao:</strong> Decisoes de alto impacto (enviar para cliente, gastar dinheiro, alterar dados) exigem aprovacao humana antes da execucao.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Logs Auditaveis:</strong> Toda acao de todo agente e registrada com timestamp, input, output e decisao tomada. Trilha de auditoria completa.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Kill Switch:</strong> Capacidade de parar todo o enxame instantaneamente se algo sair do esperado. Essencial em producao.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Riscos sem Governanca</h3>
+        <p class="text-neutral-300">Sem governanca adequada, enxames podem: enviar comunicacoes nao autorizadas a clientes, tomar decisoes financeiras sem aprovacao, gerar conteudo inadequado em escala, consumir recursos computacionais sem limite (custos descontrolados), e criar loops infinitos que travam sistemas inteiros. Cada um desses riscos ja aconteceu em empresas reais.</p>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🚀 O Futuro dos Enxames</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Estamos no comeco de uma transformacao fundamental na forma como o trabalho e organizado. Se o ChatGPT foi o "momento iPhone" da IA, enxames de agentes serao o <strong class="text-purple-400">"momento internet"</strong> — quando a IA passa de ferramenta individual para infraestrutura organizacional.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2026</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Enxames Especializados</h4>
+            <p class="text-neutral-300 text-sm">Empresas comecam a ter "departamentos digitais" — enxames de agentes dedicados a funcoes especificas como suporte, analise e producao de conteudo. Humanos supervisionam e refinam.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2027</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Economia de Agentes</h4>
+            <p class="text-neutral-300 text-sm">Agentes comecam a negociar entre si — contratando servicos de outros agentes, comprando dados, e formando coalizoes temporarias para resolver problemas. Marketplace de agentes.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2030</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Organizacoes Aumentadas</h4>
+            <p class="text-neutral-300 text-sm">Empresas operam com equipes hibridas humano-agente como padrao. O papel do humano evolui para estrategista, supervisor e curador. Enxames executam a operacao. A produtividade por funcionario sera 10-50x maior.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Nao espere o futuro ficar perfeito para comecar. Monte seu primeiro enxame simples (3-5 agentes) esta semana. Use para uma tarefa real do seu trabalho. A experiencia pratica vale mais que 100 horas de teoria. Quem experimenta agora lidera depois.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Swarm Intelligence</strong><span class="text-neutral-400"> - Comportamento inteligente emerge da interacao de agentes simples</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Emergencia vs. Controle</strong><span class="text-neutral-400"> - O equilibrio entre liberdade e previsibilidade define o sucesso</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Casos Reais</strong><span class="text-neutral-400"> - Suporte, juridico e pesquisa ja usam enxames com resultados concretos</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Frameworks</strong><span class="text-neutral-400"> - CrewAI, OpenAI Swarm, AutoGen e LangGraph para diferentes necessidades</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Governanca</strong><span class="text-neutral-400"> - Limites, aprovacao humana, logs e kill switch sao obrigatorios</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Futuro</strong><span class="text-neutral-400"> - De departamentos digitais a organizacoes aumentadas ate 2030</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Proximo Modulo:</h3>
+          <p class="text-neutral-300">3.3 - Vibe Coding — Construa software real descrevendo o que voce quer em linguagem natural</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

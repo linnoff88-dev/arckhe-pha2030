@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 2 - IA na Pratica | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode overrides - OBRIGATORIO */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode - cores de acento (trilha blue) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+
+    /* Light mode - remove gradientes (fundo uniforme) */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">
+        TRILHA 2
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚡ IA na Pratica</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Saia da teoria e coloque a IA para trabalhar. Domine produtividade, escrita, analise de dados, automacoes no-code, agentes inteligentes, integracoes MCP e ferramentas avancadas como Claude Code e CoWork.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">8</div>
+          <div class="text-xs text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">48</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">~4.5h</div>
+          <div class="text-xs text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Pratico</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGACAO RAPIDA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegacao Rapida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-2-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.1</span>
+          <h3 class="font-semibold mt-1">⚡ Produtividade Aumentada</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-2-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.2</span>
+          <h3 class="font-semibold mt-1">📝 Escrita com IA</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-2-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.3</span>
+          <h3 class="font-semibold mt-1">📈 Analise de Dados com IA</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-2-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.4</span>
+          <h3 class="font-semibold mt-1">🔄 Automacoes No-Code</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-2-5.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.5</span>
+          <h3 class="font-semibold mt-1">🤖 Introducao a Agentes</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-2-6.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.6</span>
+          <h3 class="font-semibold mt-1">🔌 MCP e Integracoes</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-2-7.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.7</span>
+          <h3 class="font-semibold mt-1">💻 Claude Code para Curiosos</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-2-8.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-blue-400 font-bold text-sm">2.8</span>
+          <h3 class="font-semibold mt-1">🏗️ Claude CoWork na Pratica</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="border-t border-dark-600 mb-12 pt-8">
+      <h2 class="text-2xl font-bold">Conteudo Detalhado</h2>
+      <p class="text-neutral-400 mt-2">Explore cada modulo com seus topicos, conceitos e objetivos de aprendizagem.</p>
+    </div>
+
+    <!-- MODULO 2.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.1</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">⚡ Produtividade Aumentada</h3>
+        <p class="text-neutral-400 text-sm">Identifique gargalos, crie templates, automatize repeticoes e meca sua evolucao com IA como copiloto de produtividade.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">A Regra 80/20 da IA</span>
+              <span class="text-neutral-500 text-sm ml-2">- Identificar as tarefas que mais drenam tempo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A aplicacao do principio de Pareto na adocao de IA: 20% das suas tarefas consomem 80% do seu tempo. Identificar essas tarefas e o primeiro passo para ganhos massivos de produtividade.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem priorizacao, voce automatiza tarefas irrelevantes. Com o 80/20, voce ataca primeiro o que gera mais impacto e libera horas do seu dia imediatamente.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Principio de Pareto aplicado a IA, auditoria de tempo, mapeamento de tarefas repetitivas, priorizacao por impacto vs. esforco, quick wins.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Templates Inteligentes</span>
+              <span class="text-neutral-500 text-sm ml-2">- Criar modelos reutilizaveis com IA</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Templates sao prompts estruturados que voce cria uma vez e reutiliza dezenas de vezes. Eles padronizam a qualidade e eliminam o tempo de pensar "como vou pedir isso para a IA".</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um bom template transforma 15 minutos de trabalho em 30 segundos. Multiplicado por semanas, isso representa dezenas de horas recuperadas.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura de template (contexto + instrucao + formato), variaveis dinamicas, biblioteca pessoal de prompts, versionamento de templates.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Workflows Repetitivos</span>
+              <span class="text-neutral-500 text-sm ml-2">- Automatizar o que voce faz mais de 3 vezes</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A regra de ouro da automacao: se voce faz algo mais de 3 vezes, vale a pena criar um workflow com IA. Desde respostas padrao ate processos completos de analise.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Workflows eliminam a fadiga de decisao e garantem consistencia. Voce para de reinventar a roda e foca no que realmente exige seu cerebro.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Regra das 3 repeticoes, mapeamento de processos, cadeia de prompts, batch processing, delegacao inteligente para IA.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⏱️</span>
+            <div>
+              <span class="font-medium">Gestao de Tempo com IA</span>
+              <span class="text-neutral-500 text-sm ml-2">- Priorizar, delegar para IA, focar no estrategico</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Uma nova abordagem de gestao de tempo que inclui a IA como recurso. A matriz de Eisenhower ganha uma terceira dimensao: urgente, importante e delegavel para IA.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Produtividade sem gestao de tempo e apenas velocidade sem direcao. Com IA, voce finalmente consegue focar no estrategico e delegar o operacional.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Matriz de Eisenhower + IA, time blocking com IA, deep work protegido, triagem automatizada, rotina matinal com IA.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Metricas Pessoais</span>
+              <span class="text-neutral-500 text-sm ml-2">- Medir sua evolucao de produtividade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um sistema simples para medir quanto tempo voce economiza com IA. Sem metricas, voce nao sabe se esta evoluindo ou apenas se sentindo produtivo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados concretos de economia de tempo sao o melhor argumento para expandir o uso de IA na equipe e justificar investimentos em ferramentas.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tempo economizado por tarefa, qualidade do output, taxa de retrabalho, ROI pessoal de IA, diario de produtividade.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🚀</span>
+            <div>
+              <span class="font-medium">Aceleracoes Rapidas</span>
+              <span class="text-neutral-500 text-sm ml-2">- 10 hacks de produtividade imediatos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Uma lista curada de 10 acoes que voce pode implementar hoje para ganhos imediatos: resumir reunioes, gerar rascunhos, traduzir documentos, criar checklists e mais.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Acao imediata gera momentum. Quando voce ve resultados rapidos, a motivacao para aprofundar aumenta exponencialmente.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Quick wins, implementacao em 5 minutos, habitos atomicos com IA, stack de produtividade pessoal, efeito composto de pequenas automacoes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-1.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.2</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📝 Escrita com IA</h3>
+        <p class="text-neutral-400 text-sm">Domine a co-escrita com IA para documentos profissionais, comunicacao corporativa, relatorios e revisao de textos.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">✍️</span>
+            <div><span class="font-medium">Co-escrita vs. Delegacao</span><span class="text-neutral-500 text-sm ml-2">- Quando escrever junto e quando delegar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A distincao entre usar IA como parceira de escrita (co-escrita) e pedir que ela produza o texto inteiro (delegacao). Cada abordagem serve para situacoes diferentes.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Usar a abordagem errada gera textos genericos ou desperica tempo. Saber quando co-escrever e quando delegar e a chave para qualidade + velocidade.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Espectro de delegacao, textos de alto vs. baixo risco, iteracao colaborativa, o papel do julgamento humano na escrita.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📄</span>
+            <div><span class="font-medium">Documentos Profissionais</span><span class="text-neutral-500 text-sm ml-2">- Propostas, contratos, apresentacoes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para criar documentos profissionais de alta qualidade com IA: propostas comerciais, contratos, apresentacoes executivas e briefings.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Documentos profissionais consomem horas. Com IA, voce gera um primeiro rascunho solido em minutos e foca o tempo no refinamento estrategico.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura de propostas, linguagem juridica assistida, slides com narrativa, formatacao profissional, revisao em camadas.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎭</span>
+            <div><span class="font-medium">Tom de Voz</span><span class="text-neutral-500 text-sm ml-2">- Adaptar a escrita para diferentes publicos e contextos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A capacidade de instruir a IA a escrever com diferentes tons: formal para diretoria, tecnico para engenharia, empático para RH, persuasivo para vendas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O mesmo conteudo precisa de tons diferentes para publicos diferentes. Dominar o controle de tom multiplica a efetividade da comunicacao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Personas de escrita, niveis de formalidade, exemplos de referencia, ajuste de vocabulario, consistencia de marca.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📧</span>
+            <div><span class="font-medium">Comunicacao Corporativa</span><span class="text-neutral-500 text-sm ml-2">- E-mails, memos, comunicados internos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Uso pratico de IA para a comunicacao do dia a dia corporativo: e-mails claros, memos executivos, comunicados internos, atas de reuniao e follow-ups.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Profissionais gastam em media 2.5 horas por dia em e-mails. Reduzir esse tempo em 50% com IA libera mais de 1 hora diaria para trabalho estrategico.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Templates de e-mail, resumo de threads longas, geracao de atas, comunicados para diferentes niveis hierarquicos, follow-up automatizado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Relatorios com Dados</span><span class="text-neutral-500 text-sm ml-2">- Transformar numeros em narrativa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A arte de pegar dados brutos — planilhas, KPIs, metricas — e transformar em narrativas claras que comunicam insights para tomadores de decisao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados sem narrativa nao geram acao. Com IA, voce transforma tabelas complexas em relatorios executivos que convencem e direcionam decisoes.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Data storytelling, estrutura de relatorio executivo, destaque de anomalias, recomendacoes baseadas em dados, visualizacao textual.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">✅</span>
+            <div><span class="font-medium">Revisao e Refinamento</span><span class="text-neutral-500 text-sm ml-2">- Usar IA para editar, nao apenas gerar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O uso da IA como editora: revisar gramatica, melhorar clareza, cortar redundancias, verificar consistencia e elevar a qualidade de textos ja escritos por voce.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A IA como revisora e muitas vezes mais valiosa que a IA como geradora. Textos humanos editados por IA sao superiores a textos 100% gerados por IA.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Revisao em camadas (estrutura, clareza, gramatica), feedback construtivo, simplificacao de linguagem, checklist de qualidade, iteracao de refinamento.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-2.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.3</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📈 Analise de Dados com IA</h3>
+        <p class="text-neutral-400 text-sm">Turbine planilhas, explore dados com linguagem natural, crie dashboards rapidos e extraia insights acionaveis.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">IA + Planilhas</span><span class="text-neutral-500 text-sm ml-2">- Excel e Google Sheets turbinados</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A integracao de IA diretamente em planilhas: gerar formulas complexas com linguagem natural, limpar dados automaticamente, criar tabelas dinamicas sem conhecimento avancado.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Planilhas sao a ferramenta mais usada no mundo corporativo. Quem domina IA + planilhas faz em 5 minutos o que outros levam horas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Geracao de formulas via prompt, limpeza de dados com IA, VLOOKUP e pivot tables assistidos, Google Sheets com Gemini, Copilot no Excel.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Exploracao de Dados</span><span class="text-neutral-500 text-sm ml-2">- Perguntar para seus dados em linguagem natural</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A capacidade de fazer perguntas em portugues sobre seus dados e receber respostas em texto, tabelas ou graficos. Sem SQL, sem programacao, sem complicacao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Democratiza o acesso a dados. Gestores que antes dependiam de analistas agora podem explorar dados diretamente e tomar decisoes mais rapidas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Natural Language Querying, upload de CSV para Claude, analise exploratoria assistida, perguntas que geram insight, iteracao sobre resultados.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Dashboards Rapidos</span><span class="text-neutral-500 text-sm ml-2">- Visualizacoes sem saber programar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Criar graficos, paineis e visualizacoes de dados profissionais usando IA, sem necessidade de ferramentas complexas ou conhecimento de programacao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados visuais comunicam 60.000x mais rapido que texto. Criar dashboards rapidamente transforma reunioes e apresentacoes.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Artifacts do Claude para graficos, geracao de codigo de visualizacao, escolha do tipo certo de grafico, dashboards em Google Sheets, exportacao para apresentacoes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧮</span>
+            <div><span class="font-medium">Power BI + Claude</span><span class="text-neutral-500 text-sm ml-2">- Integracao para analises avancadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como usar Claude para criar medidas DAX, otimizar modelos de dados e gerar insights a partir de relatorios Power BI existentes.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Power BI e a ferramenta de BI mais usada no Brasil corporativo. Combinar com IA reduz drasticamente a curva de aprendizado e acelera a criacao de relatorios.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">DAX assistido por IA, modelagem de dados com orientacao, M Query gerado por prompts, otimizacao de performance, narrativas automaticas.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Insights Acionaveis</span><span class="text-neutral-500 text-sm ml-2">- De dados brutos a decisoes praticas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de transformar analises em acoes concretas: identificar padroes, detectar anomalias, prever tendencias e recomendar proximos passos.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Analise sem acao e desperdicio. O valor real da analise de dados esta na decisao que ela informa. IA acelera o caminho de dados para acao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Framework dados-insight-acao, deteccao de padroes, analise de tendencias, recomendacoes automatizadas, priorizacao por impacto.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⚠️</span>
+            <div><span class="font-medium">Limites da Analise com IA</span><span class="text-neutral-500 text-sm ml-2">- Quando confiar e quando validar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os riscos reais de confiar cegamente em analises feitas por IA: alucinacoes em calculos, correlacoes falsas, vieses nos dados e limites de precisao numerica.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Uma decisao baseada em dados errados e pior que nenhuma decisao. Saber quando validar e a diferenca entre usar IA de forma inteligente e de forma irresponsavel.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Alucinacoes numericas, vieses de dados, validacao cruzada, limites de LLMs com matematica, quando usar ferramentas especializadas.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.4</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔄 Automacoes No-Code</h3>
+        <p class="text-neutral-400 text-sm">Automatize processos sem programar usando Make, Zapier e n8n. Da ideia ao fluxo funcionando em minutos.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔧</span>
+            <div><span class="font-medium">O que e No-Code</span><span class="text-neutral-500 text-sm ml-2">- Automatizar sem saber programar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Plataformas que permitem criar automacoes arrastando blocos visuais, sem escrever uma linha de codigo. Conectam apps, processam dados e executam acoes automaticamente.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No-code democratiza a automacao. Qualquer profissional pode criar fluxos que antes exigiam um programador, eliminando gargalos de TI.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Automacao visual, triggers e acoes, integracao de APIs sem codigo, cenarios e workflows, custo vs. beneficio de automacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🟠</span>
+            <div><span class="font-medium">Make.com</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Make.com (antigo Integromat) e a plataforma no-code mais visual e flexivel do mercado. Ideal para fluxos complexos com ramificacoes, filtros e tratamento de erros.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Make tem a melhor relacao custo-beneficio e a interface mais intuitiva para automacoes complexas. E a escolha preferida de profissionais que querem ir alem do basico.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cenarios, modulos, roteadores, filtros, tratamento de erros, webhooks, integracoes com IA (Claude, GPT), plano gratuito e limites.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚡</span>
+            <div><span class="font-medium">Zapier</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Zapier e a plataforma no-code com o maior numero de integracoes (7.000+ apps). Ideal para automacoes simples e rapidas entre ferramentas populares.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Se o app que voce usa existe, provavelmente tem integracao no Zapier. E a opcao mais rapida para conectar ferramentas sem complicacao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Zaps, triggers, actions, multi-step zaps, Zapier AI, Tables, Interfaces, plano gratuito e limites.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🟢</span>
+            <div><span class="font-medium">n8n</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">n8n e a plataforma no-code open source mais poderosa. Pode ser hospedada localmente (dados ficam com voce) e tem o melhor suporte nativo para agentes de IA.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para quem valoriza privacidade e controle, n8n e imbativel. E a unica plataforma que combina automacao classica com agentes de IA nativamente.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Self-hosted vs. cloud, nodes, workflows, credentials, AI Agent node, community nodes, plano gratuito e limites.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Escolhendo a Plataforma</span><span class="text-neutral-500 text-sm ml-2">- Comparacao e mapa de decisao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um framework de decisao para escolher entre Make, Zapier e n8n baseado em criterios como complexidade do fluxo, orcamento, privacidade e necessidade de IA.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escolher a plataforma errada custa tempo e dinheiro. Um mapa de decisao claro evita migracao dolorosa no futuro.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Matriz de comparacao, criterios de selecao, custo total de propriedade, escalabilidade, ecossistema de comunidade, curva de aprendizado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">Primeira Automacao</span><span class="text-neutral-500 text-sm ml-2">- Passo a passo: da ideia ao fluxo funcionando</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um guia passo a passo para criar sua primeira automacao completa: definir o problema, escolher a plataforma, montar o fluxo, testar e colocar em producao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Teoria sem pratica nao gera resultado. Construir a primeira automacao quebra a barreira do "nao sei por onde comecar" e abre portas para dezenas de outras.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Design thinking para automacao, MVP de workflow, testes e debugging, monitoramento, documentacao do fluxo, iteracao e melhoria.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-4.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🤖 Introducao a Agentes</h3>
+        <p class="text-neutral-400 text-sm">Entenda o que sao agentes de IA, como eles pensam, quando usar e como criar seus primeiros agentes praticos.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">O que e um Agente de IA</span><span class="text-neutral-500 text-sm ml-2">- Definicao pratica, sem hype</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um agente de IA e um sistema que recebe um objetivo, planeja os passos necessarios, usa ferramentas para executar e itera ate completar a tarefa — tudo com autonomia limitada.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Agentes sao a proxima fronteira da IA. Enquanto chatbots respondem, agentes agem. Entender essa diferenca e fundamental para o futuro do trabalho.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Autonomia vs. controle, loop de raciocinio, uso de ferramentas, diferenca entre agente e chatbot, exemplos praticos de agentes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🧠</span>
+            <div><span class="font-medium">Como Agentes Pensam</span><span class="text-neutral-500 text-sm ml-2">- Loop de raciocinio, ferramentas, autonomia</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O ciclo Observar-Pensar-Agir que agentes executam: recebem informacao, raciocinam sobre o proximo passo, usam uma ferramenta, observam o resultado e repetem.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o loop de raciocinio permite projetar agentes melhores, diagnosticar falhas e definir limites de autonomia adequados.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ReAct pattern, chain-of-thought, tool use, memory de agentes, limites de iteracao, quando o agente deve parar e pedir ajuda.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔧</span>
+            <div><span class="font-medium">Agentes em n8n</span><span class="text-neutral-500 text-sm ml-2">- O node de agente e suas possibilidades</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O AI Agent node do n8n permite criar agentes que usam ferramentas (busca web, banco de dados, APIs) para completar tarefas complexas de forma autonoma.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">n8n e a forma mais acessivel de criar agentes sem programar. O AI Agent node combina a facilidade do no-code com o poder dos agentes de IA.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">AI Agent node, tool nodes, system prompt do agente, memoria conversacional, sub-workflows como ferramentas, debug de agentes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Primeiros Agentes Praticos</span><span class="text-neutral-500 text-sm ml-2">- 3 agentes que voce pode criar hoje</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tres agentes praticos para comecar: um agente de pesquisa que busca e resume informacoes, um agente de e-mail que classifica e responde, e um agente de dados que analisa planilhas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A melhor forma de entender agentes e construindo um. Esses tres exemplos cobrem os casos de uso mais comuns e servem de base para agentes mais complexos.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Agente de pesquisa, agente de triagem, agente de analise, configuracao passo a passo, testes e validacao, iteracao sobre resultados.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Agentes vs. Automacoes</span><span class="text-neutral-500 text-sm ml-2">- Quando usar cada abordagem</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A distincao entre automacoes deterministas (sempre fazem a mesma coisa) e agentes (decidem o que fazer). Cada abordagem tem forcas e fraquezas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Usar agente quando uma automacao simples resolve e desperdicio. Usar automacao quando o problema exige raciocinio e frustracao. Saber escolher e essencial.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Determinismo vs. autonomia, custo de execucao, previsibilidade, complexidade do problema, arvore de decisao para escolha.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Guardrails para Agentes</span><span class="text-neutral-500 text-sm ml-2">- Limitar escopo, supervisionar, iterar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Mecanismos de seguranca para agentes: limites de acao, supervisao humana, fallbacks, logs de auditoria e principios de menor privilegio.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um agente sem guardrails e um risco. Com guardrails, e um assistente poderoso. A diferenca entre os dois e planejamento e limites claros.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Principio do menor privilegio, human-in-the-loop, limites de iteracao, fallback para humano, auditoria de acoes, testes de estresse.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-5.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.6</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔌 MCP e Integracoes</h3>
+        <p class="text-neutral-400 text-sm">Conecte IA a ferramentas reais com o Model Context Protocol. De acesso a dados locais a cadeias de integracoes seguras.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔌</span>
+            <div><span class="font-medium">O que e MCP</span><span class="text-neutral-500 text-sm ml-2">- Model Context Protocol explicado de forma simples</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">MCP e um protocolo aberto que permite a IA se conectar a ferramentas externas de forma padronizada. Pense como um USB universal para IA: uma porta, infinitas possibilidades.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">MCP e o futuro das integracoes de IA. Quem entende agora tera vantagem quando se tornar padrao da industria — e ja esta acontecendo.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Protocolo aberto, servidor MCP, cliente MCP, ferramentas e recursos, padronizacao de integracoes, ecossistema crescente.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🌐</span>
+            <div><span class="font-medium">Servidores MCP</span><span class="text-neutral-500 text-sm ml-2">- Como conectar IA a ferramentas reais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Servidores MCP sao programas que expoe ferramentas para a IA usar: acesso a arquivos, bancos de dados, APIs, navegador web e qualquer sistema que voce queira integrar.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Servidores MCP transformam a IA de um chatbot isolado em um assistente conectado ao seu ecossistema real de trabalho.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Servidores populares (filesystem, GitHub, Slack, databases), instalacao, configuracao, marketplace de servidores MCP.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔧</span>
+            <div><span class="font-medium">MCP na Pratica</span><span class="text-neutral-500 text-sm ml-2">- Configurar sua primeira integracao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um guia passo a passo para configurar seu primeiro servidor MCP: instalar, configurar no Claude Desktop, testar e usar no dia a dia.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A teoria sem pratica nao conecta nada. Configurar uma integracao real desmistifica o processo e abre caminho para integracoes mais complexas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Instalacao via npx/pip, arquivo de configuracao, teste de conexao, debugging de erros comuns, primeiro uso produtivo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📂</span>
+            <div><span class="font-medium">Acesso a Dados Locais</span><span class="text-neutral-500 text-sm ml-2">- Arquivos, bancos de dados, APIs internas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Usar MCP para dar a IA acesso controlado a seus arquivos locais, bancos de dados internos e APIs privadas — sem enviar dados para a nuvem.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados locais sao onde esta o valor real. Conectar IA aos seus dados proprietarios gera insights que nenhuma IA generica consegue oferecer.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Filesystem MCP server, SQLite/PostgreSQL connector, permissoes de leitura/escrita, sandbox de seguranca, dados sensiveis.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔗</span>
+            <div><span class="font-medium">Cadeia de Integracoes</span><span class="text-neutral-500 text-sm ml-2">- Conectar multiplas ferramentas via MCP</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A configuracao de multiplos servidores MCP simultaneamente, permitindo que a IA acesse arquivos, banco de dados, web e ferramentas de comunicacao na mesma conversa.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O poder real do MCP esta na combinacao. Um agente com acesso a e-mail + banco de dados + calendario pode orquestrar tarefas complexas de verdade.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Multiplos servidores, orquestracao, prioridade de ferramentas, conflitos de permissao, performance com muitas integracoes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔒</span>
+            <div><span class="font-medium">Seguranca em Integracoes</span><span class="text-neutral-500 text-sm ml-2">- Permissoes, tokens, boas praticas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Boas praticas de seguranca para integracoes MCP: principio do menor privilegio, gestao de tokens, rotacao de credenciais e monitoramento de acessos.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Uma integracao insegura e um risco para a empresa inteira. Seguranca bem feita permite aproveitar o maximo das integracoes sem expor dados sensiveis.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Menor privilegio, tokens de acesso, rotacao de credenciais, auditoria de logs, RBAC, dados sensiveis e compliance.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-6.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.7</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💻 Claude Code para Curiosos</h3>
+        <p class="text-neutral-400 text-sm">Descubra o poder do Claude Code mesmo sem ser programador. CLI, Skills, subagentes e seu primeiro projeto funcional.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💻</span>
+            <div><span class="font-medium">O que e Claude Code</span><span class="text-neutral-500 text-sm ml-2">- CLI explicada para nao-programadores</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Claude Code e a interface de linha de comando do Claude. Ao inves de usar o chat pelo navegador, voce conversa com o Claude diretamente no terminal, com acesso total ao seu computador.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Claude Code transforma o Claude de um assistente de chat em um agente que pode ler, criar e editar arquivos, executar comandos e construir projetos inteiros.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">CLI vs. interface web, terminal basico, como instalar, primeiro comando, diferenca entre Claude.ai e Claude Code.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📝</span>
+            <div><span class="font-medium">Claude.md</span><span class="text-neutral-500 text-sm ml-2">- Seu arquivo de memoria e configuracao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O arquivo CLAUDE.md e a "memoria persistente" do Claude Code. Nele voce define preferencias, padroes, contexto do projeto e instrucoes que o Claude sempre seguira.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um CLAUDE.md bem escrito elimina repeticao de instrucoes e garante consistencia. E como treinar um assistente pessoal que nunca esquece suas preferencias.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura do CLAUDE.md, niveis (global, projeto, pasta), boas praticas de escrita, exemplos reais, manutencao e atualizacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚡</span>
+            <div><span class="font-medium">Skills e Slash Commands</span><span class="text-neutral-500 text-sm ml-2">- Automacoes prontas para usar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Skills sao comandos predefinidos que voce cria e invoca com /nome-do-comando. Eles encapsulam instrucoes complexas em atalhos simples e reutilizaveis.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Skills transformam tarefas de 10 passos em um unico comando. Sao a forma mais poderosa de padronizar e acelerar seu uso do Claude Code.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura de uma skill, pasta .claude/skills, parametros, exemplos praticos, skills da comunidade, compartilhamento de skills.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">Subagentes</span><span class="text-neutral-500 text-sm ml-2">- Delegar tarefas complexas para equipes de IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Subagentes sao instancias de Claude Code que o agente principal cria para executar subtarefas em paralelo. E como ter uma equipe de IA trabalhando simultaneamente.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Subagentes multiplicam a capacidade de trabalho. Uma tarefa que levaria 1 hora pode ser dividida entre 4 subagentes e concluida em 15 minutos.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Delegacao de tarefas, paralelismo, orquestracao, limites de subagentes, quando usar vs. quando fazer sequencial.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">Primeiro Projeto</span><span class="text-neutral-500 text-sm ml-2">- Criar algo funcional do zero com Claude Code</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um exercicio guiado para criar um projeto funcional do zero: uma pagina web, um script de automacao ou uma ferramenta simples — tudo com Claude Code fazendo o trabalho pesado.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Criar algo tangivel consolida o aprendizado e prova que voce pode construir coisas reais com IA, mesmo sem saber programar.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Definicao de escopo, instrucoes claras, iteracao sobre resultado, debugging assistido, deploy basico, portfolio pessoal.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Quando Usar Claude Code</span><span class="text-neutral-500 text-sm ml-2">- Mapa de situacoes ideais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um guia de decisao para saber quando Claude Code e a melhor opcao: projetos com muitos arquivos, tarefas que exigem acesso ao sistema, automacoes complexas e criacao de conteudo estruturado.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Usar a ferramenta certa para cada situacao maximiza resultados. Saber quando o Claude Code supera o chat evita frustracao e otimiza tempo.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mapa de decisao Code vs. Chat, tarefas com contexto grande, operacoes em lote, projetos multi-arquivo, integracao com Git.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-7.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 2.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.8</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🏗️ Claude CoWork na Pratica</h3>
+        <p class="text-neutral-400 text-sm">A interface visual para colaboracao com IA: plugins de Excel e PowerPoint, tarefas agendadas, team sharing e a regra 70/30.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">O que e Claude CoWork</span><span class="text-neutral-500 text-sm ml-2">- Interface visual para colaboracao com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Claude CoWork e a plataforma de colaboracao visual da Anthropic. Permite usar Claude com interface grafica, plugins para Office, tarefas agendadas e compartilhamento em equipe.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para quem prefere interface visual ao terminal, CoWork oferece o poder do Claude em um ambiente amigavel e colaborativo.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Interface visual, workspaces, projetos, diferenca entre Claude.ai e CoWork, planos e precos, integracao com equipe.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Plugin Excel</span><span class="text-neutral-500 text-sm ml-2">- Manipular dados sem sair da planilha</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O plugin de Excel do CoWork permite usar Claude diretamente dentro da planilha: gerar formulas, analisar dados, criar graficos e automatizar tarefas repetitivas sem sair do Excel.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Excel e a ferramenta mais usada no mundo corporativo. Ter Claude dentro do Excel elimina a friccao de copiar dados entre ferramentas.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Instalacao do plugin, comandos disponiveis, analise in-cell, geracao de formulas, limpeza de dados, limitacoes atuais.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📑</span>
+            <div><span class="font-medium">Plugin PowerPoint</span><span class="text-neutral-500 text-sm ml-2">- Criar apresentacoes profissionais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O plugin de PowerPoint permite que Claude crie, edite e formate apresentacoes diretamente no PowerPoint: estrutura de slides, conteudo, design e notas do apresentador.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Apresentacoes consomem horas. Com o plugin, voce gera uma apresentacao profissional em minutos e foca o tempo no ensaio e na mensagem.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Geracao de slides por topico, formatacao automatica, notas do apresentador, templates corporativos, exportacao e refinamento.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⏰</span>
+            <div><span class="font-medium">Tarefas Agendadas</span><span class="text-neutral-500 text-sm ml-2">- Cron jobs: IA trabalhando enquanto voce dorme</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tarefas agendadas permitem que Claude execute acoes automaticamente em horarios definidos: relatorios diarios, monitoramento, atualizacoes e processamento de dados.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">IA agendada trabalha 24/7. Relatorios prontos ao amanhecer, dados processados durante a noite, alertas em tempo real — tudo sem intervencao humana.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cron jobs com Claude, agendamento de tarefas, frequencia e triggers, notificacoes de resultado, monitoramento de execucao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Team Sharing</span><span class="text-neutral-500 text-sm ml-2">- Colaboracao entre membros da equipe</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Funcionalidades de colaboracao do CoWork: compartilhar projetos, templates, resultados e configuracoes entre membros da equipe com controle de acesso.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">IA isolada ajuda individuos. IA compartilhada transforma equipes. Quando todos usam os mesmos templates e padroes, a qualidade e consistencia escalam.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Workspaces compartilhados, permissoes por papel, biblioteca de templates da equipe, metricas de uso, onboarding de novos membros.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">CoWork vs. Code</span><span class="text-neutral-500 text-sm ml-2">- 70/30: a distribuicao ideal</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-blue-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A regra 70/30: para a maioria dos profissionais, 70% das tarefas sao melhor atendidas pelo CoWork e 30% pelo Claude Code. Saber distribuir maximiza produtividade.</p></div>
+            <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Usar a ferramenta certa para cada tarefa e a diferenca entre eficiencia e frustracao. O mapa 70/30 simplifica essa decisao.</p></div>
+            <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mapa de decisao CoWork vs. Code, tarefas visuais vs. tecnicas, combinacao das ferramentas, workflow integrado, evolucao do uso.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-8.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGACAO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha1/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha Anterior: Fundamentos
+      </a>
+      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+        Proxima Trilha: Avancada →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal-2-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.1</span>
+          <span class="font-semibold">Produtividade Aumentada</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.2</span>
+          <span class="font-semibold">Escrita com IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.3</span>
+          <span class="font-semibold">Analise de Dados com IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.4</span>
+          <span class="font-semibold">Automacoes No-Code</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.5</span>
+          <span class="font-semibold">Introducao a Agentes</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.6</span>
+          <span class="font-semibold">MCP e Integracoes</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.7</span>
+          <span class="font-semibold">Claude Code para Curiosos</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">2.8</span>
+          <span class="font-semibold">Claude CoWork na Pratica</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) { exp.classList.remove('active'); }
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => { modal.classList.add('hidden'); });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

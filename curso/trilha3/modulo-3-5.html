@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 3.5 - Humanoides e Robotica | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#ffffff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background-color:rgba(124,58,237,0.12)}html:not(.dark) .bg-purple-500\/10{background-color:rgba(124,58,237,0.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,0.25)}html:not(.dark) .hover\:bg-purple-500\/30:hover{background-color:rgba(124,58,237,0.18)}html:not(.dark) [class*="bg-gradient-to"]{background-image:none !important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,0.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,0.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,0.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Modulo 3.5</span></div></nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULO 3.5</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 Humanoides e Robotica</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A IA esta ganhando corpo fisico. Entenda a revolucao dos robos humanoides e como ela vai transformar industrias, carreiras e o mundo ate 2030.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Visao</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🤖 O Momento ChatGPT da Robotica</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Assim como o ChatGPT democratizou a IA textual em 2022, estamos no limiar de um momento equivalente para a robotica. <strong class="text-purple-400">Foundation models para robos</strong> estao permitindo que humanoides aprendam tarefas novas por demonstracao, nao por programacao. Tesla Optimus, Figure 02, Boston Dynamics Atlas — a corrida dos humanoides comecou para valer.</p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔑</span> Por que Agora?</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>LLMs como cerebro:</strong> Modelos de linguagem podem agora ser o "sistema operacional" de robos, permitindo instrucao em linguagem natural</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Vision-Language-Action (VLA):</strong> Novos modelos que veem, entendem e agem no mundo fisico simultaneamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Custos em queda:</strong> Sensores, atuadores e processamento ficaram 90% mais baratos na ultima decada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Simulacao:</strong> Robos aprendem em ambientes virtuais 1000x mais rapido que no mundo real — e transferem o aprendizado</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Numeros da Corrida</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Tesla Optimus</strong> - Meta de producao em massa ate 2026, preco-alvo de $20.000-$30.000</li>
+          <li><strong>Figure</strong> - $675 milhoes em investimento, parceria com OpenAI para integracao de LLM</li>
+          <li><strong>$150 bilhoes</strong> - Mercado projetado de robotica humanoide ate 2035 (Goldman Sachs)</li>
+          <li><strong>Jensen Huang (NVIDIA)</strong> - "Robos humanoides serao a proxima plataforma de computacao"</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🏭 Humanoides no Trabalho</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Nao e ficcao cientifica. A <strong class="text-purple-400">BMW ja testou humanoides Figure em linhas de montagem</strong>. Amazon usa robos em armazens. Hospitais japoneses testam robos de assistencia. O cenario de humanoides no trabalho esta se materializando mais rapido do que qualquer previsao indicava.</p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Fabricas e Manufatura</h4>
+            <p class="text-sm text-neutral-400 mb-3">Onde humanoides ja estao</p>
+            <p class="text-neutral-300 text-sm">Tarefas repetitivas, perigosas ou que exigem precisao extrema. Montagem de componentes, inspecao de qualidade, transporte de materiais pesados. O humanoide trabalha 24/7 sem fadiga, sem lesao, sem ferias.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Logistica e Armazens</h4>
+            <p class="text-sm text-neutral-400 mb-3">A proxima fronteira</p>
+            <p class="text-neutral-300 text-sm">Picking, packing, organizacao de estoque. Ambientes projetados para humanos (escadas, portas, prateleiras) sao perfeitamente navegaveis por humanoides — diferente de robos industriais tradicionais que exigem infraestrutura especial.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Saude e Assistencia</h4>
+            <p class="text-sm text-neutral-400 mb-3">O impacto social</p>
+            <p class="text-neutral-300 text-sm">Assistencia a idosos, apoio em hospitais, reabilitacao fisica. Japao lidera com robos cuidadores em casas de repouso. Com o envelhecimento populacional global, a demanda por cuidadores excede a oferta — humanoides preenchem essa lacuna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🧠 IA + Corpo Fisico</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A convergencia entre LLMs e robotica e o avanco tecnico mais importante desta decada. <strong class="text-purple-400">Vision-Language-Action models (VLAs)</strong> combinam visao computacional, compreensao de linguagem e controle motor em um unico modelo. O robo ve uma cena, entende um comando em portugues, e executa a acao fisica correspondente.</p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔬</span> Como Funciona</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Percepcao:</strong> Cameras e sensores capturam o ambiente em 3D. O modelo entende objetos, espacos e obstaculos.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Compreensao:</strong> Um LLM processa o comando em linguagem natural e planeja a sequencia de acoes necessarias.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Acao:</strong> O modelo de controle motor traduz o plano em movimentos precisos dos atuadores do robo.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Feedback:</strong> O robo monitora o resultado da acao e ajusta em tempo real se algo nao sair como planejado.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Se voce sabe fazer prompts para ChatGPT, voce ja tem a base para instruir robos no futuro. A habilidade de dar instrucoes claras, especificas e contextuais em linguagem natural sera a "programacao" dos humanoides. Invista nessa competencia agora.</p>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💬 Prompting para Robos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Em vez de programar movimentos articulacao por articulacao, voce descreve o objetivo: <strong class="text-purple-400">"Pegue a caixa azul da prateleira de cima e coloque na esteira."</strong> O robo planeja a rota, calcula a forca de agarramento, executa o movimento e confirma conclusao. A interface e linguagem natural.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Bons Prompts para Robos</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Organize as caixas por tamanho, maiores embaixo"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Inspecione a peca e sinalize se houver defeito visivel"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Leve o carrinho ate a area de carga, evitando os cones"</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prompts Problematicos</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Faz ai" — vago demais, sem contexto de tarefa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Limpa tudo" — sem definir escopo ou limites</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Corre" — sem constraints de seguranca</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">💼 Oportunidades de Mercado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Novas industrias criam novas fortunas. A robotica humanoide esta criando categorias inteiras de <strong class="text-purple-400">empregos, servicos e negocios</strong> que nao existiam ha 2 anos. Quem se posiciona cedo captura as melhores oportunidades — assim como aconteceu com a internet nos anos 2000.</p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💰</span> Novas Carreiras e Negocios</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Operador de Frota:</strong> Supervisionar e coordenar dezenas de humanoides em operacao. Salario projetado: $80-150K/ano.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Integrador de Robotica:</strong> Adaptar humanoides para ambientes especificos de cada empresa. Consultoria de alto valor.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Treinador de Robos:</strong> Ensinar novas tarefas por demonstracao e refinamento. Combina habilidade tecnica com conhecimento de dominio.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Robot-as-a-Service:</strong> Alugar humanoides por hora/mes em vez de vender. Modelo de negocio recorrente. Oportunidade para empreendedores.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🔮 Visao 2030</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Elon Musk previu que havera <strong class="text-purple-400">bilhoes de humanoides ate 2040</strong> — mais que a populacao humana. Jensen Huang disse que robos humanoides serao "a proxima plataforma de computacao". Mesmo descontando o hype, as projecoes conservadoras indicam milhoes de unidades operando ate 2030.</p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2026</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pilotos em Escala</h4>
+            <p class="text-neutral-300 text-sm">Milhares de humanoides em operacao em fabricas, armazens e laboratorios. Preco: $30.000-50.000. Empresas de tecnologia e automotivas lideram a adocao. Primeiros casos de sucesso documentados.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2028</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Producao em Massa</h4>
+            <p class="text-neutral-300 text-sm">Centenas de milhares de unidades. Preco abaixo de $20.000. Humanoides comecam a aparecer em hospitais, hoteis e servicos domesticos. Regulamentacao especifica comecar a ser criada.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">2030</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Integracao Social</h4>
+            <p class="text-neutral-300 text-sm">Milhoes de humanoides globalmente. Preco comparavel ao de um carro popular. Presentes em fabricas, lares, escritorios. Debate social sobre direitos, impostos e coexistencia. Nova era economica comeca.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Momento ChatGPT da Robotica</strong><span class="text-neutral-400"> - Foundation models tornaram humanoides viáveis pela primeira vez</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Ja no Trabalho</strong><span class="text-neutral-400"> - Fabricas, armazens e hospitais ja testam humanoides em operacao real</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">IA + Corpo Fisico</strong><span class="text-neutral-400"> - VLAs combinam visao, linguagem e acao em um unico modelo</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Prompting para Robos</strong><span class="text-neutral-400"> - Linguagem natural como interface de programacao de humanoides</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Oportunidades</strong><span class="text-neutral-400"> - Novas carreiras e modelos de negocio em um mercado de $150 bilhoes</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Visao 2030</strong><span class="text-neutral-400"> - De pilotos a milhoes de unidades em 4 anos</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Proximo Modulo:</h3>
+          <p class="text-neutral-300">3.6 - IA Generativa Avancada — Video, audio, imagem, 3D e multimodalidade com as ferramentas mais avancadas</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 6.8 - Potencial Humano Aumentado | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; } html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; } html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; } html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; } html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); } html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); } html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); } html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; } html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); } html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); } html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; } html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-rose-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-rose-400">Trilha 6</a><span>/</span><span class="text-rose-400">Modulo 6.8</span></div></nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MODULO 6.8 — MODULO FINAL</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🚀 Potencial Humano Aumentado</h1><p class="text-lg text-neutral-400 max-w-3xl">O encerramento do PHA 2030: a tese central de que IA amplifica capacidade humana, a visao de futuro e seu proximo passo como protagonista da transformacao.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Visao</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧠 A Tese Central</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Voce percorreu 6 trilhas, 48 modulos e centenas de conceitos. Agora, tudo converge para uma unica ideia: <strong class="text-rose-400">Potencial Humano Aumentado</strong>. A inteligencia artificial nao existe para substituir pessoas. Ela existe para amplificar o que ha de melhor em nos — criatividade, empatia, julgamento, visao estrategica e capacidade de conectar ideias que nenhuma maquina conectaria sozinha.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🔑</span> A Formula Definitiva do PHA</h3>
+        <div class="bg-dark-800/50 rounded-lg p-4 text-center mb-4">
+          <p class="text-xl font-bold text-rose-400">Humano + IA > Humano sozinho > IA sozinha</p>
+        </div>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>IA sozinha</strong> gera outputs tecnicamente corretos mas sem contexto, julgamento ou proposito</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Humano sozinho</strong> tem limites de velocidade, escala e processamento de dados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Humano + IA</strong> combina o melhor dos dois mundos: proposito humano com capacidade computacional</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Reflexao</h3>
+        <p class="text-neutral-300">A verdadeira pergunta nao e "a IA vai me substituir?" — e "como eu posso me tornar insubstituivel USANDO IA?". A resposta esta em combinar suas habilidades humanas unicas com a potencia da IA de forma que o resultado seja impossivel sem voce.</p>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏢 Organizacao Aumentada</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Uma organizacao aumentada e aquela onde IA deixou de ser "projeto" e se tornou <strong class="text-rose-400">jeito de trabalhar</strong>. Nao e um departamento que "faz IA" — e toda a empresa operando com inteligencia amplificada em cada processo, decisao e interacao.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Pilares da Organizacao Aumentada</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Cultura AI-first:</strong> Cada nova iniciativa começa com a pergunta "como IA pode potencializar isso?"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Decisoes data-driven:</strong> IA processa dados e sugere; humanos decidem com contexto e julgamento</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Aprendizado continuo:</strong> A organizacao aprende com cada interacao com IA e melhora sistematicamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Lideranca aumentada:</strong> Lideres usam IA para ter visao mais ampla, decidir mais rapido e comunicar melhor</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Resultados de Organizacoes Aumentadas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>3-5x</strong> mais rapidas em tomar decisoes estrategicas</li>
+          <li><strong>40-60%</strong> de reducao em custos operacionais em processos com IA</li>
+          <li><strong>2x</strong> mais inovacao (novas ideias, produtos e servicos por periodo)</li>
+          <li><strong>85%+</strong> de satisfacao dos colaboradores com ferramentas de IA</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">👤 Profissional Aumentado</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-rose-400">profissional aumentado</strong> e voce depois de completar este curso — e de aplicar o que aprendeu. E alguem que combina expertise humana com fluencia em IA para gerar resultados que nem humanos nem IA conseguiriam sozinhos.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O Perfil do Profissional Aumentado</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>AI Fluency:</strong> Domina prompting avancado, conhece ferramentas e sabe quando usar qual modelo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Personal AI Stack:</strong> Tem um conjunto de ferramentas e workflows personalizados que multiplicam sua produtividade</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Julgamento humano:</strong> Sabe quando confiar na IA e quando questionar. Valida, nao delega cegamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Visao sistemica:</strong> Entende como IA se encaixa na organizacao, nos processos e na cultura</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Profissional Aumentado</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Eu uso IA para pensar melhor, nao para parar de pensar"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Minha experiencia + IA = resultado impossivel sem os dois"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"Eu ensino outros a usar IA, multiplicando meu impacto"</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Profissional Estagnado</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"IA e modismo, vai passar"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Eu faco tudo manualmente porque e mais confiavel"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Nao tenho tempo para aprender isso"</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🌍 Impacto Social</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">IA pode ser a maior forca de <strong class="text-rose-400">equidade</strong> ou a maior forca de <strong class="text-rose-400">concentracao</strong> da historia humana. A direcao depende de como profissionais como voce a utilizam, ensinam e implementam.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🌐</span> O Potencial de Equidade</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Democratizacao de conhecimento:</strong> Qualquer pessoa com internet tem acesso ao equivalente de um consultor senior</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Acesso a ferramentas avancadas:</strong> PMEs podem competir com multinacionais usando IA acessivel</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Educacao escalavel:</strong> Tutoria personalizada de qualidade para qualquer estudante, em qualquer lugar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Empreendedorismo facilitado:</strong> Uma pessoa com IA pode fazer o trabalho que antes exigia uma equipe de 10</span></li>
+        </ul>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O Risco de Concentracao</h3>
+        <p class="text-neutral-300">Se apenas grandes empresas e paises ricos dominarem IA, a desigualdade vai explodir. Profissionais que ensinam e democratizam IA estao na linha de frente da defesa contra esse cenario. Cada pessoa que voce ensina a usar IA e um passo contra a concentracao.</p>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔮 Visao 2030</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Em 2030, o mundo sera fundamentalmente diferente do que era quando a IA generativa surgiu em 2022. A questao nao e <strong class="text-rose-400">se</strong> o mundo vai mudar, mas <strong class="text-rose-400">que papel voce tera</strong> nessa mudanca.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🌟</span> O Mundo que Queremos Construir</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Organizacoes mais humanas:</strong> IA faz o trabalho repetitivo, liberando pessoas para criatividade, conexao e proposito</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Profissionais mais realizados:</strong> Menos tarefas mecanicas, mais impacto estrategico, melhor qualidade de vida</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Sociedade mais justa:</strong> Acesso democratico a ferramentas que antes eram privilegio de poucos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Inovacao acelerada:</strong> Solucoes para problemas complexos — saude, educacao, sustentabilidade — na velocidade da IA</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Reflexao Final</h3>
+        <p class="text-neutral-300">O futuro nao acontece com voce — ele acontece ATRAVES de voce. Cada decisao que voce toma sobre como usar, ensinar e implementar IA molda o futuro para todos. Essa responsabilidade e tambem seu maior poder.</p>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Seu Proximo Passo</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Voce completou o PHA 2030. Seis trilhas, 48 modulos, centenas de conceitos e ferramentas. Mas conhecimento sem acao e apenas entretenimento. Aqui esta seu <strong class="text-rose-400">plano de acao concreto</strong> para transformar tudo que aprendeu em resultados reais.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">7d</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Proximos 7 Dias</h4><p class="text-neutral-300 text-sm">Escolha UMA tarefa do seu trabalho diario e aplique IA nela. Meça o tempo antes e depois. Compartilhe o resultado com um colega. Comece a construir seu Personal AI Stack com 2-3 ferramentas essenciais.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">30d</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Proximos 30 Dias</h4><p class="text-neutral-300 text-sm">Automatize 3-5 tarefas repetitivas. Ensine 5 colegas a usar IA basica. Identifique o maior gargalo de processo na sua area e crie um plano de melhoria com IA. Construa sua biblioteca de prompts.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">90d</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Proximos 90 Dias</h4><p class="text-neutral-300 text-sm">Implemente um projeto de IA com impacto mensuravel. Apresente resultados para lideranca. Torne-se a referencia em IA do seu departamento. Comece a construir sua marca como profissional aumentado.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">1a</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Proximo Ano</h4><p class="text-neutral-300 text-sm">Lidere a transformacao com IA na sua organizacao. Construa um ecossistema de pessoas que voce ensinou. Considere consultoria ou educacao em IA como atividade complementar. Seja o protagonista, nao o espectador.</p></div></div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL DO CURSO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">🎓</span> Conclusao do PHA 2030
+        </h2>
+
+        <p class="text-neutral-300 mb-6 leading-relaxed">Voce chegou ao final de uma jornada transformadora. Ao longo de 6 trilhas e 48 modulos, voce construiu uma base solida de conhecimento, desenvolveu habilidades praticas e ganhou visao estrategica sobre o futuro da IA. Mais importante: voce se tornou um <strong class="text-rose-400">profissional aumentado</strong>.</p>
+
+        <div class="space-y-4 mb-8">
+          <h3 class="text-lg font-semibold text-rose-400">O que voce conquistou:</h3>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 1 - Fundamentos</strong><span class="text-neutral-400"> - Entendeu como IA funciona, dominou prompting e construiu autonomia</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 2 - Pratica</strong><span class="text-neutral-400"> - Aplicou IA em tarefas reais do dia a dia com resultados mensuráveis</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 3 - Avancada</strong><span class="text-neutral-400"> - Dominou tecnicas avancadas, agentes e automacoes sofisticadas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 4 - Cultura</strong><span class="text-neutral-400"> - Aprendeu a liderar transformacao organizacional com IA</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 5 - Times</strong><span class="text-neutral-400"> - Desenvolveu capacidade de construir e liderar equipes aumentadas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Trilha 6 - Escala</strong><span class="text-neutral-400"> - Ganhou visao de escala corporativa, tendencias e posicionamento estrategico</span></div></div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-8 text-center">
+          <p class="text-lg text-neutral-300 mb-2">A formula que guia tudo:</p>
+          <p class="text-2xl font-bold text-rose-400 mb-4">Humano + IA > Humano sozinho > IA sozinha</p>
+          <p class="text-neutral-400">Voce nao e substituivel. Voce e amplificavel. Va e amplifique.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 6
+          </a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">
+            Voltar ao Inicio do PHA 2030
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark');}else{themeToggleLightIcon.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light');});</script>
+</body>
+</html>

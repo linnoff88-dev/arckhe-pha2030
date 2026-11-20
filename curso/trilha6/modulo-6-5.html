@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 6.5 - Escala sem Esgotamento | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; } html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; } html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; } html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; } html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); } html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); } html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); } html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; } html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); } html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); } html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; } html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-rose-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-rose-400">Trilha 6</a><span>/</span><span class="text-rose-400">Modulo 6.5</span></div></nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MODULO 6.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📈 Escala sem Esgotamento</h1><p class="text-lg text-neutral-400 max-w-3xl">Modelos de negocio sustentaveis para educacao e consultoria em IA: comunidades B2B, precificacao estrategica, receita recorrente e crescimento sem burnout.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Negocio</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">👥 Comunidades B2B</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O modelo mais sustentavel para educacao corporativa em IA e o <strong class="text-rose-400">B2B de alto ticket</strong>. Em vez de vender cursos de R$200 para milhares de individuos, voce atende 10-20 empresas com contratos de R$10.000-50.000/mes. Menos clientes, mais profundidade, mais valor, menos estresse.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🔑</span> Modelo de Comunidade Corporativa</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Grupo exclusivo:</strong> 10-20 empresas com acesso a conteudo, mentoria e networking entre pares</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Encontros mensais:</strong> Workshops ao vivo com casos reais, Q&A e guest speakers</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Plantao de duvidas:</strong> Acesso direto para perguntas e consultoria rapida entre encontros</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Benchmark:</strong> Empresas do grupo compartilham metricas e melhores praticas anonimamente</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Economia do Modelo</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>15 empresas x R$20.000/mes</strong> = R$300.000/mes de receita recorrente</li>
+          <li><strong>Dedicacao:</strong> ~15 horas/semana para conteudo, encontros e suporte</li>
+          <li><strong>Margem:</strong> 80-90% (custo principal e seu tempo + ferramentas)</li>
+          <li><strong>Churn:</strong> < 5%/mes (alto valor percebido e switching cost)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">💰 Precificacao Estrategica</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O erro mais comum de consultores e educadores: cobrar por hora. Profissionais que dominam IA devem cobrar por <strong class="text-rose-400">valor entregue</strong>, nao por tempo investido. Se sua consultoria economiza R$200.000/mes para o cliente, cobrar R$20.000/mes e uma pechincha.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold">1</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Degrau 1: Workshop Introdutorio</h4><p class="text-sm text-neutral-400 mb-3">R$5.000-15.000</p><p class="text-neutral-300 text-sm">Sessao de 4-8 horas para apresentar IA para lideranca. Funciona como porta de entrada e diagnostico rapido. Baixo risco para o cliente.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold">2</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Degrau 2: Programa de Formacao</h4><p class="text-sm text-neutral-400 mb-3">R$30.000-80.000</p><p class="text-neutral-300 text-sm">Programa de 4-8 semanas para equipes. Teoria + pratica + projetos reais. Entrega mensuravel com KPIs de adocao.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold">3</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Degrau 3: Retainer Estrategico</h4><p class="text-sm text-neutral-400 mb-3">R$15.000-50.000/mes</p><p class="text-neutral-300 text-sm">Acompanhamento continuo: atualizacao, consultoria, resolucao de problemas. Receita recorrente previsivel. Relacionamento de longo prazo.</p></div></div>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔄 Conteudo que Nao Envelhece</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A IA tem uma vantagem unica como tema de educacao: ela <strong class="text-rose-400">muda constantemente</strong>. Cada semana traz novas ferramentas, novos modelos, novas possibilidades. Isso significa que seus clientes precisam de atualizacao permanente — o que garante demanda continua para seus servicos.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">♻️</span> O Ciclo de Renovacao</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Novo modelo lancado:</strong> Clientes precisam entender impacto, decidir adocao, treinar equipes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Nova regulamentacao:</strong> Empresas precisam avaliar compliance e ajustar processos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Novo concorrente usa IA:</strong> Urgencia de acompanhar ou superar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Nova funcionalidade:</strong> Oportunidade de otimizar processos ja implementados</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Reserve 5 horas por semana para se atualizar. Siga os blogs oficiais dos principais modelos, participe de comunidades de IA e teste novas ferramentas pessoalmente. Seu diferencial e ser a pessoa que sempre sabe o que ha de novo.</p>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📊 Modelo de Receita</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A diferenca entre um freelancer e um negocio e a <strong class="text-rose-400">previsibilidade de receita</strong>. MRR (Monthly Recurring Revenue) de R$50.000 vale mais que R$200.000 em projetos pontuais, porque voce sabe que estara la no proximo mes.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">💰</span> Comparacao de Modelos</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Projeto pontual:</strong> R$50.000 por projeto, 3-4 projetos/ano = R$150-200K. Alta variacao, estresse de vendas constante</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Retainer mensal:</strong> 10 clientes x R$20.000/mes = R$200K/mes = R$2.4M/ano. Previsivel, escalavel, valioso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Hibrido ideal:</strong> 70% recorrente + 30% projetos. Estabilidade com upside. Melhor dos dois mundos</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🏋️ Prevencao de Burnout</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Consultores e educadores de IA enfrentam uma pressao unica: alem do trabalho com clientes, precisam se <strong class="text-rose-400">atualizar constantemente</strong>. A tecnologia muda toda semana. Sem limites claros, o burnout e inevitavel.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Habitos Sustentaveis</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Limite maximo de 3-4 sessoes ao vivo por semana</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>1 dia inteiro por semana sem reunioes (producao e estudo)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Automatizar tarefas operacionais com a propria IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ferias planejadas a cada trimestre</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Caminhos para o Burnout</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aceitar todo cliente que aparece</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Responder mensagens fora do horario comercial</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tentar acompanhar toda novidade no mesmo dia</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nao delegar nada, fazer tudo sozinho</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Crescimento Sustentavel</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Crescimento sustentavel significa escalar o <strong class="text-rose-400">negocio sem escalar o estresse</strong>. Isso exige sistemas, delegacao e a disciplina de dizer "nao" para oportunidades que nao se encaixam no modelo.</p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">📈</span> Framework de Crescimento</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Fase 1 (0-100K/mes):</strong> Voce faz tudo. Foco em encontrar modelo e publico ideal</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Fase 2 (100-300K/mes):</strong> Primeiro assistente. Delegar operacional. SOPs para tudo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Fase 3 (300K+/mes):</strong> Equipe pequena. Voce foca em estrategia e conteudo. Operacao roda sem voce</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Use a regra do 80/20 invertida: 80% do seu tempo deve gerar valor direto para clientes (conteudo, mentoria, consultoria). Os outros 20% sao operacionais e devem ser automatizados ou delegados o mais rapido possivel.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">B2B > B2C</strong><span class="text-neutral-400"> - Poucos clientes de alto valor sao mais sustentaveis que muitos de baixo valor</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Valor > Hora</strong><span class="text-neutral-400"> - Precificar por resultado entregue, nao por tempo investido</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Demanda perpetua</strong><span class="text-neutral-400"> - IA muda constantemente, garantindo necessidade continua de educacao</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">MRR e rei</strong><span class="text-neutral-400"> - Receita recorrente traz previsibilidade e multiplica o valor do negocio</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Limites claros</strong><span class="text-neutral-400"> - Prevencao de burnout exige disciplina e automacao do operacional</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Crescimento em fases</strong><span class="text-neutral-400"> - De solopreneur a equipe, com sistemas e SOPs em cada etapa</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-rose-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">6.6 - Tendencias 2025-2030 — Janelas de oportunidade, agentes autonomos e cenarios para o futuro</p></div>
+        <div class="flex flex-col sm:flex-row gap-4"><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="modulo-6-6.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Proximo Modulo →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark');}else{themeToggleLightIcon.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light');});</script>
+</body>
+</html>

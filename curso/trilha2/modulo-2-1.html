@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 2.1 - Produtividade Aumentada | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Inicio</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
+      <span class="text-blue-400">Modulo 2.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULO 2.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚡ Produtividade Aumentada</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Identifique seus maiores gargalos de tempo, crie templates reutilizaveis, automatize workflows repetitivos e meca sua evolucao com IA como copiloto de produtividade.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">6</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Pratico</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Hands-on</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎯 A Regra 80/20 da IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O principio de Pareto aplicado a IA e devastadoramente simples: <strong class="text-blue-400">20% das suas tarefas consomem 80% do seu tempo</strong>. Antes de sair automatizando tudo, voce precisa identificar quais sao essas tarefas. A maioria dos profissionais gasta horas em e-mails, relatorios, pesquisas e formatacao — exatamente as tarefas que a IA resolve melhor.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> Conceito Principal
+        </h3>
+        <p class="text-neutral-300 mb-4">A <strong>Auditoria de Tempo</strong> e o primeiro passo. Durante 3 dias, registre cada tarefa e quanto tempo levou. Depois, classifique:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Delegavel para IA:</strong> Tarefas repetitivas, baseadas em texto, que seguem padroes (e-mails, resumos, pesquisas)</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Aceleravel com IA:</strong> Tarefas que exigem julgamento humano mas podem ser agilizadas (analises, decisoes, planejamento)</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Exclusivamente humana:</strong> Relacionamento, negociacao presencial, decisoes eticas complexas</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Dados de Pesquisa
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>28%</strong> - do dia de trabalho e gasto lendo e respondendo e-mails (McKinsey)</li>
+          <li><strong>19%</strong> - do tempo e usado buscando e coletando informacoes</li>
+          <li><strong>14%</strong> - vai para comunicacao interna (reunioes, mensagens)</li>
+          <li><strong>3.5x</strong> - ganho medio de produtividade quando profissionais usam IA nas tarefas certas (Harvard Business School)</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Abra uma planilha agora e liste suas 10 tarefas mais frequentes. Para cada uma, anote: tempo medio, frequencia semanal e se a IA poderia ajudar. Multiplique tempo x frequencia para encontrar seus maiores gargalos. Comece automatizando o topo da lista.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📋 Templates Inteligentes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um template inteligente e um <strong class="text-blue-400">prompt reutilizavel</strong> que voce cria uma vez e usa dezenas de vezes. Em vez de pensar "como vou pedir isso para a IA" toda vez, voce tem um modelo pronto com variaveis que troca conforme a necessidade. Templates eliminam a inconsistencia e garantem qualidade padrao.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> Estrutura de um Template
+        </h3>
+        <p class="text-neutral-300 mb-4">Todo template inteligente segue a mesma estrutura:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Contexto:</strong> Quem voce e, qual seu papel, para quem e o output</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Instrucao:</strong> O que a IA deve fazer, em que formato, com que tom</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Variaveis:</strong> Os campos que mudam a cada uso (marcados com [COLCHETES])</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Exemplo:</strong> Um modelo do output esperado para calibrar a IA</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que FAZER</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Criar uma biblioteca de templates organizados por categoria</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Versionar templates — v1, v2, v3 conforme refina</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Incluir exemplos de output no template</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Compartilhar templates com a equipe</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que NAO fazer</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Escrever o prompt do zero toda vez</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Criar templates vagos sem contexto</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Ignorar o formato de saida esperado</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Nunca atualizar templates que nao funcionam bem</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Comece com 3 templates: um para resumir reunioes, um para redigir e-mails profissionais e um para criar checklists. Use [COLCHETES] para as variaveis. Depois de usar cada template 5 vezes, refine baseado nos resultados.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔄 Workflows Repetitivos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A regra de ouro: <strong class="text-blue-400">se voce faz algo mais de 3 vezes, crie um workflow</strong>. Workflows sao sequencias de passos que a IA executa de forma padronizada. Diferente de templates (que sao prompts isolados), workflows encadeiam multiplas etapas para completar processos inteiros.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+            <span class="text-blue-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Identificar o Processo</h4>
+            <p class="text-sm text-neutral-400 mb-3">Passo inicial</p>
+            <p class="text-neutral-300 text-sm">Liste todos os passos que voce executa manualmente. Exemplo: receber dados de vendas por e-mail, copiar para planilha, calcular totais, gerar relatorio, enviar para gestor. Cada passo e um node do workflow.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+            <span class="text-blue-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Separar Humano de IA</h4>
+            <p class="text-sm text-neutral-400 mb-3">Analise critica</p>
+            <p class="text-neutral-300 text-sm">Para cada passo, pergunte: isso exige julgamento humano ou e mecanico? Copiar dados e mecanico. Interpretar resultados pode exigir humano. Marque os passos delegaveis.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+            <span class="text-blue-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Criar a Cadeia de Prompts</h4>
+            <p class="text-sm text-neutral-400 mb-3">Montagem</p>
+            <p class="text-neutral-300 text-sm">Para cada passo delegavel, crie um prompt especifico. O output de um prompt alimenta o proximo. Use marcadores claros para conectar as etapas e manter consistencia.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+            <span class="text-blue-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Testar e Iterar</h4>
+            <p class="text-sm text-neutral-400 mb-3">Refinamento</p>
+            <p class="text-neutral-300 text-sm">Execute o workflow 3 vezes com dados reais. Anote onde falha, onde o resultado nao e bom o suficiente, onde voce precisa intervir. Refine os prompts ate o workflow rodar com minima supervisao.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⏱️ Gestao de Tempo com IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A gestao de tempo tradicional ganha uma nova dimensao com IA. A <strong class="text-blue-400">Matriz de Eisenhower expandida</strong> inclui uma terceira variavel: alem de urgente e importante, agora voce classifica se a tarefa e delegavel para IA. Isso libera blocos inteiros do seu dia para trabalho estrategico de alto valor.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> Matriz de Eisenhower + IA
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Urgente + Importante + Delegavel:</strong> IA faz o rascunho, voce valida e envia (e-mail urgente para cliente)</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Importante + Nao urgente + Delegavel:</strong> IA prepara, voce agenda para revisar (relatorio mensal)</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Urgente + Nao importante + Delegavel:</strong> IA resolve sozinha (resposta padrao a fornecedor)</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Nao urgente + Nao importante:</strong> Eliminar, nao automatizar</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Impacto Real
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>2.5 horas/dia</strong> - tempo medio gasto em e-mails que IA pode reduzir em 50%</li>
+          <li><strong>1.2 horas/dia</strong> - recuperadas com automacao de tarefas repetitivas</li>
+          <li><strong>45 minutos/dia</strong> - economizados em pesquisa e coleta de informacoes</li>
+          <li><strong>4+ horas/dia</strong> - potencial total de tempo liberado para trabalho estrategico</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Implemente o "Time Blocking com IA": reserve os primeiros 30 minutos do dia para delegar tarefas a IA (rascunhos de e-mail, resumos, pesquisas). Enquanto a IA trabalha, voce faz sua rotina matinal. Quando voltar, revise e envie tudo em 15 minutos.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📊 Metricas Pessoais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "O que nao se mede, nao se gerencia." Voce precisa saber <strong class="text-blue-400">quanto tempo a IA esta realmente economizando</strong>. Sem metricas, voce nao sabe se esta evoluindo, nao consegue justificar investimentos em ferramentas e nao pode provar o valor da IA para a lideranca.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> 4 Metricas Essenciais
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Tempo economizado:</strong> Quanto tempo cada tarefa levava antes vs. agora com IA</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Qualidade do output:</strong> Numero de revisoes necessarias antes vs. depois de usar IA</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>Volume de entregas:</strong> Quantas tarefas voce completa por dia/semana com IA vs. sem</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-blue-400 mt-1">•</span>
+            <span><strong>ROI pessoal:</strong> Custo da ferramenta vs. valor do tempo economizado (use seu salario/hora)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Crie uma planilha simples com 4 colunas: Tarefa, Tempo Antes (min), Tempo Com IA (min), Economia (min). Preencha durante 2 semanas. Some a coluna Economia. Divida pelo custo da ferramenta. Se o resultado for maior que 1, voce tem ROI positivo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🚀 Aceleracoes Rapidas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chega de teoria. Aqui estao <strong class="text-blue-400">10 acoes que voce pode implementar hoje</strong>, em menos de 5 minutos cada, para ganhos imediatos de produtividade. Cada uma delas, sozinha, pode economizar 15-30 minutos por dia. Combinadas, transformam sua rotina.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">⚡</span> 10 Quick Wins
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">1.</span><span><strong>Resumir reunioes:</strong> Cole as anotacoes e peca "resuma em 5 bullet points com action items"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">2.</span><span><strong>Rascunhos de e-mail:</strong> Descreva a situacao e peca o e-mail no tom certo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">3.</span><span><strong>Traducao contextual:</strong> Traduza documentos mantendo o tom profissional</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">4.</span><span><strong>Formulas de Excel:</strong> Descreva o que precisa e receba a formula pronta</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">5.</span><span><strong>Checklists:</strong> Peca checklists para processos que voce sempre esquece passos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">6.</span><span><strong>Brainstorming:</strong> Use IA como sparring partner para gerar ideias rapidamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">7.</span><span><strong>Revisao de textos:</strong> Cole qualquer texto e peca revisao de clareza e gramatica</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">8.</span><span><strong>Pesquisa rapida:</strong> Pergunte sobre temas complexos e receba resumos estruturados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">9.</span><span><strong>Pauta de reuniao:</strong> Descreva o objetivo e receba pauta com tempos e responsaveis</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">10.</span><span><strong>Comparacao de opcoes:</strong> Apresente alternativas e peca analise de pros e contras</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Mentalidade Certa</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Comece com 1 hack por dia, nao todos de uma vez</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Meça o tempo economizado para manter a motivacao</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Transforme hacks em habitos automaticos</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Armadilhas</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Tentar automatizar tudo no primeiro dia</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Gastar mais tempo configurando do que fazendo</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Desistir porque o primeiro resultado nao foi perfeito</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">📋</span> Resumo do Modulo
+        </h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Regra 80/20</strong><span class="text-neutral-400"> - 20% das tarefas consomem 80% do tempo — ataque essas primeiro</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Templates Inteligentes</strong><span class="text-neutral-400"> - Crie uma vez, use dezenas de vezes, refine constantemente</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Workflows</strong><span class="text-neutral-400"> - Se faz mais de 3 vezes, crie um fluxo padronizado com IA</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Gestao de Tempo</strong><span class="text-neutral-400"> - Matriz de Eisenhower + IA libera 4+ horas por dia</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Metricas</strong><span class="text-neutral-400"> - Meça tempo economizado para provar ROI e escalar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">10 Quick Wins</strong><span class="text-neutral-400"> - Acoes imediatas que geram resultados hoje</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Proximo Modulo:</h3>
+          <p class="text-neutral-300">2.2 - Escrita com IA — Domine co-escrita, documentos profissionais, tom de voz e revisao inteligente</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+            Proximo Modulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

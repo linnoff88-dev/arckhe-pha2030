@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 5 - Habilitacao de Times | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode overrides - OBRIGATORIO */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode - cores de acento (trilha teal) */
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:bg-teal-500\/30:hover { background-color: rgba(13, 148, 136, 0.18); }
+
+    /* Light mode - remove gradientes (fundo uniforme) */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">
+        TRILHA 5
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Habilitacao de Times</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Transforme conhecimento individual em capacidade organizacional. Aprenda a mapear times, desenhar workshops, criar redes de champions, converter ceticos e construir programas de adocao de IA que realmente funcionam.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">8</div>
+          <div class="text-xs text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">48</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">~4h</div>
+          <div class="text-xs text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">Avancado</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGACAO RAPIDA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegacao Rapida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-5-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.1</span>
+          <h3 class="font-semibold mt-1">👥 Mapeando o Time</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-5-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.2</span>
+          <h3 class="font-semibold mt-1">🎓 Design de Workshops</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-5-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.3</span>
+          <h3 class="font-semibold mt-1">🏆 Champions Internos</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-5-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.4</span>
+          <h3 class="font-semibold mt-1">🛠️ Toolkit do Time</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-5-5.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.5</span>
+          <h3 class="font-semibold mt-1">📚 Curriculos Recorrentes</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-5-6.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.6</span>
+          <h3 class="font-semibold mt-1">🔥 Resgatando Ceticos</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-5-7.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.7</span>
+          <h3 class="font-semibold mt-1">🎯 Jornada do Aluno Corporativo</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-5-8.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-teal-400 font-bold text-sm">5.8</span>
+          <h3 class="font-semibold mt-1">💰 Programa de Incentivos</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="border-t border-dark-600 mb-12 pt-8">
+      <h2 class="text-2xl font-bold">Conteudo Detalhado</h2>
+      <p class="text-neutral-400 mt-2">Explore cada modulo com seus topicos, conceitos e objetivos de aprendizagem.</p>
+    </div>
+
+    <!-- MODULO 5.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.1</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">👥 Mapeando o Time</h3>
+        <p class="text-neutral-400 text-sm">Antes de ensinar qualquer coisa, entenda quem esta na sala. Discovery pre-sessao, arquetipos de participantes e o golden nugget que transforma a sessao.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Discovery Pre-Sessao</span><span class="text-neutral-500 text-sm ml-2">- As 4 perguntas essenciais antes de ensinar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um processo estruturado de investigacao antes de qualquer sessao de habilitacao. As 4 perguntas essenciais: qual o contexto do time, qual o nivel atual, quais as dores reais e qual o resultado esperado.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem discovery, voce ensina no escuro. Sessoes genericas geram engajamento baixo e resultados fracos. A discovery transforma um treinamento padrao em uma experiencia personalizada.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">As 4 perguntas essenciais, entrevista com lideranca, mapeamento de contexto, alinhamento de expectativas, pre-work opcional.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Nivel da Sala</span><span class="text-neutral-500 text-sm ml-2">- 101 ou 301? A regra 80/20 do conteudo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A calibracao do nivel de conteudo para a audiencia. A regra 80/20: 80% do conteudo deve estar no nivel da maioria, 20% pode desafiar os mais avancados.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conteudo avancado demais frustra iniciantes. Conteudo basico demais entedia experientes. Calibrar o nivel e a diferenca entre uma sessao que engaja e uma que esvazia.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Niveis 101/201/301, regra 80/20 do conteudo, survey pre-sessao, indicadores de nivel, adaptacao em tempo real.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎭</span>
+            <div><span class="font-medium">Identificar Arquetipos</span><span class="text-neutral-500 text-sm ml-2">- Ceticos ocultos, champions escondidos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A identificacao dos perfis comportamentais presentes em qualquer sessao de habilitacao: o entusiasta, o cetico silencioso, o champion escondido, o espectador passivo e o sabotador involuntario.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada arquetipo precisa de uma abordagem diferente. Ignorar o cetico e perder uma oportunidade. Nao ativar o champion e desperdicar seu maior aliado.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Os 5 arquetipos de sala, sinais verbais e nao-verbais, estrategia por perfil, como converter ceticos em champions.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">😤</span>
+            <div><span class="font-medium">Tarefas mais Irritantes</span><span class="text-neutral-500 text-sm ml-2">- A dor do time vira sua demo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A tecnica de mapear as tarefas que o time mais detesta fazer e usa-las como demonstracao ao vivo de como a IA resolve exatamente aquele problema.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Nada convence mais do que resolver a dor real de alguem ao vivo. Quando o participante ve sua tarefa mais irritante sendo resolvida em segundos, o ceticismo desaparece.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mapeamento de dores, demo personalizada, efeito espelho, conexao emocional com a ferramenta, quick wins estrategicos.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">O Golden Nugget do Time</span><span class="text-neutral-500 text-sm ml-2">- Qual e a unica coisa que faria valer a pena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O conceito de identificar a unica coisa — o golden nugget — que, se o participante aprender, ja teria valido toda a sessao. Cada time tem o seu.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sessoes com muitos topicos diluem o impacto. Quando voce identifica e entrega o golden nugget, o participante sai com uma vitoria concreta e replicavel.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Golden nugget por funcao, priorizacao de impacto, momento aha direcionado, personalizacao por area, one thing framework.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Template de Discovery</span><span class="text-neutral-500 text-sm ml-2">- Questionario pronto para usar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um template completo e pronto para uso com perguntas estruturadas para enviar ao lider do time antes de qualquer sessao de habilitacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ter um template padronizado garante consistencia e evita esquecimentos. Voce nao precisa reinventar a roda a cada nova sessao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Template de 12 perguntas, formato Google Forms, tempo de preenchimento de 5 minutos, checklist pre-sessao, adaptacao por setor.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-1.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.2</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎓 Design de Workshops</h3>
+        <p class="text-neutral-400 text-sm">Estruture sessoes que mantem a atencao, geram pratica real e medem impacto. Da abertura ao encerramento, cada minuto conta.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">Estrutura de Sessao</span><span class="text-neutral-500 text-sm ml-2">- Abertura, aha, pratica, encerramento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O framework de 4 blocos para qualquer sessao de habilitacao: abertura com gancho, momento aha com demonstracao impactante, pratica guiada e encerramento com compromisso de acao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sessoes sem estrutura viram palestras. Com o framework de 4 blocos, voce garante que o participante sai com conhecimento, pratica e um plano de acao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Framework APAE (Abertura, Provocacao, Acao, Encerramento), tempo ideal por bloco, transicoes naturais, energia da sala.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Pattern Interrupt</span><span class="text-neutral-500 text-sm ml-2">- Manter atencao em sessoes longas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para quebrar o padrao de atencao a cada 10-15 minutos, impedindo que os participantes entrem em modo passivo. Inclui mudancas de formato, interacoes surpresa e desafios rapidos.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A atencao humana decai drasticamente apos 10 minutos. Sem pattern interrupts, metade da sala esta no celular apos 20 minutos.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Regra dos 10 minutos, tipos de pattern interrupt, polling ao vivo, desafios relampago, storytelling estrategico.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🖥️</span>
+            <div><span class="font-medium">Presencial vs. Virtual</span><span class="text-neutral-500 text-sm ml-2">- Adaptar para cada formato</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As diferencas criticas entre sessoes presenciais e virtuais, e como adaptar conteudo, ritmo e interacao para cada formato sem perder qualidade.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O que funciona presencialmente pode fracassar no virtual. Sessoes virtuais exigem mais interacao, menos monologos e ferramentas de engajamento diferentes.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Duracao ideal por formato, ferramentas de interacao virtual, breakout rooms, camera ligada vs. desligada, hibrido como desafio.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🛠️</span>
+            <div><span class="font-medium">Hands-on Guiado</span><span class="text-neutral-500 text-sm ml-2">- Todo mundo faz junto, ao vivo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A tecnica de pratica guiada onde todos os participantes executam a tarefa ao mesmo tempo, com o facilitador guiando passo a passo em tempo real.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Assistir demos nao gera retencao. Fazer junto gera confianca. A diferenca entre "entendi" e "consigo fazer" esta no hands-on guiado.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Passo a passo em tempo real, ritmo do participante mais lento, buddy system, troubleshooting ao vivo, celebracao de pequenas vitorias.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">⏱️</span>
+            <div><span class="font-medium">Ritmo e Timing</span><span class="text-neutral-500 text-sm ml-2">- Quando pausar, quando acelerar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A arte de controlar o ritmo da sessao: quando acelerar para manter energia, quando pausar para reflexao, quando cortar conteudo para nao ultrapassar o tempo.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sessoes que atrasam perdem credibilidade. Sessoes que correm perdem profundidade. O timing perfeito e uma habilidade que separa facilitadores medianos de excelentes.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Buffer de 15%, conteudo cortavel vs. essencial, sinais de fadiga, relogios visiveis, encerramento pontual.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Feedback Imediato</span><span class="text-neutral-500 text-sm ml-2">- Medir impacto no final da sessao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para coletar feedback imediato ao final da sessao: NPS de sessao, one-minute paper, compromisso publico e follow-up estruturado.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem feedback, voce nao melhora. Sem metricas, voce nao prova valor. O feedback imediato e o combustivel da melhoria continua.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">NPS de sessao, one-minute paper, escala de confianca antes/depois, compromisso de acao, follow-up em 7 dias.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-2.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.3</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🏆 Champions Internos</h3>
+        <p class="text-neutral-400 text-sm">Identifique, empodere e multiplique champions de IA dentro da organizacao. A rede de multiplicadores e o que escala a adocao.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Identificar Champions</span><span class="text-neutral-500 text-sm ml-2">- Sinais de quem ja esta pronto</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de identificar pessoas que naturalmente evangelizam IA no time. Sao aquelas que ja testam por conta propria, compartilham descobertas e ajudam colegas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Champions sao o ativo mais valioso da habilitacao. Um champion convence mais que 10 sessoes de treinamento porque fala a lingua do time.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sinais de champion natural, early adopters vs. champions, perfil ideal, abordagem de convite, pipeline de identificacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💪</span>
+            <div><span class="font-medium">Empoderar Champions</span><span class="text-neutral-500 text-sm ml-2">- Dar ferramentas e autonomia</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O kit de empoderamento do champion: acesso antecipado a ferramentas, materiais de apoio, canal direto com o facilitador e reconhecimento formal.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Champion sem ferramentas e apenas um entusiasta. Com as ferramentas certas, ele se torna um multiplicador autonomo que reduz sua carga de trabalho.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Kit do champion, acesso privilegiado, mentoria direta, autonomia gradual, feedback loop com facilitador.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🌐</span>
+            <div><span class="font-medium">Rede de Multiplicadores</span><span class="text-neutral-500 text-sm ml-2">- Champions ensinam outros champions</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A estrutura de rede onde champions de primeira geracao formam champions de segunda geracao, criando um efeito cascata de habilitacao autonoma.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem multiplicacao, a habilitacao depende eternamente do facilitador externo. A rede de multiplicadores e o que torna a adocao autossustentavel.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Geracoes de champions, train-the-trainer, comunidade interna, rituais de compartilhamento, escalabilidade organica.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📚</span>
+            <div><span class="font-medium">Material de Apoio</span><span class="text-neutral-500 text-sm ml-2">- O que dar para o champion continuar sozinho</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O conjunto de materiais que permite ao champion operar de forma autonoma: guias de referencia rapida, templates de prompts, roteiros de mini-sessoes e FAQ.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Champions precisam de material para consultar e compartilhar. Sem isso, eles dependem de memoria e improvisacao, reduzindo a qualidade da multiplicacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Guia de referencia rapida, banco de prompts por funcao, roteiro de mini-sessao de 15 minutos, FAQ de objecoes, material atualizavel.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏢</span>
+            <div><span class="font-medium">Champions em Diferentes Areas</span><span class="text-neutral-500 text-sm ml-2">- TI, marketing, operacoes, RH</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As particularidades de champions por departamento: TI foca em integracao e seguranca, marketing em criacao de conteudo, operacoes em automacao e RH em recrutamento e desenvolvimento.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada area tem dores, linguagem e oportunidades diferentes. Um champion generico e menos eficaz que um champion especializado no contexto do seu departamento.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Casos de uso por departamento, linguagem por area, quick wins por funcao, metricas de impacto departamental, cross-pollination.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Medir Impacto dos Champions</span><span class="text-neutral-500 text-sm ml-2">- ROI da rede de multiplicadores</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Metricas e KPIs para avaliar o impacto real dos champions: pessoas habilitadas, ferramentas adotadas, horas economizadas e satisfacao dos times.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem metricas, o programa de champions perde apoio da lideranca. Com dados concretos, voce justifica investimento e expande o programa.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">KPIs de champion, taxa de multiplicacao, NPS interno, horas economizadas por champion, dashboard de acompanhamento.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-3.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.4</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🛠️ Toolkit do Time</h3>
+        <p class="text-neutral-400 text-sm">Defina as ferramentas certas para cada perfil do time. Claude Code vs. CoWork, setup padronizado e evolucao gradual.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💻</span>
+            <div><span class="font-medium">Claude Code para o Time</span><span class="text-neutral-500 text-sm ml-2">- Quando e para quem</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Claude Code e a interface de linha de comando para desenvolvedores e usuarios tecnicos. Ideal para quem trabalha com codigo, automacao e integracao de sistemas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber quando recomendar Claude Code evita frustracoes. Dar a ferramenta errada para o perfil errado e receita para abandono precoce.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Perfil tecnico vs. nao-tecnico, casos de uso de Code, curva de aprendizado, pre-requisitos minimos, integracao com IDEs.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">Claude CoWork para o Time</span><span class="text-neutral-500 text-sm ml-2">- Quando e para quem</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Claude CoWork e a interface colaborativa para equipes de negocio. Ideal para quem trabalha com documentos, analises, apresentacoes e comunicacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A maioria dos times nao e tecnica. CoWork e o ponto de entrada natural para 80% dos colaboradores de uma organizacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Interface visual, colaboracao em equipe, templates compartilhados, workflows de aprovacao, integracao com ferramentas corporativas.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">A Regra 70/30</span><span class="text-neutral-500 text-sm ml-2">- Distribuicao ideal entre CoWork e Code</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A proporcao ideal de distribuicao de ferramentas: 70% do time em CoWork, 30% em Code. Essa regra se aplica a maioria das organizacoes e pode ser ajustada por contexto.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Muitas empresas erram ao dar ferramentas tecnicas para todo mundo. A regra 70/30 otimiza investimento e maximiza adocao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Proporcao 70/30, criterios de alocacao, excecoes por setor, reavaliacao trimestral, migracoes graduais.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔧</span>
+            <div><span class="font-medium">Setup do Ambiente</span><span class="text-neutral-500 text-sm ml-2">- Configuracao padrao para toda a equipe</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A configuracao padronizada do ambiente de trabalho com IA: contas corporativas, permissoes, guardrails, templates iniciais e integracao com sistemas existentes.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fricao no setup e a principal causa de abandono no primeiro dia. Um ambiente pre-configurado reduz a barreira de entrada a zero.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Checklist de setup, SSO corporativo, politicas de uso, templates iniciais, primeiro prompt guiado, onboarding automatizado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Playbook do Time</span><span class="text-neutral-500 text-sm ml-2">- Documentacao de processos com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O documento vivo que registra como o time usa IA: prompts validados, workflows aprovados, melhores praticas e licoes aprendidas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem documentacao, o conhecimento fica na cabeca das pessoas. O playbook garante que novos membros do time comecem com vantagem e que boas praticas se perpetuem.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Playbook como documento vivo, templates por processo, versionamento, contribuicao coletiva, revisao mensal.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Evolucao Gradual</span><span class="text-neutral-500 text-sm ml-2">- De CoWork para Code conforme maturidade</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O caminho de evolucao natural de usuarios: comecam no CoWork para tarefas simples e, conforme ganham confianca e habilidade, migram gradualmente para ferramentas mais avancadas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Forcar a evolucao causa frustacao. Nao estimular a evolucao gera estagnacao. O caminho gradual maximiza retencao e desenvolvimento.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Niveis de maturidade, gatilhos de migracacao, mentoria no upgrade, avaliacao de prontidao, celebracao de evolucao.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-4.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📚 Curriculos Recorrentes</h3>
+        <p class="text-neutral-400 text-sm">Crie programas de aprendizado continuo que mantem o time atualizado sem sobrecarregar. Microlearning, newsletters e tracking de progresso.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📅</span>
+            <div><span class="font-medium">Modulos Mensais</span><span class="text-neutral-500 text-sm ml-2">- Conteudo novo a cada mes, sem ficar defasado</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um calendario de conteudo mensal que acompanha a velocidade de evolucao da IA, garantindo que o time nunca fique mais de 30 dias desatualizado.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O que era avancado ha 3 meses ja e basico hoje. Sem atualizacao recorrente, o time estagna enquanto a tecnologia avanca.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Calendario editorial de IA, curadoria de novidades, formato de modulo mensal, duracao de 30-45 minutos, feedback e iteracao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⚡</span>
+            <div><span class="font-medium">Skills e Slash Commands</span><span class="text-neutral-500 text-sm ml-2">- Criar automacoes compartilhadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Automacoes reutilizaveis que qualquer membro do time pode executar com um comando. Skills e slash commands padronizam a qualidade e reduzem o esforco repetitivo.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada pessoa criando prompts do zero e desperdicio de tempo. Skills compartilhadas garantem consistencia e aceleram todo o time simultaneamente.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Skills como ativos do time, slash commands reutilizaveis, biblioteca compartilhada, versionamento, contribuicao coletiva.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📰</span>
+            <div><span class="font-medium">Newsletter Interna</span><span class="text-neutral-500 text-sm ml-2">- Atualizacoes semanais do mundo IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Uma comunicacao semanal curada com as novidades mais relevantes de IA para o contexto da organizacao, incluindo dicas praticas e casos de uso internos.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A newsletter mantem o tema vivo na cabeca do time entre as sessoes formais. Sem ela, a IA volta a ser "aquilo que aprendi no treinamento".</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Formato de 3 minutos de leitura, secoes fixas, curadoria com IA, destaque de uso interno, call-to-action semanal.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎓</span>
+            <div><span class="font-medium">Microlearning</span><span class="text-neutral-500 text-sm ml-2">- Sessoes curtas e frequentes vs. treinamentos longos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A abordagem de aprendizado em doses pequenas e frequentes (5-15 minutos) em vez de treinamentos longos e esporadicos. Mais eficaz para retencao e aplicacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Adultos retêm 20% de um treinamento de 4 horas e 80% de 4 sessoes de 15 minutos. Microlearning respeita a rotina e maximiza retencao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sessoes de 5-15 minutos, frequencia semanal, um conceito por sessao, pratica imediata, espacamento otimo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Tracking de Progresso</span><span class="text-neutral-500 text-sm ml-2">- Acompanhar evolucao individual e coletiva</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um sistema de acompanhamento que mostra onde cada pessoa e o time como um todo estao na jornada de habilitacao em IA.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O que nao se mede nao se gerencia. Tracking de progresso permite intervencoes direcionadas e celebracao de marcos alcancados.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dashboard de progresso, niveis de competencia, marcos de evolucao, intervencoes por nivel, gamificacao do progresso.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Reciclagem de Conteudo</span><span class="text-neutral-500 text-sm ml-2">- Reutilizar material entre organizacoes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para adaptar e reutilizar material de habilitacao entre diferentes times e organizacoes, economizando tempo de producao sem perder personalizacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Criar tudo do zero para cada cliente e insustentavel. A reciclagem inteligente permite escalar a operacao mantendo qualidade e personalizacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Modulos base vs. customizaveis, biblioteca de componentes, personalizacao de 20%, template master, atualizacao centralizada.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-5.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.6</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔥 Resgatando Ceticos</h3>
+        <p class="text-neutral-400 text-sm">Transforme resistencia em alianca. Tecnicas para validar preocupacoes, confrontar de forma amigavel e converter ceticos em champions.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🤝</span>
+            <div><span class="font-medium">Validar Preocupacoes</span><span class="text-neutral-500 text-sm ml-2">- Sim, IA erra. E dai?</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A tecnica de validar genuinamente as preocupacoes dos ceticos antes de contra-argumentar. Sim, IA alucina. Sim, IA comete erros. E sim, ainda assim vale a pena.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ignorar preocupacoes validas transforma ceticos em inimigos. Validar antes de argumentar constroi confianca e abre espaco para a conversao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Validacao empatica, mapa de objecoes, resposta honesta a limitacoes, reframing de problemas, a tecnica do "sim, e...".</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">O Argumento dos 85%</span><span class="text-neutral-500 text-sm ml-2">- Se fosse 100%, voce seria relevante?</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O argumento que desarma ceticos: se a IA acerta 85% e voce corrige os 15% restantes, voce e mais produtivo do que fazer 100% sozinho. Se ela acertasse 100%, voce nao seria necessario.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">E o argumento mais poderoso contra "mas a IA erra". Ele reposiciona o erro como feature, nao como bug — e reafirma o valor do profissional humano.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">O paradoxo dos 85%, custo do perfeccionismo, velocidade vs. perfeicao, o papel do julgamento humano, complementaridade.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎭</span>
+            <div><span class="font-medium">Ceticos na Sala</span><span class="text-neutral-500 text-sm ml-2">- Tecnica de confronto amigavel</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para lidar com ceticos vocais durante sessoes ao vivo: como convidar a participar sem confrontar, como usar a objecao como oportunidade de demonstracao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um cetico mal gerenciado contamina a sala inteira. Um cetico bem gerenciado se torna a prova viva de que a IA convence ate os mais resistentes.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Confronto amigavel, convite a demonstracao, uso da objecao como gancho, desafio publico positivo, respeito ao ceticismo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔒</span>
+            <div><span class="font-medium">Seguranca como Aliada</span><span class="text-neutral-500 text-sm ml-2">- Guardrails que acalmam ceticos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como usar guardrails, politicas de seguranca e compliance como argumentos a favor da adocao, nao contra. Seguranca nao e barreira — e enabler.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A objecao de seguranca e a mais comum em ambientes corporativos. Saber responde-la com dados e exemplos concretos e essencial.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Guardrails corporativos, politicas de dados, compliance por setor, exemplos de uso seguro, certificacoes relevantes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Casos de Conversao</span><span class="text-neutral-500 text-sm ml-2">- De "nunca vou usar" a "como vivi sem isso"</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Historias reais de ceticos que se converteram em usuarios avidos de IA: o que mudou, qual foi o momento de virada e como replicar esse processo.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Nada convence um cetico como o exemplo de outro cetico convertido. Ter um repertorio de historias de conversao e uma arma poderosa de habilitacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Jornada do cetico, momento de virada, caso de uso pessoal, depoimento em primeira pessoa, efeito social proof.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">Cetico Vira Champion</span><span class="text-neutral-500 text-sm ml-2">- A maior vitoria possivel</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo completo de converter um cetico em champion: da validacao inicial, passando pelo momento aha personalizado, ate o empoderamento como multiplicador.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ex-ceticos sao os champions mais convincentes. Eles entendem a resistencia por dentro e sabem exatamente como supera-la.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Jornada cetico-champion, fases de conversao, paciencia estrategica, primeiro sucesso pessoal, convite para multiplicar.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-6.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.7</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎯 Jornada do Aluno Corporativo</h3>
+        <p class="text-neutral-400 text-sm">Mapeie os estagios de evolucao do aluno corporativo: de curioso a independente. Saiba onde cada pessoa esta e como acelera-la.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">👀</span>
+            <div><span class="font-medium">Awareness</span><span class="text-neutral-500 text-sm ml-2">- Testou uma vez, achou generico, ficou curioso</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O primeiro estagio da jornada: a pessoa ja ouviu falar de IA, talvez tenha testado uma vez, mas achou generico e nao viu aplicacao pratica no seu trabalho.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A maioria do seu publico esta neste estagio. Saber reconhecer e atuar nele e fundamental para mover as pessoas para o proximo nivel.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Primeiro contato com IA, expectativas vs. realidade, experiencia generica, curiosidade latente, gatilhos de avanco.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💡</span>
+            <div><span class="font-medium">Aha Moment</span><span class="text-neutral-500 text-sm ml-2">- Primeira vez que IA faz algo que ele nao conseguiria</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O momento de virada onde a pessoa ve a IA fazer algo que ela nao conseguiria sozinha, ou fazer em segundos algo que levaria horas. E o ponto de nao retorno.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O aha moment e o combustivel da adocao. Sem ele, a pessoa volta ao status quo. Com ele, a pessoa nunca mais para de explorar.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Engenharia do momento aha, personalizacao por funcao, demo com dados reais, impacto emocional, ancoragem positiva.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🛠️</span>
+            <div><span class="font-medium">Capability</span><span class="text-neutral-500 text-sm ml-2">- Prompta bem, tem memoria, cria workflows</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O estagio onde a pessoa ja sabe promptar com qualidade, usa memoria e contexto, cria workflows proprios e integra IA na rotina diaria.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Reconhecer este estagio permite oferecer conteudo avancado e evitar tedio com material basico. E o momento de desafiar para crescer mais.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prompt engineering consistente, uso de contexto e memoria, workflows automatizados, experimentacao autonoma, qualidade de output.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">Independence</span><span class="text-neutral-500 text-sm ml-2">- Usuario autonomo que evolui sozinho</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O estagio de maturidade onde a pessoa descobre novas funcionalidades por conta propria, acompanha novidades e adapta seu uso sem ajuda externa.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Independencia e o objetivo final da habilitacao. Quando o aluno nao precisa mais de voce, voce fez seu trabalho direito.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Autonomia de aprendizado, curadoria propria, experimentacao proativa, compartilhamento espontaneo, mentoria reversa.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Ciclo Continuo</span><span class="text-neutral-500 text-sm ml-2">- Independencia nao e o fim, e o comeco</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A compreensao de que a jornada e ciclica: cada nova ferramenta ou capacidade reinicia o ciclo em um nivel mais alto, criando uma espiral ascendente de competencia.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Evita a falsa sensacao de "ja aprendi tudo". A IA evolui tao rapido que mesmo usuarios avancados voltam ao estagio de awareness com novas funcionalidades.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Espiral ascendente, novo ciclo a cada evolucao, humildade tecnologica, aprendizado continuo, growth mindset aplicado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Medir Progresso</span><span class="text-neutral-500 text-sm ml-2">- Em que estagio cada pessoa do time esta</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Ferramentas e metricas para identificar em qual estagio cada membro do time esta, permitindo intervencoes personalizadas e planejamento de proximos passos.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Tratar todo mundo igual e ineficiente. Saber onde cada pessoa esta permite oferecer exatamente o que ela precisa para avancar.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Assessment de estagio, indicadores por nivel, heat map do time, plano de acao individual, relatorio para lideranca.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-7.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 5.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-teal-400 font-bold">5.8</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💰 Programa de Incentivos</h3>
+        <p class="text-neutral-400 text-sm">Crie sistemas de incentivo que aceleram adocao sem criar dependencia. Gamificacao, bonus, reconhecimento e sustentabilidade.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">Gamificacao</span><span class="text-neutral-500 text-sm ml-2">- Pontos, badges, rankings de adocao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistemas de pontos, badges e rankings que tornam a adocao de IA divertida e competitiva, usando mecanicas de jogos para motivar participacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Gamificacao ativa motivacao intrinseca e extrinseca simultaneamente. Times gamificados apresentam ate 60% mais engajamento em programas de habilitacao.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sistema de pontos, badges de conquista, leaderboards, niveis de maestria, recompensas por milestone.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💰</span>
+            <div><span class="font-medium">Bonus por Aplicacao</span><span class="text-neutral-500 text-sm ml-2">- Recompensa financeira por resultados</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Programas de bonus financeiro vinculados a resultados mensuráveis de uso de IA: horas economizadas, processos automatizados, melhorias documentadas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Incentivos financeiros aceleram adocao quando bem desenhados. Mal desenhados, geram gaming e comportamentos perversos. O design importa tanto quanto o valor.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Bonus por resultado, metricas claras, prevencao de gaming, orcamento de incentivos, ROI do programa de bonus.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📢</span>
+            <div><span class="font-medium">Reconhecimento Publico</span><span class="text-neutral-500 text-sm ml-2">- Showcases e apresentacoes internas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Eventos internos onde usuarios de destaque apresentam como estao usando IA no dia a dia, gerando social proof e inspirando colegas.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Reconhecimento publico e mais motivador que bonus financeiro para muitos perfis. Showcases internos criam cultura de inovacao e normalizam o uso de IA.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Showcase mensal, apresentacao de 5 minutos, formato de caso de uso, votacao de melhor caso, destaque em comunicacao interna.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎓</span>
+            <div><span class="font-medium">Certificacao Interna</span><span class="text-neutral-500 text-sm ml-2">- Validar competencias adquiridas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um programa de certificacao interno que valida competencias em IA por nivel: basico, intermediario e avancado, com criterios claros e avaliacao pratica.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Certificacao da peso ao aprendizado e cria diferenciacao interna. Profissionais certificados ganham visibilidade e se tornam referencia para o time.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Niveis de certificacao, criterios praticos, avaliacao por portfolio, validade temporal, reconhecimento em perfil profissional.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Metricas de Incentivo</span><span class="text-neutral-500 text-sm ml-2">- O que premiar e o que evitar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As metricas corretas para vincular a incentivos: premiar resultados e aplicacao, nao apenas uso. Evitar metricas de vaidade que geram comportamento artificial.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Metricas erradas geram comportamento errado. Premiar numero de prompts gera spam. Premiar resultado gera valor real.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Metricas de resultado vs. metricas de vaidade, lei de Goodhart, incentivos perversos, balanceamento entre quantidade e qualidade.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Sustentabilidade</span><span class="text-neutral-500 text-sm ml-2">- Manter motivacao alem do incentivo inicial</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-teal-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para manter a motivacao apos o periodo inicial de incentivos, migrando de motivacao extrinseca para intrinseca de forma gradual e natural.</p></div>
+            <div><span class="text-teal-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Incentivos eternos sao insustentaveis. O objetivo e criar habito e motivacao intrinseca que sobrevivam apos o fim do programa formal.</p></div>
+            <div><span class="text-teal-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Transicao extrinseca para intrinseca, formacao de habito, comunidade auto-sustentavel, reducao gradual de incentivos, cultura de inovacao.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-5-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-5-8.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGACAO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha Anterior: Cultura
+      </a>
+      <a href="../trilha6/index.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">
+        Proxima Trilha: Escala →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal-5-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.1</span><span class="font-semibold">Mapeando o Time</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.2</span><span class="font-semibold">Design de Workshops</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.3</span><span class="font-semibold">Champions Internos</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.4</span><span class="font-semibold">Toolkit do Time</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.5</span><span class="font-semibold">Curriculos Recorrentes</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.6</span><span class="font-semibold">Resgatando Ceticos</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.7</span><span class="font-semibold">Jornada do Aluno Corporativo</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-5-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-teal-400 font-bold">5.8</span><span class="font-semibold">Programa de Incentivos</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-5-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) { exp.classList.remove('active'); }
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => { modal.classList.add('hidden'); });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

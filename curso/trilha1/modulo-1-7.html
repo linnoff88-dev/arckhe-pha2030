@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1.7 - Limites e Responsabilidade | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}
+    html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+    html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background-color:rgba(5,150,105,0.12)}html:not(.dark) .bg-emerald-500\/10{background-color:rgba(5,150,105,0.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,0.25)}html:not(.dark) .hover\:bg-emerald-500\/30:hover{background-color:rgba(5,150,105,0.18)}
+    html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,0.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,0.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,0.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Modulo 1.7</span></div></nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULO 1.7</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛡️ Limites e Responsabilidade</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Use IA de forma etica, segura e responsavel. Conheca os riscos reais — alucinacoes, vieses, privacidade — e construa seus guardrails pessoais.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">👻 Alucinacoes</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Alucinacoes sao o risco numero 1 do uso de IA. A IA pode <strong class="text-emerald-400">inventar fatos, criar citacoes falsas e fabricar dados</strong> com total confianca. Ela nao sabe que esta mentindo — ela esta gerando a sequencia de palavras mais provavel, que as vezes e completamente falsa.</p>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Tipos de Alucinacao</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>Fatos inventados:</strong> "O estudo de Harvard de 2024 mostrou que..." — o estudo nao existe</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>Citacoes fabricadas:</strong> "Como disse Peter Drucker: ..." — Drucker nunca disse isso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>Numeros falsos:</strong> "O mercado brasileiro de IA vale R$ 47 bilhoes" — numero inventado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>Links quebrados:</strong> URLs que parecem reais mas levam a paginas inexistentes</span></li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🛡️</span> Como se Proteger</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Regra de ouro:</strong> Nunca publique dados, numeros ou citacoes sem verificar em fonte original</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Peca fontes:</strong> "Cite a fonte exata desse dado" — se a IA nao conseguir, desconfie</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Cross-check:</strong> Verifique informacoes criticas com Perplexity ou busca direta</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Desconfie de especificidade:</strong> Se a IA da um numero muito preciso sem fonte, provavelmente inventou</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">⚖️ Vies e Etica</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Modelos de IA sao treinados em dados humanos — e dados humanos contem <strong class="text-emerald-400">preconceitos</strong>. Se os textos de treinamento associam "CEO" a homens brancos, o modelo tende a reproduzir esse padrao. Vieses podem ser sutis e dificeis de detectar.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">⚖️</span> Tipos de Vies em IA</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Vies de genero:</strong> Associar profissoes a generos ("enfermeira" vs. "engenheiro")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Vies cultural:</strong> Priorizar perspectivas anglo-saxonicas sobre outras culturas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Vies de confirmacao:</strong> Reforcar opinioes do usuario em vez de desafiar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Vies de dados:</strong> Subrepresentacao de minorias nos dados de treinamento</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Quando usar IA para decisoes que envolvem pessoas (contratacao, avaliacao, comunicacao), sempre revise o output buscando vieses. Pergunte: "essa resposta seria diferente se o genero/raca/idade fosse diferente?" Se sim, ha vies.</p>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔒 Seguranca e Privacidade</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Tudo que voce escreve em um prompt pode ser usado para treinamento do modelo (em planos gratuitos). Isso significa que <strong class="text-emerald-400">dados sensiveis compartilhados com IA podem vazar</strong>. A protecao comeca com consciencia sobre o que nunca colocar em um prompt.</p>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚫</span> NUNCA Coloque em um Prompt</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>CPF, RG ou documentos pessoais de terceiros</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Senhas, tokens de API ou credenciais de acesso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Contratos confidenciais com clausulas de sigilo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados financeiros sensiveis de clientes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Informacoes medicas identificaveis de pacientes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Codigo-fonte proprietario com IP critico</span></li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✅</span> Boas Praticas de Seguranca</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Use planos corporativos:</strong> ChatGPT Enterprise, Claude for Business — dados nao sao usados para treinamento</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Anonimize dados:</strong> Substitua nomes reais por ficticios antes de colar em prompts</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Desative historico:</strong> Se usar plano gratuito, desative o treinamento nas configuracoes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>LGPD:</strong> Dados pessoais de brasileiros tem protecao legal — respeite</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📜 Propriedade Intelectual</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Quem e o "autor" de um texto gerado por IA? Posso usar comercialmente? E se a IA reproduzir conteudo protegido? O <strong class="text-emerald-400">cenario juridico esta em construcao</strong>, mas ja existem diretrizes praticas que voce deve seguir.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Estado Atual da Regulamentacao</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Brasil:</strong> PL 2338/2023 (Marco Legal da IA) em tramitacao — foco em transparencia e responsabilidade</li>
+          <li><strong>EUA:</strong> Conteudo gerado puramente por IA nao tem copyright. Se ha contribuicao humana significativa, pode ter</li>
+          <li><strong>UE:</strong> AI Act em vigor — exige transparencia sobre conteudo gerado por IA</li>
+          <li><strong>Pratica:</strong> A maioria das empresas trata output de IA como "rascunho" que precisa de revisao humana para ter valor legal</li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Regra segura: use IA como ferramenta de rascunho, nunca como autor final. Adicione seu julgamento, revisao e contribuicao original. Isso garante que o output final tem sua marca intelectual e reduz riscos legais.</p>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚫 Quando NAO Usar IA</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O profissional maduro sabe quando a IA <strong class="text-emerald-400">nao deve ser usada</strong> como decisor. Em situacoes de alto impacto, risco para pessoas ou contextos regulados, o julgamento humano e insubstituivel.</p>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚫</span> Situacoes Criticas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><strong>Diagnosticos medicos:</strong> IA pode auxiliar na triagem, nunca substituir o medico</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><strong>Decisoes legais finais:</strong> Pareceres juridicos exigem advogado, nao chatbot</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><strong>Avaliacao de pessoas:</strong> Demissoes, promocoes e feedbacks criticos precisam de empatia humana</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><strong>Decisoes financeiras de alto valor:</strong> Investimentos significativos exigem analise humana com responsabilidade fiduciaria</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><strong>Comunicacao de crise:</strong> Situacoes sensiveis que exigem empatia, tato e julgamento moral</span></li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✅</span> O Principio do Humano no Loop</h3>
+        <p class="text-neutral-300 mb-4">Em qualquer uso de IA, pergunte: "Se essa resposta estiver errada, qual e o impacto?" Se o impacto for alto, o humano DEVE validar antes de agir.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Impacto baixo:</strong> Rascunho de e-mail interno → pode usar sem revisar profundamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Impacto medio:</strong> Relatorio para diretoria → revise dados e conclusoes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Impacto alto:</strong> Decisao juridica, medica, financeira → humano decide, IA auxilia</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">✅ Guardrails Pessoais</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Guardrails pessoais sao o seu <strong class="text-emerald-400">filtro de qualidade e responsabilidade</strong>. Um checklist que voce aplica antes de usar qualquer output da IA em contexto profissional. E a diferenca entre uso amador e uso profissional.</p>
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✅</span> Checklist de Uso Responsavel</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Verifiquei fatos e numeros?</strong> Dados criticos conferidos em fontes primarias</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Revisei por vieses?</strong> Output nao contem preconceitos ou estereotipos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Protegi dados sensiveis?</strong> Nenhuma informacao confidencial foi compartilhada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Adicionei minha contribuicao?</strong> Output tem meu julgamento e perspectiva</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Avaliei o impacto?</strong> Se estiver errado, as consequencias sao aceiraveis</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>□ Sou transparente?</strong> Se necessario, informo que IA auxiliou na criacao</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Profissional Responsavel</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Valida antes de publicar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>E transparente sobre uso de IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Protege dados de terceiros</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Uso Irresponsavel</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Publica sem revisar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esconde que usou IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Compartilha dados sensiveis em prompts</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Alucinacoes sao reais</strong><span class="text-neutral-400"> - IA inventa fatos com confianca. Verifique sempre</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Vieses existem</strong><span class="text-neutral-400"> - Modelos herdam preconceitos dos dados de treinamento</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Privacidade e critica</strong><span class="text-neutral-400"> - Nunca compartilhe dados sensiveis em prompts</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">IP em construcao</strong><span class="text-neutral-400"> - Use IA como rascunho, adicione sua contribuicao original</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Saiba quando parar</strong><span class="text-neutral-400"> - Decisoes de alto impacto exigem humano no comando</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Guardrails pessoais</strong><span class="text-neutral-400"> - Checklist de 6 itens antes de usar qualquer output</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">1.8 - Construindo Autonomia — Memoria, fluxos pessoais, kit de ferramentas e independencia</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-1-8.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark');}else{themeToggleLightIcon.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light');});</script>
+</body>
+</html>

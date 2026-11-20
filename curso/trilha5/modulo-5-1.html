@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.1 - Mapeando o Time | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:bg-teal-500\/30:hover { background-color: rgba(13, 148, 136, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-teal-400">Inicio</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-teal-400">Trilha 5</a>
+      <span>/</span>
+      <span class="text-teal-400">Modulo 5.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Mapeando o Time</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Antes de ensinar qualquer coisa sobre IA, entenda quem esta na sala. Discovery pre-sessao, arquetipos de participantes e o golden nugget que transforma cada sessao em algo memoravel.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">6</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">Avancado</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">Pratica</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔍 Discovery Pre-Sessao</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior erro de quem habilita times em IA e chegar na sala sem saber quem esta la. Discovery pre-sessao nao e opcional — e o <strong class="text-teal-400">fundamento de qualquer sessao eficaz</strong>. Sem ela, voce esta dando uma palestra generica. Com ela, voce esta resolvendo problemas reais de pessoas reais.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">🔑</span> As 4 Perguntas Essenciais
+        </h3>
+        <p class="text-neutral-300 mb-4">Antes de qualquer sessao de habilitacao, estas 4 perguntas devem ser respondidas pelo lider do time ou pelo sponsor:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Qual e o contexto do time?</strong> Tamanho, funcao, ferramentas atuais, maturidade digital e historico com IA</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Qual e o nivel atual?</strong> Nunca usaram IA, usam casualmente, ou ja tem usuarios avancados?</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Quais sao as dores reais?</strong> Tarefas repetitivas, gargalos, frustruacoes do dia a dia que IA poderia resolver</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Qual e o resultado esperado?</strong> O que o sponsor quer que aconteca depois da sessao?</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Dados de Pesquisa
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>73%</strong> - dos treinamentos corporativos falham por falta de personalizacao ao contexto</li>
+          <li><strong>4x</strong> - maior retencao em sessoes customizadas vs. genericas</li>
+          <li><strong>15 min</strong> - tempo medio de uma discovery bem-feita que transforma a sessao inteira</li>
+          <li><strong>89%</strong> - dos facilitadores que fazem discovery reportam NPS acima de 8</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Envie um formulario de 5 perguntas ao lider do time pelo menos 48 horas antes da sessao. Se nao responderem, faca uma call de 15 minutos. Nunca entre na sala sem essas respostas — a diferenca e dramatica.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📊 Nivel da Sala</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma sala com 20 pessoas tem pelo menos 3 niveis diferentes de experiencia com IA. Sua missao e calibrar o conteudo para a <strong class="text-teal-400">maioria sem perder os extremos</strong>. A regra 80/20 e seu melhor amigo.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">📋</span> Os 3 Niveis de Sessao
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>101 (Iniciante):</strong> "O que e IA?" — Foco em desmistificar, mostrar possibilidades, primeiro contato pratico. Ideal para times que nunca usaram.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>201 (Intermediario):</strong> "Como usar IA melhor?" — Foco em prompt engineering, workflows e integracao com ferramentas existentes. Para quem ja brincou mas nao sistematizou.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>301 (Avancado):</strong> "Como escalar IA?" — Foco em automacao, agentes, integracao de sistemas e multiplicacao. Para power users que querem ir alem.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A Regra 80/20 na Pratica
+        </h3>
+        <p class="text-neutral-300">Se 80% da sala e nivel 101, faca 80% do conteudo como 101 e reserve 20% para desafiar os mais avancados com um bonus. Se misturar demais, os iniciantes se perdem e os avancados se entediam. Melhor errar para baixo — quem ja sabe reforça, quem nao sabe aprende.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que FAZER</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Perguntar no inicio: "quem ja usou IA?" (levantamento rapido)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Ter conteudo cortavel para ajustar em tempo real</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Usar os avancados como co-facilitadores espontaneos</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que NAO fazer</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Assumir que todo mundo sabe o basico</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Dar conteudo 301 para sala 101 "para impressionar"</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Ignorar sinais de confusao ou tedio</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎭 Identificar Arquetipos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Toda sala de habilitacao tem os mesmos 5 arquetipos. Aprender a identifica-los nos primeiros 10 minutos e usar cada um a seu favor e o que separa um facilitador <strong class="text-teal-400">mediocre de um excelente</strong>.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">O Entusiasta</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sinal: ja esta com o Claude aberto antes da sessao comecar</p>
+            <p class="text-neutral-300 text-sm">Adora IA, ja testou tudo, quer ir alem. Use-o como co-facilitador: peca para compartilhar experiencias e ajudar colegas. Cuidado para nao deixa-lo dominar a conversa.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">O Cetico Silencioso</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sinal: bracos cruzados, nao interage, olha o celular</p>
+            <p class="text-neutral-300 text-sm">Nao acredita que IA funciona para ele. Nao confronte diretamente. Faca uma demo usando exatamente o tipo de tarefa que ele faz. Quando funcionar, ele abre os olhos. E o maior premio da sessao.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">O Champion Escondido</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sinal: faz perguntas pertinentes, anota tudo, ajuda o colega do lado</p>
+            <p class="text-neutral-300 text-sm">Tem potencial de multiplicador mas ainda nao se ve como tal. Ative-o com um convite direto: "voce parece ter facilidade, toparia ajudar o time depois?" Esse convite pode criar seu melhor aliado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">O Espectador Passivo</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sinal: presente fisicamente, ausente mentalmente</p>
+            <p class="text-neutral-300 text-sm">Veio porque mandaram, nao porque quis. A unica forma de ativa-lo e com hands-on: quando ele fizer algo funcionar com as proprias maos, a postura muda. Nao adianta teorizar — so a pratica funciona.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold">5</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">O Sabotador Involuntario</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sinal: interrompe com objecoes, desvia o assunto, conta historias de fracasso</p>
+            <p class="text-neutral-300 text-sm">Geralmente tem medo genuino. Valide a preocupacao ("otima observacao"), responda com dados rapidos e redirecione: "vamos ver na pratica se isso acontece aqui". Nunca ignore ou descarte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">😤 Tarefas mais Irritantes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A pergunta mais poderosa que voce pode fazer antes de uma sessao e: <strong class="text-teal-400">"qual tarefa voce mais detesta fazer no trabalho?"</strong> Quando voce resolve essa dor ao vivo, com IA, o ceticismo derrete. A dor do time e o seu melhor script de demonstracao.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">🎯</span> Como Mapear as Dores
+        </h3>
+        <p class="text-neutral-300 mb-4">O processo e simples mas exige disciplina:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Pre-sessao:</strong> Pergunte ao lider: "quais tarefas o time mais reclama?" e "o que consome tempo demais?"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Nos primeiros 5 minutos:</strong> Pergunte ao grupo: "se voce pudesse eliminar uma tarefa do seu dia, qual seria?"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Demo ao vivo:</strong> Pegue a resposta mais comum e resolva ao vivo com IA. O impacto e imediato.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Momento espelho:</strong> "Voce ve como isso que levava 30 minutos levou 2? E exatamente isso que vamos aprender a fazer."</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Dores Mais Comuns por Area
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Marketing:</strong> Criar variantes de copy, resumir pesquisas, montar briefings</li>
+          <li><strong>RH:</strong> Escrever descricoes de vaga, analisar curriculos, criar comunicados</li>
+          <li><strong>Financeiro:</strong> Resumir relatorios, criar apresentacoes, analisar planilhas</li>
+          <li><strong>Juridico:</strong> Pesquisar jurisprudencia, revisar contratos, criar minutas</li>
+          <li><strong>Operacoes:</strong> Documentar processos, criar checklists, gerar relatorios de status</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎯 O Golden Nugget do Time</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Se voce pudesse ensinar apenas <strong class="text-teal-400">uma unica coisa</strong> e a sessao fosse encerrada ali, qual seria? Essa e a pergunta que define o golden nugget. Cada time, cada funcao, cada nivel de maturidade tem o seu. Identificar o golden nugget e entregar ele com maestria e o ponto alto de qualquer habilitacao.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">💎</span> Golden Nuggets por Funcao
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Para o CEO:</strong> "IA nao substitui pessoas, mas pessoas com IA substituem pessoas sem IA"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Para Marketing:</strong> "Crie 10 variantes de copy em 30 segundos e teste todas simultaneamente"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Para RH:</strong> "Analise 50 curriculos e ranqueie por fit cultural em 2 minutos"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Para Vendas:</strong> "Transforme anotacoes de reuniao em follow-up personalizado instantaneamente"</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Para Devs:</strong> "Refatore 500 linhas de codigo legado com explicacao de cada mudanca"</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O One Thing Framework
+        </h3>
+        <p class="text-neutral-300">Pergunte a si mesmo antes de cada sessao: "Se o participante esquecer tudo que eu disse exceto uma coisa, qual deveria ser?" Construa sua sessao ao redor dessa resposta. Todo o resto e complementar. O golden nugget e o nucleo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📋 Template de Discovery</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chega de improvisar. Este template de discovery e o resultado de centenas de sessoes de habilitacao. Sao <strong class="text-teal-400">12 perguntas estruturadas</strong> que levam 5 minutos para responder e transformam completamente a qualidade da sua sessao.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">📋</span> Questionario Pre-Sessao (enviar ao lider)
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">1.</span><span>Qual a area e funcao principal do time?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">2.</span><span>Quantas pessoas participarao da sessao?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">3.</span><span>Qual o nivel medio de experiencia com IA? (nunca usou / usou casualmente / usa regularmente)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">4.</span><span>O time ja teve algum treinamento de IA antes?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">5.</span><span>Quais ferramentas o time usa no dia a dia? (Google Workspace, Office 365, Slack, etc.)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">6.</span><span>Quais as 3 tarefas mais repetitivas/chatas do time?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">7.</span><span>Existe alguma resistencia ou preocupacao especifica com IA?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">8.</span><span>Qual resultado voce espera da sessao?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">9.</span><span>A sessao sera presencial ou virtual?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">10.</span><span>Quanto tempo disponivel? (30 min / 1h / 2h)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">11.</span><span>Existe alguem no time que ja e entusiasta de IA?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">12.</span><span>Tem algum exemplo ou dado real do time que eu possa usar na demo?</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">Monte este questionario no Google Forms ou Typeform e envie com uma mensagem curta: "Para eu preparar a melhor sessao possivel para voces, preciso de 5 minutos do seu tempo." Taxa de resposta: acima de 80% quando o pedido e claro e curto.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">📋</span> Resumo do Modulo
+        </h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Discovery Pre-Sessao</strong><span class="text-neutral-400"> - As 4 perguntas que transformam qualquer sessao</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Nivel da Sala</strong><span class="text-neutral-400"> - Regra 80/20 para calibrar conteudo ao publico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">5 Arquetipos</strong><span class="text-neutral-400"> - Identificar e usar cada perfil a seu favor</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Dores do Time</strong><span class="text-neutral-400"> - A tarefa irritante vira sua melhor demo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Golden Nugget</strong><span class="text-neutral-400"> - A unica coisa que faz a sessao valer a pena</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Template Pronto</strong><span class="text-neutral-400"> - 12 perguntas que garantem personalizacao</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-teal-400 mb-2">Proximo Modulo:</h3>
+          <p class="text-neutral-300">5.2 - Design de Workshops — Estruture sessoes que mantem atencao, geram pratica e medem impacto</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo-5-2.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">
+            Proximo Modulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

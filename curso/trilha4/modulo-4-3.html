@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.3 - Estrategia de Adocao | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}
+    html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#ffffff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+    html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background-color:rgba(217,119,6,0.12)}html:not(.dark) .bg-amber-500\/10{background-color:rgba(217,119,6,0.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,0.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background-color:rgba(217,119,6,0.18)}
+    html:not(.dark) [class*="bg-gradient-to"]{background-image:none !important}
+    html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,0.08)}html:not(.dark) .border-primary\/40{border-color:rgba(161,98,7,0.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}
+    html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,0.95)}
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🧠</span><span class="font-bold text-lg hidden sm:inline">PHA 2030</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Modulo 4.3</span></div></nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.3</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🧭 Estrategia de Adocao</h1><p class="text-lg text-neutral-400 max-w-3xl">Do roadmap de 30 dias ao plano de 12 meses. Quick wins, alinhamento executivo, orcamento e comunicacao para transformacao real.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avancado</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Estrategia</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🗺️ Roadmap de Adocao</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Um roadmap bem estruturado transforma "vamos usar IA" em um <strong class="text-amber-400">plano com marcos, responsaveis e resultados esperados</strong>. Sem ele, a adocao vira experimento desorganizado que morre em 3 meses.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">30d</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Fase 1: Quick Wins (30 dias)</h4><p class="text-neutral-300 text-sm">Identificar 3 dores prioritarias, resolver com IA, medir resultado. Objetivo: gerar a primeira evidencia de valor. Formar os primeiros 2-3 champions. Criar a "historia de 2 minutos" que vira munição para o resto do programa.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">90d</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Fase 2: Expansao (90 dias)</h4><p class="text-neutral-300 text-sm">Expandir para 2-3 equipes adjacentes. Champions treinam colegas. Estabelecer politica basica de uso. Primeiro report para lideranca com dados concretos. Ajustar playbook baseado nos aprendizados da Fase 1.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">6m</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Fase 3: Integracao (6 meses)</h4><p class="text-neutral-300 text-sm">IA integrada em processos formais. Politica de governanca completa. Dashboard de metricas ativo. Programa de champions estruturado. Orcamento dedicado aprovado. Casos de uso documentados por area.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">12m</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Fase 4: Cultura (12 meses)</h4><p class="text-neutral-300 text-sm">IA e parte da cultura organizacional. Novos funcionarios ja recebem treinamento no onboarding. Metricas de IA fazem parte dos KPIs de performance. A organizacao nao se imagina mais sem IA.</p></div></div>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏆 Quick Wins</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Quick wins sao <strong class="text-amber-400">projetos de alto impacto e baixo esforco</strong> que demonstram o valor da IA em dias, nao meses. Sao a moeda de confianca da transformacao — cada vitoria rapida converte ceticos e justifica investimento adicional.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Quick Wins Comprovados</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>E-mail de vendas:</strong> IA gera 10 variantes de cold e-mail em 2 minutos (antes: 2 horas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Resumo de reuniao:</strong> IA transcreve e resume reuniao de 1 hora em 30 segundos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Analise de planilha:</strong> IA analisa dados de Excel e gera insights em 1 minuto (antes: 4 horas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Proposta comercial:</strong> IA gera rascunho de proposta personalizada em 5 minutos (antes: 3 horas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>FAQ interno:</strong> IA cria base de conhecimento a partir de documentos existentes em 1 dia</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📊 Board Alignment</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Diretores nao querem ouvir sobre <strong class="text-amber-400">tecnologia</strong> — querem ouvir sobre <strong class="text-amber-400">resultados, riscos e retorno</strong>. A arte de apresentar IA para o board e traduzir capacidades tecnicas em linguagem de negocio.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> Template de Apresentacao para Board</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Slide 1 - O problema:</strong> Quanto estamos perdendo por nao usar IA (em R$ e horas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Slide 2 - A evidencia:</strong> O que ja testamos e quais resultados obtivemos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Slide 3 - O plano:</strong> Roadmap com fases, investimento e retorno esperado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Slide 4 - Os riscos:</strong> O que pode dar errado e como vamos mitigar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Slide 5 - O pedido:</strong> O que precisamos de voces (orcamento, sponsorship, decisao)</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Nunca apresente IA para o board sem antes ter pelo menos 1 quick win comprovado. Dados reais da propria empresa valem 100x mais que benchmarks de mercado. "Na semana passada, o time de vendas economizou 40 horas usando IA para propostas" e imbativel.</p>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">💰 Orcamento e Investimento</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O investimento em IA nao precisa ser grande para comecar. A maioria dos <strong class="text-amber-400">quick wins custa menos de R$1.000/mes</strong> em licencas. O segredo e comecar pequeno, provar valor e escalar com evidencias.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Custos Tipicos</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>ChatGPT Plus:</strong> R$100/usuario/mes — acesso a GPT-4, GPTs, analise de dados</li>
+          <li><strong>Claude Pro:</strong> R$100/usuario/mes — raciocinio avancado, documentos longos</li>
+          <li><strong>Copilot for M365:</strong> R$150/usuario/mes — integrado com Office</li>
+          <li><strong>Workshop de 4h:</strong> R$5.000-15.000 por sessao — educacao do time</li>
+          <li><strong>Consultoria de diagnostico:</strong> R$15.000-50.000 — Discovery Sprint completo</li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Pratica</h3>
+        <p class="text-neutral-300">Calcule o custo de NAO usar IA: se um funcionario ganha R$10.000/mes e gasta 30% do tempo em tarefas que IA pode fazer, sao R$3.000/mes desperdicados. Uma licenca de R$100/mes que economiza R$3.000/mes tem ROI de 30x. Esse e o argumento que convence CFOs.</p>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔄 Fases de Implementacao</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Cada fase tem seus proprios <strong class="text-amber-400">desafios, metricas e criterios de sucesso</strong>. Pular fases e a causa numero 1 de fracasso. A disciplina de respeitar o ritmo e o que separa implementacoes duradouras de fogos de palha.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Sinais de que esta pronto para proxima fase</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>70%+ do time piloto usa IA semanalmente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pelo menos 3 quick wins documentados e medidos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Champions identificados e ativos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sponsor executivo engajado e comunicando</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Sinais de que precisa parar e recalibrar</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Uso caiu apos o entusiasmo inicial</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Reclamacoes sobre "mais uma ferramenta"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Lideranca nao sabe o que esta acontecendo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nenhuma metrica sendo coletada</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📋 Plano de Comunicacao</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A narrativa sobre IA dentro da empresa pode ser <strong class="text-amber-400">empoderamento ou ameaca</strong> — depende de como voce comunica. O plano de comunicacao certo antecipa medos, responde duvidas e transforma resistencia em curiosidade.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> Principios de Comunicacao sobre IA</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Narrativa de empoderamento:</strong> "IA vai te ajudar a fazer seu trabalho melhor" (nunca "IA vai fazer seu trabalho")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Transparencia sobre limites:</strong> "IA erra, por isso voce e essencial na validacao"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Casos internos primeiro:</strong> Historias de colegas valem mais que cases de outras empresas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Canal aberto para duvidas:</strong> Espaco seguro para perguntar sem julgamento</span></li>
+        </ul>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Frases que NUNCA usar</h3>
+        <p class="text-neutral-300">"Quem nao usar IA vai ficar para tras", "Estamos automatizando processos" (soa como eliminando empregos), "Isso e mandatorio" (gera resistencia imediata). Em vez disso: "Estamos oferecendo ferramentas para voce ser mais produtivo" e "Queremos que voce tenha mais tempo para o trabalho que importa".</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Roadmap em 4 fases</strong><span class="text-neutral-400"> - 30 dias, 90 dias, 6 meses, 12 meses</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Quick wins sao moeda</strong><span class="text-neutral-400"> - Cada vitoria rapida compra confianca e orcamento</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Board alignment</strong><span class="text-neutral-400"> - Fale de resultados, nao de tecnologia</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Investimento acessivel</strong><span class="text-neutral-400"> - Comece com R$100/mes, prove ROI de 30x</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Respeite as fases</strong><span class="text-neutral-400"> - Pular etapas e a causa #1 de fracasso</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Comunicacao estrategica</strong><span class="text-neutral-400"> - Empoderamento, nunca ameaca</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">4.4 - Os 4 Arquetipos — Identifique os perfis que voce encontra em toda sala de workshop</p></div>
+        <div class="flex flex-col sm:flex-row gap-4"><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="modulo-4-4.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Proximo Modulo →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>PHA 2030 - 2026</p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle');const themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon');const themeToggleLightIcon=document.getElementById('theme-toggle-light-icon');const html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')})</script>
+</body>
+</html>

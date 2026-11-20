@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 3 - IA Avancada | PHA 2030</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode overrides - OBRIGATORIO */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode - cores de acento (trilha purple) */
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+
+    /* Light mode - remove gradientes (fundo uniforme) */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🧠</span>
+            <span class="font-bold text-lg hidden sm:inline">PHA 2030</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Pratica</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancada</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Cultura</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Times</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Escala</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
+        TRILHA 3
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 IA Avancada</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Domine as fronteiras da inteligencia artificial. Agentes autonomos, enxames, vibe coding, APIs enterprise, humanoides, IA generativa avancada e pensamento estrategico com IA. O futuro ja comecou.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">8</div>
+          <div class="text-xs text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">48</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">~5h</div>
+          <div class="text-xs text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Avancado</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGACAO RAPIDA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegacao Rapida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-3-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.1</span>
+          <h3 class="font-semibold mt-1">🕸️ Arquitetura de Agentes</h3>
+          <p class="text-sm text-neutral-400 mt-1">~40 min</p>
+        </a>
+        <a href="modulo-3-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.2</span>
+          <h3 class="font-semibold mt-1">🐝 Enxames de Agentes</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-3-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.3</span>
+          <h3 class="font-semibold mt-1">🏭 Vibe Coding</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-3-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.4</span>
+          <h3 class="font-semibold mt-1">🔗 APIs e Integracoes Enterprise</h3>
+          <p class="text-sm text-neutral-400 mt-1">~40 min</p>
+        </a>
+        <a href="modulo-3-5.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.5</span>
+          <h3 class="font-semibold mt-1">🤖 Humanoides e Robotica</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-3-6.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.6</span>
+          <h3 class="font-semibold mt-1">🧬 IA Generativa Avancada</h3>
+          <p class="text-sm text-neutral-400 mt-1">~35 min</p>
+        </a>
+        <a href="modulo-3-7.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.7</span>
+          <h3 class="font-semibold mt-1">📐 Pensamento Estrategico com IA</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+        <a href="modulo-3-8.html" class="bg-dark-800 rounded-xl border border-dark-600 p-4 hover:bg-dark-700 transition-colors">
+          <span class="text-purple-400 font-bold text-sm">3.8</span>
+          <h3 class="font-semibold mt-1">🔮 O Profissional do Futuro</h3>
+          <p class="text-sm text-neutral-400 mt-1">~30 min</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="border-t border-dark-600 mb-12 pt-8">
+      <h2 class="text-2xl font-bold">Conteudo Detalhado</h2>
+      <p class="text-neutral-400 mt-2">Explore cada modulo com seus topicos, conceitos e objetivos de aprendizagem.</p>
+    </div>
+
+    <!-- MODULO 3.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.1</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🕸️ Arquitetura de Agentes</h3>
+        <p class="text-neutral-400 text-sm">Entenda como construir, organizar e orquestrar agentes de IA que trabalham juntos para resolver problemas complexos.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">Anatomia de um Agente</span><span class="text-neutral-500 text-sm ml-2">- Componentes: percepcao, raciocinio, acao, memoria</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um agente de IA e um sistema que percebe o ambiente, raciocina sobre o que fazer, executa acoes e armazena memoria do que aconteceu. Diferente de um chatbot, o agente age de forma autonoma.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Agentes sao a evolucao natural dos LLMs. Entender sua anatomia permite projetar solucoes que vao alem de perguntas e respostas — sistemas que realmente executam trabalho.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Loop percepcao-raciocinio-acao, memoria de curto e longo prazo, ferramentas (tools) como extensoes do agente, diferenca entre chatbot e agente.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">Subagentes</span><span class="text-neutral-500 text-sm ml-2">- Delegar tarefas especializadas para agentes menores</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Subagentes sao agentes especializados em uma unica tarefa, coordenados por um agente principal. Assim como uma equipe, cada subagente tem sua funcao especifica.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um unico agente generalista tem limites. Dividir o trabalho entre subagentes especializados produz resultados superiores e mais confiaveis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Decomposicao de tarefas, especializacao vs. generalizacao, delegacao inteligente, agente orquestrador vs. agentes executores.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎼</span>
+            <div><span class="font-medium">Orquestracao</span><span class="text-neutral-500 text-sm ml-2">- Coordenar multiplos agentes em um fluxo coerente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Orquestracao e o processo de coordenar multiplos agentes para que trabalhem juntos sem conflito, passando informacao entre si e mantendo coerencia no resultado final.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem orquestracao, agentes trabalham de forma caotica. Saber coordenar agentes e a habilidade que transforma experimentos em solucoes de producao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fluxos sequenciais vs. paralelos, passagem de contexto, tratamento de erros, pontos de decisao, orquestradores como LangGraph e CrewAI.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Times de Agentes</span><span class="text-neutral-500 text-sm ml-2">- Especialista, revisor, executor: papeis definidos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um time de agentes replica a dinamica de uma equipe humana: um pesquisador coleta dados, um analista interpreta, um redator produz o output e um revisor valida a qualidade.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Times de agentes podem executar processos complexos que levariam horas para uma pessoa. Saber projetar esses times e uma competencia de alto valor no mercado.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Papeis e responsabilidades, system prompts por papel, verificacao cruzada entre agentes, escalonamento para humanos quando necessario.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Padrao de Comunicacao</span><span class="text-neutral-500 text-sm ml-2">- Como agentes trocam informacao entre si</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os protocolos e formatos que agentes usam para se comunicar: JSON estruturado, handoffs formais, memorias compartilhadas e canais de mensagem entre agentes.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Comunicacao mal projetada entre agentes gera erros em cascata. Padronizar a troca de informacao e essencial para sistemas confiaveis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">MCP (Model Context Protocol), handoffs, shared memory, message passing, contratos de comunicacao entre agentes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🛠️</span>
+            <div><span class="font-medium">Construindo seu Primeiro Time</span><span class="text-neutral-500 text-sm ml-2">- Lab pratico: 3 agentes colaborando</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um exercicio pratico onde voce monta um time de 3 agentes — pesquisador, redator e revisor — para produzir conteudo de alta qualidade de forma autonoma.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Teoria sem pratica nao gera competencia. Construir seu primeiro time de agentes consolida todos os conceitos e gera confianca para projetos reais.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Setup de ambiente, definicao de prompts por papel, teste iterativo, depuracao de fluxo, metricas de qualidade do output.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-1.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.2</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🐝 Enxames de Agentes</h3>
+        <p class="text-neutral-400 text-sm">Descubra como multiplos agentes podem emergir comportamentos inteligentes sem controle centralizado, inspirados pela natureza.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🐝</span>
+            <div><span class="font-medium">O que sao Enxames</span><span class="text-neutral-500 text-sm ml-2">- Swarm intelligence aplicada a IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Enxames de agentes sao sistemas onde multiplos agentes simples interagem entre si e produzem comportamentos complexos emergentes, sem um controlador central. Inspirados em colmeias e formigas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Enxames resolvem problemas que um unico agente nao consegue. Essa abordagem esta se tornando o padrao para operacoes corporativas complexas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Swarm intelligence, comportamento emergente, descentralizacao, auto-organizacao, inteligencia coletiva artificial.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Emergencia vs. Controle</span><span class="text-neutral-500 text-sm ml-2">- Comportamento coletivo vs. orquestracao rigida</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A tensao entre deixar agentes se auto-organizarem (emergencia) e controlar cada passo (orquestracao). O equilibrio entre liberdade e previsibilidade.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber quando usar emergencia e quando usar controle e a diferenca entre sistemas que escalam e sistemas que quebram.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Emergencia vs. design top-down, guardrails para enxames, quando confiar na auto-organizacao, limites de autonomia.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🏢</span>
+            <div><span class="font-medium">Casos Reais</span><span class="text-neutral-500 text-sm ml-2">- Empresas usando enxames para operacoes complexas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estudos de caso de empresas que implementaram enxames de agentes para atendimento ao cliente, analise de dados em escala e processos de negocio autonomos.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Casos reais comprovam a viabilidade e mostram padroes replicaveis. Saber o que funciona evita reinventar a roda.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Enxames para suporte, analise financeira distribuida, triagem automatica, processamento paralelo de documentos.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧪</span>
+            <div><span class="font-medium">Frameworks de Enxame</span><span class="text-neutral-500 text-sm ml-2">- OpenAI Swarm, CrewAI, AutoGen e alternativas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As principais ferramentas para construir enxames de agentes: OpenAI Swarm (leve e experimental), CrewAI (times estruturados), AutoGen (conversacional) e LangGraph (grafos de estado).</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escolher o framework certo para o problema certo economiza semanas de trabalho. Cada ferramenta tem forcas e limitacoes especificas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Comparacao de frameworks, criterios de selecao, complexidade vs. flexibilidade, ecossistema e comunidade de cada ferramenta.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Governanca de Enxames</span><span class="text-neutral-500 text-sm ml-2">- Supervisao humana em sistemas autonomos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Politicas e mecanismos para manter supervisao humana sobre enxames autonomos: limites de acao, pontos de aprovacao, logs auditaveis e kill switches.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Autonomia sem governanca e receita para desastre. Toda empresa que adota enxames precisa de guardrails claros e auditaveis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Human-in-the-loop, limites de autonomia, monitoramento em tempo real, auditoria de decisoes, compliance regulatorio.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🚀</span>
+            <div><span class="font-medium">O Futuro dos Enxames</span><span class="text-neutral-500 text-sm ml-2">- Para onde essa tecnologia esta caminhando</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A visao de futuro para enxames de agentes: organizacoes inteiras operadas por enxames, economia de agentes, e o papel do humano como supervisor estrategico.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Antecipar tendencias permite se posicionar antes da concorrencia. Quem entende enxames hoje lidera a adocao amanha.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Agentes como forca de trabalho digital, economia de agentes, enxames auto-evolutivos, impacto no emprego e nos modelos de negocio.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-2.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.3</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🏭 Vibe Coding</h3>
+        <p class="text-neutral-400 text-sm">Construa software real descrevendo o que voce quer em linguagem natural. Sem escrever uma linha de codigo.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎨</span>
+            <div><span class="font-medium">O que e Vibe Coding</span><span class="text-neutral-500 text-sm ml-2">- Construir software pela intencao, nao pelo codigo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Vibe coding e a pratica de criar aplicacoes descrevendo o que voce quer em linguagem natural, e deixar a IA gerar o codigo completo. Nao e no-code tradicional — e IA escrevendo codigo real.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Permite que qualquer profissional crie ferramentas, prototipos e MVPs sem depender de desenvolvedores. Democratiza a criacao de software.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Intent-based development, geracao de codigo por LLMs, prototipacao rapida, a diferenca entre vibe coding e no-code tradicional.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💜</span>
+            <div><span class="font-medium">Lovable</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Lovable e uma plataforma de vibe coding focada em criar aplicacoes web bonitas com React. Voce descreve o que quer e ela gera o app completo com design profissional.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ideal para criar MVPs com visual profissional rapidamente. Se voce precisa de um app bonito e funcional em horas, nao dias, Lovable e a escolha.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Forca em design e UX, geracao de React/TypeScript, integracao com Supabase, deploy automatico, limitacoes em logica complexa.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚡</span>
+            <div><span class="font-medium">Bolt</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Bolt.new e uma plataforma que roda um ambiente de desenvolvimento completo no navegador. Voce descreve o app, ela gera, roda e permite editar — tudo sem instalar nada.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Melhor para prototipacao rapida com controle tecnico. Se voce quer iterar rapidamente e ver o resultado instantaneamente, Bolt e excelente.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">WebContainers, execucao no navegador, suporte a multiplos frameworks, iteracao em tempo real, exportacao de codigo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔵</span>
+            <div><span class="font-medium">Replit</span><span class="text-neutral-500 text-sm ml-2">- Forca, quando usar, exemplo pratico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Replit Agent transforma descricoes em linguagem natural em aplicacoes completas com backend, banco de dados e deploy. Vai alem do frontend — cria sistemas inteiros.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando voce precisa de um sistema completo (nao so frontend), Replit e a opcao mais poderosa. Backend, banco de dados, autenticacao — tudo gerado por IA.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Replit Agent, full-stack generation, banco de dados automatico, deploy com um clique, planos e custos.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏗️</span>
+            <div><span class="font-medium">App Completo</span><span class="text-neutral-500 text-sm ml-2">- Do prompt a um MVP funcional com backend real</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O passo a passo completo para criar um MVP funcional: definir o problema, escrever o prompt inicial, iterar sobre o resultado, conectar backend e publicar.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber ir do zero ao MVP publicado e uma competencia que vale dinheiro. Profissionais que constroem prototipos rapidamente ganham vantagem competitiva.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Product brief como prompt, iteracao guiada, integracao de dados, autenticacao, deploy e teste com usuarios reais.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⚠️</span>
+            <div><span class="font-medium">Limites do Vibe Coding</span><span class="text-neutral-500 text-sm ml-2">- Quando funciona, quando quebra, como iterar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os limites reais do vibe coding: projetos grandes ficam ingerenciaveis, logica de negocios complexa falha, e sem entender minimamente codigo, voce nao consegue debugar.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Expectativas realistas evitam frustracoes. Saber quando o vibe coding funciona e quando voce precisa de um dev real e uma competencia critica.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Limites de complexidade, divida tecnica gerada por IA, quando escalar para desenvolvimento profissional, melhores praticas de iteracao.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.4</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔗 APIs e Integracoes Enterprise</h3>
+        <p class="text-neutral-400 text-sm">Conecte IA aos sistemas corporativos. APIs, webhooks, data pipelines e governanca para escala empresarial.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔌</span>
+            <div><span class="font-medium">APIs para Nao-Devs</span><span class="text-neutral-500 text-sm ml-2">- O que sao, como funcionam, por que importam</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">APIs sao portas de comunicacao entre sistemas. Quando voce pede algo ao ChatGPT via app, uma API leva sua pergunta e traz a resposta. Sao os bastidores de toda integracao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender APIs permite imaginar integracoes que outros nao veem. Voce nao precisa programar, mas precisa saber o que e possivel para liderar projetos.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Request/response, endpoints, autenticacao (API keys), JSON como lingua franca, rate limits, custos por chamada.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔒</span>
+            <div><span class="font-medium">Seguranca Enterprise</span><span class="text-neutral-500 text-sm ml-2">- Autenticacao, tokens, compliance</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Os mecanismos de seguranca para integrar IA em ambientes corporativos: OAuth, tokens JWT, encriptacao, LGPD, SOC2 e politicas de acesso a dados sensiveis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem seguranca, nenhuma integracao de IA sobrevive ao compliance corporativo. Entender seguranca e o que separa projetos piloto de producao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">OAuth 2.0, JWT tokens, API keys vs. tokens de acesso, LGPD aplicada a IA, data residency, audit logs.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🏢</span>
+            <div><span class="font-medium">Integracoes Corporativas</span><span class="text-neutral-500 text-sm ml-2">- SAP, Salesforce, ERP, CRM via IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como conectar IA aos sistemas que as empresas ja usam: extrair dados do SAP, atualizar leads no Salesforce, automatizar processos no ERP — tudo via agentes de IA.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O valor real da IA corporativa esta na integracao com sistemas existentes. IA isolada e uma curiosidade; IA integrada e uma vantagem competitiva.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Conectores pre-construidos, MCP para integracao, middleware de IA, dados em tempo real vs. batch, custos de integracao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Webhooks e Eventos</span><span class="text-neutral-500 text-sm ml-2">- Reagir automaticamente a mudancas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Webhooks sao notificacoes automaticas entre sistemas. Quando algo acontece (novo cliente, pedido, alerta), o sistema avisa a IA, que reage instantaneamente sem polling.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Webhooks transformam IA de reativa em proativa. Em vez de esperar perguntas, a IA age automaticamente quando eventos relevantes acontecem.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Event-driven architecture, webhooks vs. polling, triggers inteligentes, filas de processamento, idempotencia.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Data Pipelines com IA</span><span class="text-neutral-500 text-sm ml-2">- Fluxos de dados inteligentes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Pipelines de dados que usam IA em cada etapa: coleta, limpeza, enriquecimento, analise e visualizacao. Dados brutos entram, insights acionaveis saem.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados sao o combustivel da IA. Saber construir pipelines inteligentes multiplica o valor dos dados que sua empresa ja tem.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ETL com IA, data enrichment, classificacao automatica, deteccao de anomalias, dashboards inteligentes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Governanca de Integracoes</span><span class="text-neutral-500 text-sm ml-2">- Politicas, auditoria, monitoramento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O framework de governanca para integracoes de IA: quem aprova novas integracoes, como monitorar uso, custos, performance e seguranca em producao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Integracoes desgovernadas geram riscos de seguranca, custos descontrolados e falhas silenciosas. Governanca e o que torna IA sustentavel.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Politicas de uso, monitoramento de custos, SLAs, alertas de falha, documentacao de integracoes, revisao periodica.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-4.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🤖 Humanoides e Robotica</h3>
+        <p class="text-neutral-400 text-sm">A IA esta ganhando corpo fisico. Entenda a revolucao dos robos humanoides e como ela vai transformar industrias inteiras.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">O Momento ChatGPT da Robotica</span><span class="text-neutral-500 text-sm ml-2">- A revolucao que esta chegando</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Assim como o ChatGPT democratizou a IA textual, estamos no limiar de um momento equivalente para a robotica. Modelos de fundacao para robos estao permitindo que humanoides aprendam tarefas por demonstracao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A robotica vai impactar fabricas, logistica, saude e servicos. Quem entende essa tendencia agora se posiciona para liderar a adocao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Foundation models para robotica, Tesla Optimus, Figure, Boston Dynamics, aprendizado por imitacao, transferencia de habilidades.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏭</span>
+            <div><span class="font-medium">Humanoides no Trabalho</span><span class="text-neutral-500 text-sm ml-2">- Fabricas, logistica, atendimento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Aplicacoes reais de humanoides em ambientes de trabalho: linhas de montagem da BMW com Figure, armazens da Amazon, e pilotos em hospitais e hoteis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Nao e ficcao cientifica. Empresas ja estao comprando humanoides. Entender onde eles agregam valor permite planejar a adocao no seu setor.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Casos de uso por setor, ROI de humanoides, tarefas ideais para robos, convivencia humano-robo, custos atuais e projecoes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🧠</span>
+            <div><span class="font-medium">IA + Corpo Fisico</span><span class="text-neutral-500 text-sm ml-2">- Como modelos de linguagem controlam robos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A convergencia entre LLMs e robotica: modelos de linguagem como "cerebro" dos robos, vision-language-action models (VLAs) que veem, entendem e agem no mundo fisico.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Essa convergencia e o que torna humanoides viáveis. Entender o mecanismo permite imaginar aplicacoes que outros ainda nao veem.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">VLA models, embodied AI, simulacao para treinamento, transferencia sim-to-real, sensoriamento multimodal.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💬</span>
+            <div><span class="font-medium">Prompting para Robos</span><span class="text-neutral-500 text-sm ml-2">- Instruir maquinas em linguagem natural</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A habilidade de instruir robos usando linguagem natural, assim como voce instrui o ChatGPT. Em vez de programar movimentos, voce descreve o objetivo e o robo planeja a execucao.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quem sabe fazer prompts para LLMs ja tem a base para instruir robos. Essa competencia tera altissimo valor quando humanoides se tornarem comuns.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Task description em linguagem natural, constraints fisicas, safety prompts, feedback loop robo-humano.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💼</span>
+            <div><span class="font-medium">Oportunidades de Mercado</span><span class="text-neutral-500 text-sm ml-2">- Novas carreiras e negocios</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As novas carreiras e oportunidades de negocio que surgem com a robotica: operadores de frota de robos, integradores, treinadores, e startups de robotica como servico.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Novas industrias criam novas fortunas. Quem se posiciona cedo na robotica captura oportunidades que a maioria ainda nao enxerga.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Robot-as-a-Service, fleet management, robotics integrator, mercado de $150 bilhoes, timing de entrada.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔮</span>
+            <div><span class="font-medium">Visao 2030</span><span class="text-neutral-500 text-sm ml-2">- O que esperar nos proximos anos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A projecao de como sera o mundo com humanoides em 2030: preco abaixo de $20.000, bilhoes de unidades previstas, integracao em lares e escritorios.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Pensar a 5 anos permite decisoes estrategicas hoje. Investimentos, carreiras e negocios devem considerar o cenario de humanoides ubiquos.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Previsoes de Elon Musk e Jensen Huang, curva de custos, cenarios otimista e conservador, impacto social e economico.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-5.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.6</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🧬 IA Generativa Avancada</h3>
+        <p class="text-neutral-400 text-sm">Alem do texto: domine geracao de video, audio, imagem, 3D e multimodalidade com as ferramentas mais avancadas do mercado.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎬</span>
+            <div><span class="font-medium">Video com IA</span><span class="text-neutral-500 text-sm ml-2">- Sora, Runway, Kling: criacao e edicao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Ferramentas que geram videos a partir de texto ou imagens. Sora da OpenAI, Runway Gen-3, Kling e Pika criam clipes cinematograficos com prompts simples.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Video e o formato de conteudo mais consumido. Criar videos profissionais sem equipe de producao e uma vantagem competitiva enorme.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Text-to-video, image-to-video, video editing com IA, consistencia temporal, limitacoes atuais, custos por geracao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎵</span>
+            <div><span class="font-medium">Audio e Musica</span><span class="text-neutral-500 text-sm ml-2">- ElevenLabs, Suno: voz sintetica e composicao</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Plataformas que geram vozes sinteticas indistinguiveis de humanas (ElevenLabs) e musicas completas a partir de descricoes (Suno, Udio). Clonagem de voz e composicao por IA.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Audio e voz sao essenciais para podcasts, videos, treinamentos e atendimento. Gerar audio profissional sem estudio reduz custos em 90%.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Text-to-speech avancado, clonagem de voz, composicao musical por IA, etica de deepfake de voz, casos de uso corporativo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🖼️</span>
+            <div><span class="font-medium">Imagens Avancadas</span><span class="text-neutral-500 text-sm ml-2">- Midjourney, DALL-E, Flux: alem do basico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas avancadas de geracao de imagem: controle de estilo, inpainting, outpainting, image-to-image, ControlNet e geracao consistente de personagens.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ir alem do basico permite criar assets visuais profissionais para marketing, produtos e apresentacoes com consistencia e qualidade.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prompt engineering visual, parametros avancados, style transfer, character consistency, workflows de producao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🌐</span>
+            <div><span class="font-medium">3D e Mundos Virtuais</span><span class="text-neutral-500 text-sm ml-2">- Geracao de objetos e ambientes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Ferramentas que geram modelos 3D, ambientes virtuais e cenas inteiras a partir de texto ou imagens. De objetos para e-commerce a mundos para games.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">3D gerado por IA esta transformando e-commerce, arquitetura, games e simulacao. Criar assets 3D sem modeladores reduz custos drasticamente.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Text-to-3D, image-to-3D, NeRFs, Gaussian Splatting, mundos virtuais procedurais, aplicacoes em metaverso e simulacao.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎭</span>
+            <div><span class="font-medium">Multimodalidade</span><span class="text-neutral-500 text-sm ml-2">- Combinando texto, imagem, audio e video</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">A capacidade de modelos de IA processarem e gerarem multiplos tipos de midia simultaneamente. GPT-4o, Gemini e Claude ja sao nativamente multimodais.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Multimodalidade e o futuro da IA. Saber combinar midias permite criar experiencias ricas que engajam audiencias em multiplos sentidos.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Modelos nativamente multimodais, pipelines combinados, geracao cross-modal, workflows de producao multimedia.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">💡</span>
+            <div><span class="font-medium">Aplicacoes Praticas</span><span class="text-neutral-500 text-sm ml-2">- Usos reais para negocios e carreiras</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Casos de uso concretos de IA generativa avancada: campanhas de marketing multimedia, prototipos de produto, treinamentos imersivos e conteudo educacional.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber aplicar IA generativa em contextos reais de negocio transforma conhecimento tecnico em vantagem competitiva e receita.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ROI de IA generativa, workflows de producao, casos por industria, metricas de sucesso, build vs. buy.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-6.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.7</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📐 Pensamento Estrategico com IA</h3>
+        <p class="text-neutral-400 text-sm">Use IA como copiloto para pensar melhor, analisar cenarios, tomar decisoes e planejar com mais clareza e profundidade.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧠</span>
+            <div><span class="font-medium">IA como Copiloto Estrategico</span><span class="text-neutral-500 text-sm ml-2">- Pensar melhor, nao apenas mais rapido</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Usar IA nao apenas para executar tarefas, mas para elevar a qualidade do pensamento estrategico: questionar premissas, explorar angulos nao obvios e stress-testar ideias.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A maioria usa IA para fazer mais rapido. Poucos usam para pensar melhor. Essa diferenca e o que separa operadores de estrategistas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pensamento de segunda ordem, devil's advocate com IA, stress test de estrategias, red teaming de decisoes.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Analise de Cenarios</span><span class="text-neutral-500 text-sm ml-2">- Simular futuros possiveis com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Usar IA para criar e explorar cenarios futuros: otimista, pessimista e realista. Simular consequencias de decisoes antes de toma-las.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Decisoes estrategicas envolvem incerteza. Simular cenarios com IA reduz risco e aumenta a confianca nas escolhas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Scenario planning, analise what-if, Monte Carlo com LLMs, futurismo aplicado, pre-mortem analysis.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Frameworks de Decisao</span><span class="text-neutral-500 text-sm ml-2">- Usar IA para estruturar raciocinio</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Aplicar frameworks estruturados (SWOT, Porter, Jobs-to-be-Done, First Principles) com auxilio de IA para organizar pensamento e tomar decisoes melhores.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Frameworks reduzem vieses cognitivos. IA aplicando frameworks e uma combinacao que eleva drasticamente a qualidade das decisoes.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">SWOT aumentado, analise de Porter com IA, First Principles Thinking, Jobs-to-be-Done, prompts para cada framework.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Risco e Incerteza</span><span class="text-neutral-500 text-sm ml-2">- Avaliar opcoes com apoio de IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para usar IA na avaliacao de risco: identificar riscos ocultos, quantificar incertezas, e criar planos de contingencia robustos.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Todo profissional senior lida com incerteza. IA como parceiro de avaliacao de risco complementa a intuicao com analise sistematica.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Risk assessment com IA, blind spots cognitivos, analise de trade-offs, planos de contingencia, decisao sob incerteza.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Planejamento Estrategico</span><span class="text-neutral-500 text-sm ml-2">- Roadmaps, OKRs, prioridades com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Usar IA para criar roadmaps estrategicos, definir OKRs, priorizar iniciativas e construir planos de acao com marcos claros e mensuráveis.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Planejamento estrategico com IA e mais rapido, mais abrangente e mais rigoroso. Reduz o ciclo de planejamento de semanas para horas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">OKRs gerados com IA, priorizacao por impacto, roadmaps adaptativos, revisao trimestral assistida, alinhamento organizacional.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Iteracao Estrategica</span><span class="text-neutral-500 text-sm ml-2">- Revisar e adaptar planos continuamente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O processo de usar IA para revisar estrategias continuamente: analisar resultados, identificar desvios, ajustar rotas e manter a organizacao adaptável.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Estrategias estaticas falham. A capacidade de iterar rapidamente com apoio de IA e o que diferencia organizacoes ageis de burocraticas.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Review cycles com IA, analise de desvio, retrospectivas assistidas, pivot estrategico, aprendizado organizacional continuo.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-7.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MODULO 3.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.8</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔮 O Profissional do Futuro</h3>
+        <p class="text-neutral-400 text-sm">Prepare-se para o mercado de trabalho de 2030. Competencias, carreiras, posicionamento e seu plano de acao concreto.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔮</span>
+            <div><span class="font-medium">O Futuro do Trabalho</span><span class="text-neutral-500 text-sm ml-2">- O que muda ate 2030</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Uma analise realista das transformacoes no trabalho ate 2030: quais funcoes desaparecem, quais surgem, como a relacao empregador-profissional evolui com IA.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Planejar carreira sem considerar o impacto da IA e como navegar sem GPS. Quem antecipa as mudancas se posiciona melhor.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Automacao de tarefas cognitivas, gig economy de agentes, trabalho hibrido humano-IA, novas metricas de produtividade.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Competencias Essenciais</span><span class="text-neutral-500 text-sm ml-2">- O que voce precisa aprender agora</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">As competencias que todo profissional precisa desenvolver: prompting avancado, pensamento sistemico, design de automacoes, lideranca de IA e aprendizado continuo.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber exatamente quais habilidades desenvolver evita perder tempo com o que nao importa e acelera sua evolucao profissional.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">AI literacy, prompting como skill profissional, automacao thinking, data literacy, lideranca adaptativa.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">💼</span>
+            <div><span class="font-medium">Novas Carreiras</span><span class="text-neutral-500 text-sm ml-2">- Profissoes que nao existiam ha 2 anos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Mapeamento das novas profissoes criadas pela IA: AI Product Manager, Prompt Engineer, AI Ethics Officer, Automation Architect, AI Trainer, Agent Designer.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecer as novas carreiras permite transicionar antes que a competicao aumente. First movers em novas profissoes capturam os melhores salarios.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Perfis profissionais emergentes, salarios e demanda, habilidades requeridas, como fazer a transicao, portfolio de IA.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📈</span>
+            <div><span class="font-medium">Posicionamento Estrategico</span><span class="text-neutral-500 text-sm ml-2">- Como se diferenciar no mercado com IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para construir sua marca profissional na era da IA: combinar expertise de dominio com competencia em IA para criar um posicionamento unico.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando todos usam IA, o diferencial e como voce usa. Posicionamento estrategico e o que transforma conhecimento em autoridade e oportunidades.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Personal branding com IA, nicho + IA = diferencial, portfolio publico, thought leadership, networking estrategico.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏆</span>
+            <div><span class="font-medium">De Usuario a Especialista</span><span class="text-neutral-500 text-sm ml-2">- A jornada de quem ensina e lidera</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">O caminho de evolucao profissional em IA: de usuario basico a usuario avancado, de avancado a especialista, de especialista a lider que forma outros.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ensinar e a forma mais poderosa de aprender e se posicionar. Quem forma outros se torna referencia e multiplica seu impacto.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Curva de aprendizado em IA, de consumer a creator, construir comunidade, mentoria em IA, impacto multiplicado.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🚀</span>
+            <div><span class="font-medium">Seu Plano de Acao</span><span class="text-neutral-500 text-sm ml-2">- Proximo passo concreto para hoje</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Um plano de acao personalizado com marcos de 30, 60 e 90 dias: o que fazer esta semana, este mes e este trimestre para acelerar sua evolucao com IA.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecimento sem acao e entretenimento. Um plano concreto transforma o que voce aprendeu nesta trilha em resultados reais na sua carreira.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Quick wins de 7 dias, habitos de 30 dias, projetos de 90 dias, accountability, metricas pessoais de evolucao.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-8.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGACAO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha Anterior: Pratica
+      </a>
+      <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+        Proxima Trilha: Cultura →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal-3-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.1</span>
+          <span class="font-semibold">Arquitetura de Agentes</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.2</span>
+          <span class="font-semibold">Enxames de Agentes</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.3</span>
+          <span class="font-semibold">Vibe Coding</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.4</span>
+          <span class="font-semibold">APIs e Integracoes Enterprise</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.5</span>
+          <span class="font-semibold">Humanoides e Robotica</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.6</span>
+          <span class="font-semibold">IA Generativa Avancada</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.7</span>
+          <span class="font-semibold">Pensamento Estrategico com IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">3.8</span>
+          <span class="font-semibold">O Profissional do Futuro</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>PHA 2030 - 2026</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) { exp.classList.remove('active'); }
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => { modal.classList.add('hidden'); });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
